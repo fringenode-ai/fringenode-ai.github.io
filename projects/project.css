@@ -310,3 +310,28 @@ a:hover { color: var(--moss); }
   .top,
   .footer { padding-left: 5rem; padding-right: 5rem; }
 }
+
+/* Footer nav links (About, RSS) added in the polish pass */
+.footer .sep {
+  padding: 0 0.45rem;
+  color: var(--ink-soft);
+}
+
+/* Skill explanations added in the polish pass */
+.skill-defs {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  max-width: 40em;
+}
+.skill-defs li {
+  margin: 0 0 0.85rem;
+  line-height: 1.6;
+}
+.skill-defs li:last-child {
+  margin-bottom: 0;
+}
+.skill-defs b {
+  font-weight: 650;
+  color: var(--moss-deep);
+}
