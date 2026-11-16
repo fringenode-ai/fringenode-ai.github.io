@@ -3,29 +3,35 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Understanding Open AI Models &amp; Local AI</title>
-<meta name="description" content="A beginner&#x27;s guide to open AI models, running AI locally, privacy, AI agents and context engineering, and AI careers.">
+<title>Understanding AI</title>
+<meta name="description" content="A beginner field guide to open-weight models, running them locally, agents, and privacy.">
 <link rel="canonical" href="https://fringenode-ai.github.io/understanding-ai/">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../favicon-32.png" type="image/png" sizes="32x32">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Understanding Open AI Models &amp; Local AI">
-<meta property="og:description" content="A beginner&#x27;s guide to open AI models, running AI locally, privacy, AI agents and context engineering, and AI careers.">
+<meta property="og:title" content="Understanding AI">
+<meta property="og:description" content="A beginner field guide to open-weight models, running them locally, agents, and privacy.">
 <meta property="og:url" content="https://fringenode-ai.github.io/understanding-ai/">
 <meta property="og:image" content="https://fringenode-ai.github.io/understanding-ai/og-cover-1200x630.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:site_name" content="FringeNode">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Understanding AI">
+<meta name="twitter:description" content="A beginner field guide to open-weight models, running them locally, agents, and privacy.">
 <meta name="twitter:image" content="https://fringenode-ai.github.io/understanding-ai/og-cover-1200x630.jpg">
 <meta name="theme-color" content="#0c1a2e">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="hero.jpg" imagesrcset="hero-960.jpg 960w, hero.jpg 1280w" imagesizes="100vw">
 <link rel="stylesheet" href="style.css">
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
+<a class="skip" href="#content">Skip to content</a>
 <div class="progress" aria-hidden="true"><span></span></div>
 
 <header class="hero">
-  <img src="hero.jpg" alt="A nuclear-powered data center on the tip of an iceberg at dusk, cooling pipes running down into the ice where a giant steel Wraith machine with a single vertical red sensor slit is frozen below the waterline. Tagline: Learn the system before it learns you." width="1280" height="720">
+  <a class="wordmark" href="../">FringeNode</a>
+  <img src="hero.jpg" srcset="hero-960.jpg 960w, hero.jpg 1280w" sizes="100vw" alt="A nuclear-powered data center on the tip of an iceberg at dusk, cooling pipes running down into the ice where a giant steel Wraith machine with a single vertical red sensor slit is frozen below the waterline. Tagline: Learn the system before it learns you." width="1280" height="720">
   <div class="snow" aria-hidden="true"></div>
 </header>
 
@@ -39,9 +45,10 @@
   <span class="wl-depth">0 m · WATERLINE</span>
 </div>
 
+<main id="content">
 <div class="masthead">
   <div class="kicker">Field Guide · AI</div>
-  <h1 class="title">Understanding Open AI Models &amp; Local AI</h1>
+  <h1 class="title">Understanding AI</h1>
   <p class="subtitle">A beginner field guide to open-weight models, running them locally, agents, and privacy.</p>
   <div class="meta"><span>November 12, 2026</span><span>20 min read</span><span>13 sections</span><span>22-question review</span></div>
 </div>
@@ -83,19 +90,19 @@
 <p>An AI <b>model</b> is a program that learned patterns from huge amounts of data. A <b>large language model (LLM)</b> learned mainly from text (often also code and images). It writes by predicting the next small chunk of text, a <b>token</b>, over and over.</p>
 <p>What it learned is stored as billions of numbers called <b>weights</b> (also called <b>parameters</b>). "Downloading a model" means downloading those weight files. Model size is given in parameters: "8B" means 8 billion.</p>
 <div class="table-wrap"><table class="stack"><thead><tr><th>Stage</th><th>What happens</th><th>Cost / who</th></tr></thead><tbody>
-<tr><td data-l="Stage"><b>Training</b></td><td data-l="What happens">The model learns from a massive dataset; its weights are adjusted over and over.</td><td data-l="Cost / who">Very expensive. Done by big labs on thousands of GPUs in data centers.</td></tr>
+<tr><td data-l="Stage"><b>Training</b></td><td data-l="What happens">The model learns from a massive dataset; its weights are adjusted over and over.</td><td data-l="Cost / who">Very expensive. Done by big labs on thousands of GPUs (the fast chips that train and run models) in data centers.</td></tr>
 <tr><td data-l="Stage"><b>Fine-tuning</b></td><td data-l="What happens">Extra training of an existing model on a smaller, focused dataset to change its skills or style. <b>LoRA</b> is a cheap method that trains a small add-on instead of every weight.</td><td data-l="Cost / who">Affordable. Companies and hobbyists do it; small models can be tuned on one good GPU.</td></tr>
 <tr><td data-l="Stage"><b>Inference</b></td><td data-l="What happens">Using the finished model to answer. Weights do not change.</td><td data-l="Cost / who">Everyday use, in chat apps or on your own PC.</td></tr>
 </tbody></table></div>
-<blockquote class="pull"><p>Chatting with a model is inference, not training. The model does not learn from your conversation.</p></blockquote>
-<p>When an app seems to "remember" you, it saved notes and fed them back in as extra text. Section 9 explains how to use this on purpose.</p>
+<blockquote class="pull"><p>Chatting with a model is inference, not training. The model file itself does not change.</p></blockquote>
+<p>If you use a cloud app, the company may still keep your chats, or use them to train later models, unless you turn that off. When an app seems to "remember" you, it saved notes and fed them back in as extra text. Section 9 explains how to use this on purpose.</p>
 <aside class="terms"><span class="label">Key terms</span><dl><div><dt>Model</dt><dd>A trained AI program.</dd></div><div><dt>LLM</dt><dd>A large language model: a model for language.</dd></div><div><dt>Token</dt><dd>A chunk of text, often part of a word.</dd></div><div><dt>Weights / parameters</dt><dd>The learned numbers.</dd></div><div><dt>Training / fine-tuning / inference</dt><dd>Learn from scratch / adjust / use.</dd></div></dl></aside>
 </section>
 
 <section class="sec" id="open-vs-closed" data-toc="Open vs. closed models">
 <header class="sec-head"><span class="sec-num">02</span><h2>Open vs. closed models</h2></header>
 <div class="table-wrap"><table class="stack"><thead><tr><th>Type</th><th>What you get</th><th>Examples</th></tr></thead><tbody>
-<tr><td data-l="Type"><b>Closed</b></td><td data-l="What you get">Use only through the maker's app or paid API; weights are secret.</td><td data-l="Examples">Flagship models from the largest commercial labs</td></tr>
+<tr><td data-l="Type"><b>Closed</b></td><td data-l="What you get">Use only through the maker's app or paid API (a way for programs to talk to a model); weights are secret.</td><td data-l="Examples">Flagship models from the largest commercial labs</td></tr>
 <tr><td data-l="Type"><b>Open-weight</b></td><td data-l="What you get">Download and run the weights yourself. Training data and full recipe usually not shared. License rules vary.</td><td data-l="Examples">Llama, Gemma, Qwen, DeepSeek, Mistral, gpt-oss</td></tr>
 <tr><td data-l="Type"><b>Fully open</b></td><td data-l="What you get">Weights <i>plus</i> training data, code, and details, so anyone can study or reproduce it.</td><td data-l="Examples">OLMo (AI2)</td></tr>
 </tbody></table></div>
@@ -212,13 +219,13 @@
 <section class="sec" id="home-ai-box" data-toc="Building a home AI box">
 <header class="sec-head"><span class="sec-num">07</span><h2>Building a home AI box</h2></header>
 <p>A computer dedicated to running models, sometimes called an <b>AI node</b>, has different priorities from a gaming PC.</p>
-<div class="table-wrap"><table class="stack"><thead><tr><th></th><th>Dedicated AI node</th><th>Gaming PC</th></tr></thead><tbody>
-<tr><td><b>Top priority</b></td><td data-l="Dedicated AI node">VRAM, so bigger models fit</td><td data-l="Gaming PC">GPU speed and frame rates</td></tr>
-<tr><td><b>Setup</b></td><td data-l="Dedicated AI node">Often <b>headless</b> (no monitor), managed remotely</td><td data-l="Gaming PC">Monitor and peripherals</td></tr>
-<tr><td><b>Uptime</b></td><td data-l="Dedicated AI node">24/7; reliability and efficiency matter</td><td data-l="Gaming PC">On when in use</td></tr>
-<tr><td><b>OS</b></td><td data-l="Dedicated AI node">Usually Linux</td><td data-l="Gaming PC">Usually Windows</td></tr>
-<tr><td><b>Cooling</b></td><td data-l="Dedicated AI node">Quiet, steady cooling for long loads</td><td data-l="Gaming PC">Short bursts of heavy load</td></tr>
-<tr><td><b>Power</b></td><td data-l="Dedicated AI node"><b>UPS</b> battery backup so outages don't crash it or corrupt data</td><td data-l="Gaming PC">Optional</td></tr>
+<div class="table-wrap"><table class="stack"><thead><tr><th>Aspect</th><th>Dedicated AI node</th><th>Gaming PC</th></tr></thead><tbody>
+<tr><td data-l="Aspect"><b>Top priority</b></td><td data-l="Dedicated AI node">VRAM, so bigger models fit</td><td data-l="Gaming PC">GPU speed and frame rates</td></tr>
+<tr><td data-l="Aspect"><b>Setup</b></td><td data-l="Dedicated AI node">Often <b>headless</b> (no monitor), managed remotely</td><td data-l="Gaming PC">Monitor and peripherals</td></tr>
+<tr><td data-l="Aspect"><b>Uptime</b></td><td data-l="Dedicated AI node">24/7; reliability and efficiency matter</td><td data-l="Gaming PC">On when in use</td></tr>
+<tr><td data-l="Aspect"><b>OS</b></td><td data-l="Dedicated AI node">Usually Linux</td><td data-l="Gaming PC">Usually Windows</td></tr>
+<tr><td data-l="Aspect"><b>Cooling</b></td><td data-l="Dedicated AI node">Quiet, steady cooling for long loads</td><td data-l="Gaming PC">Short bursts of heavy load</td></tr>
+<tr><td data-l="Aspect"><b>Power</b></td><td data-l="Dedicated AI node"><b>UPS</b> battery backup so outages don't crash it or corrupt data</td><td data-l="Gaming PC">Optional</td></tr>
 </tbody></table></div>
 <div class="table-wrap"><table class="stack"><thead><tr><th>Operating system</th><th>Notes</th></tr></thead><tbody>
 <tr><td data-l="Operating system"><b>Ubuntu Linux</b></td><td data-l="Notes">Most common for AI servers; best support for Nvidia drivers, Docker, and AI tools.</td></tr>
@@ -239,7 +246,7 @@
 <h3>Can network traffic be hidden?</h3>
 <p>Not made invisible, but it can be made <b>unreadable</b> and <b>limited</b>:</p>
 <div class="table-wrap"><table class="stack"><thead><tr><th>Technique</th><th>What it does</th></tr></thead><tbody>
-<tr><td data-l="Technique"><b>Encryption</b> (HTTPS, VPN, Tailscale)</td><td data-l="What it does">Scrambles the contents. Your internet provider or a Wi-Fi snoop can still see <i>that</i> you send data and where to, but not what.</td></tr>
+<tr><td data-l="Technique"><b>Encryption</b> (HTTPS, VPN, Tailscale)</td><td data-l="What it does">HTTPS hides the contents, but your internet provider or a Wi-Fi snoop can still see <i>that</i> you send data and which site you are talking to. A VPN (or Tailscale) also hides that destination; the ISP only sees traffic to the VPN server.</td></tr>
 <tr><td data-l="Technique"><b>Firewall / outbound blocking</b></td><td data-l="What it does">Stops the box talking to the internet except for what you allow.</td></tr>
 <tr><td data-l="Technique"><b>DNS filtering</b> (Pi-hole)</td><td data-l="What it does">Blocks known tracking and telemetry addresses for the whole network, and shows what each device tries to contact.</td></tr>
 <tr><td data-l="Technique"><b>VLAN / guest network</b></td><td data-l="What it does">Puts the AI box in its own network zone so other devices can't see or reach it. Many routers' guest networks do a basic version.</td></tr>
@@ -340,11 +347,11 @@
 <p>In May 2015, <i>The Intercept</i> published NSA slides from the Snowden documents describing a program called <b>SKYNET</b>. It used <b>machine learning</b> on the phone <b>metadata</b> of about 55 million Pakistani mobile users. Metadata means who called whom, when, and from where, not what was said. SKYNET looked for people whose travel and calling patterns resembled those of known Al Qaeda couriers. The flagged behaviors included frequent trips between certain cities, swapping SIM cards or handsets, and receiving incoming calls only.</p>
 <p>A June 2012 slide showed the "highest scoring" person as probably <b>Ahmad Zaidan</b>, Al Jazeera's Islamabad bureau chief. Zaidan is a journalist whose job meant interviewing Al Qaeda leaders, and he denied any membership. The document showed he was already on a US watch list, but it gave no evidence for that label.</p>
 <blockquote class="pull"><p>To a pattern-matching system, a reporter who meets dangerous people can look exactly like a courier.</p></blockquote>
-<p>In 2016, data scientist <b>Patrick Ball</b> told Ars Technica that the NSA's testing was "ridiculously optimistic." The model was trained and tested on just seven known couriers. Even the best false-alarm rate in the slides, 0.008%, would wrongly flag about 15,000 people out of 55 million. Others, including a <i>Guardian</i> analysis, pointed out that the slides describe preliminary research. Public documents do not show how SKYNET's output was actually used.</p>
+<p>In 2016, data scientist <b>Patrick Ball</b> told Ars Technica that the NSA's testing was "ridiculously optimistic." The model was trained and tested on just seven known couriers. Even the best false-alarm rate in the slides, 0.008%, would still have wrongly flagged about 15,000 people out of Pakistan's population of about 192 million at the time, as Ars Technica calculated. Others, including a <i>Guardian</i> analysis, pointed out that the slides describe preliminary research. Public documents do not show how SKYNET's output was actually used.</p>
 <h3>The real lesson</h3>
 <p>The real risk isn't a chrome robot. It is quiet statistical systems making judgments about people from data they never knew was being collected. Even when content is encrypted, metadata can still reveal patterns of life. When these systems are wrong, they are wrong about real people, at scale. Understanding how they work is how you notice when they are making mistakes, and how you push back. That is also why running models on your own machine, and controlling what leaves it, is more than a convenience.</p>
 <aside class="terms"><span class="label">Key terms</span><dl><div><dt>Metadata</dt><dd>Data about communications (who, when, where), not their content.</dd></div><div><dt>Machine learning</dt><dd>Software that learns patterns from examples instead of following hand-written rules.</dd></div><div><dt>False positive</dt><dd>An innocent case wrongly flagged as a match.</dd></div><div><dt>Pattern of life</dt><dd>A profile of someone's routine built from their location and contact data.</dd></div></dl></aside>
-<p class="small">Sources: <a href="https://theintercept.com/2015/05/08/u-s-government-designated-prominent-al-jazeera-journalist-al-qaeda-member-put-watch-list/">The Intercept (2015)</a> · <a href="https://theintercept.com/document/skynet-courier/">NSA slides: "SKYNET: Courier Detection via Machine Learning"</a> · <a href="https://arstechnica.com/information-technology/2016/02/the-nsas-skynet-program-may-be-killing-thousands-of-innocent-people/">Ars Technica (2016)</a> · <a href="https://www.theguardian.com/science/the-lay-scientist/2016/feb/18/has-a-rampaging-ai-algorithm-really-killed-thousands-in-pakistan">The Guardian (2016)</a> · <a href="https://www.raf.mod.uk/what-we-do/centre-for-air-and-space-power-studies/aspr/aspr-vol24-iss2-5-pdf/">RAF Air and Space Power Review</a> · <a href="https://www.gov.uk/guidance/skynet-6">GOV.UK: SKYNET 6</a> · <a href="https://www.airbus.com/en/newsroom/press-releases/2025-05-airbus-next-generation-skynet-satellite-reaches-major-milestone">Airbus (2025)</a></p>
+<p class="small">Sources: <a href="https://theintercept.com/2015/05/08/u-s-government-designated-prominent-al-jazeera-journalist-al-qaeda-member-put-watch-list/">The Intercept (2015)</a> · <a href="https://theintercept.com/document/skynet-courier/">NSA slides: "SKYNET: Courier Detection via Machine Learning"</a> · <a href="https://arstechnica.com/information-technology/2016/02/the-nsas-skynet-program-may-be-killing-thousands-of-innocent-people/">Ars Technica (2016)</a> · <a href="https://www.theguardian.com/science/the-lay-scientist/2016/feb/18/has-a-rampaging-ai-algorithm-really-killed-thousands-in-pakistan">The Guardian (2016)</a> · <a href="https://www.raf.mod.uk/what-we-do/centre-for-air-and-space-power-studies/aspr/aspr-vol24-iss2-5-pdf/">RAF Air and Space Power Review (PDF)</a> · <a href="https://www.gov.uk/guidance/skynet-6">GOV.UK: SKYNET 6</a> · <a href="https://www.airbus.com/en/newsroom/press-releases/2025-05-airbus-next-generation-skynet-satellite-reaches-major-milestone">Airbus (2025)</a></p>
 </section>
 
 <section class="sec" id="careers" data-toc="Careers in AI engineering">
@@ -374,7 +381,7 @@
       <header class="sec-head"><span class="sec-num">14</span><h2>Quick review</h2></header>
       <div class="quiz-bar"><p class="small" style="margin:0">Answer out loud first, then tap a question to check.</p><button class="btn" type="button" id="revealAll">Reveal all</button></div>
       <div class="quiz">
-        <details><summary>Does chatting with a model retrain it?</summary><div class="ans">No. Chatting is inference; weights don&#x27;t change. Memory and instructions are fed back in as context.</div></details>
+        <details><summary>Does chatting with a model retrain it?</summary><div class="ans">No. Chatting is inference; the weights don&#x27;t change. A cloud host may still keep or train on logs. Memory and instructions are fed back in as context.</div></details>
         <details><summary>Open-weight vs. fully open?</summary><div class="ans">Open-weight shares the weights; fully open also shares training data and code (e.g., OLMo).</div></details>
         <details><summary>Name two permissive licenses, and one custom one.</summary><div class="ans">Apache 2.0 and MIT; Meta&#x27;s Llama license.</div></details>
         <details><summary>Who makes Qwen, Gemma, and Phi?</summary><div class="ans">Alibaba, Google, Microsoft.</div></details>
@@ -404,9 +411,23 @@
 </div>
 
 <section class="ending" aria-label="Closing image">
-  <div class="ending-frame"><img src="ending.jpg" alt="A giant steel Wraith machine with a single vertical red sensor slit bursts out of the iceberg, crushing the nuclear-powered data center in fire and shattered ice, while more Wraiths rise from the sea to attack the burning data-center icebergs in the distance." width="1280" height="720" loading="lazy" decoding="async"><div class="ending-glow" aria-hidden="true"></div><div class="ending-cracks" aria-hidden="true"></div></div>
+  <div class="ending-frame"><img src="ending.jpg" srcset="ending-960.jpg 960w, ending.jpg 1280w" sizes="100vw" alt="A giant steel Wraith machine with a single vertical red sensor slit bursts out of the iceberg, crushing the nuclear-powered data center in fire and shattered ice, while more Wraiths rise from the sea to attack the burning data-center icebergs in the distance." width="1280" height="720" loading="lazy" decoding="async"><div class="ending-glow" aria-hidden="true"></div><div class="ending-cracks" aria-hidden="true"></div></div>
 </section>
-<footer class="footer">End of guide · Late-2026 snapshot · Verify details at official sources</footer>
+</main>
+
+<footer class="footer">
+  <form class="signup" action="https://buttondown.com/api/emails/embed-subscribe/fringenode" method="post" target="_blank" rel="noopener noreferrer">
+    <label for="signup-email">Email address</label>
+    <div class="signup-row">
+      <input type="email" id="signup-email" name="email" placeholder="you@example.com" autocomplete="email" required aria-describedby="signup-privacy">
+      <button type="submit">Notify me</button>
+    </div>
+    <input type="hidden" value="1" name="embed">
+    <p class="signup-note" id="signup-privacy">No spam. Unsubscribe anytime.</p>
+  </form>
+  <p class="footer-meta">End of guide · Late-2026 snapshot · Verify details at official sources</p>
+  <p class="footer-brand"><a href="../">FringeNode</a> · Field Guide 01 · <a href="../feed.xml">RSS</a></p>
+</footer>
 
 <script>
 (function(){
