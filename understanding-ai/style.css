@@ -324,3 +324,8 @@ th:first-child{min-width:132px}
 .signup button:hover{background:rgba(255,59,48,.24);box-shadow:0 0 18px -2px var(--red-glow)}
 .signup button:focus{outline:2px solid var(--copper-hi);outline-offset:2px}
 .signup-note{margin:10px 0 0;font:400 14px/1.5 var(--font-body);letter-spacing:0;text-transform:none;color:var(--text-dim)}
+.also-video{max-width:var(--col);margin:0 auto 28px;text-align:left;text-transform:none;letter-spacing:0;font:400 16px/1.55 var(--font-body);color:var(--text-dim)}
+.also-video a{display:inline-block;max-width:100%;min-height:44px;padding:8px 0;color:var(--text-dim);background-image:none;text-shadow:none}
+.also-video a:hover{color:var(--text-dim);text-shadow:none}
+.also-video a span{color:var(--ice-100);background-image:linear-gradient(var(--red),var(--red));background-size:100% 1px;background-position:0 100%;background-repeat:no-repeat}
+.also-video a:hover span{color:#fff;text-shadow:0 0 12px var(--red-glow)}

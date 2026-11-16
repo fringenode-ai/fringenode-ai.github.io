@@ -200,7 +200,7 @@ a:hover { color: var(--moss); }
 
 /* ----- Field journal card ----- */
 .journal {
-  padding: 1rem 1.25rem 3.75rem;
+  padding: 1rem 1.25rem 1.25rem;
 }
 
 .entry {
@@ -268,6 +268,61 @@ a:hover { color: var(--moss); }
   background: var(--moss);
   border-color: var(--moss-deep);
   color: var(--cream);
+}
+
+
+/* ----- Another project (quieter than the Field Guide card) ----- */
+.also-wrap {
+  padding: 0 1.25rem 3.75rem;
+}
+
+.also {
+  display: block;
+  max-width: 36rem;
+  margin: 0 auto;
+  padding: 1.05rem 1.25rem 1.15rem;
+  color: inherit;
+  text-decoration: none;
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  background: transparent;
+}
+
+.also:hover {
+  color: inherit;
+  border-color: var(--bronze);
+}
+
+.also-kicker {
+  display: block;
+  margin: 0 0 0.3rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--bronze-deep);
+}
+
+.also-title {
+  display: block;
+  font-family: "Fraunces", Georgia, "Times New Roman", serif;
+  font-weight: 560;
+  font-size: 1.15rem;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.also:hover .also-title {
+  color: var(--moss);
+}
+
+.also-blurb {
+  display: block;
+  margin: 0.25rem 0 0;
+  font-size: 1rem;
+  line-height: 1.45;
+  color: var(--ink-soft);
 }
 
 /* ----- Follow ----- */
@@ -383,7 +438,8 @@ a:hover { color: var(--moss); }
   .wordmark { padding-top: 1.75rem; }
   .hero-copy { padding-bottom: 4.5rem; max-width: 44rem; }
   .signal { padding: 5rem 2rem 3rem; }
-  .journal { padding: 1.25rem 2rem 5rem; }
+  .journal { padding: 1.25rem 2rem 1.5rem; }
+  .also-wrap { padding: 0 2rem 5rem; }
   .entry { padding: 2.35rem 2.35rem 2.5rem; }
   .follow { padding: 4rem 2rem 4.25rem; }
   .signup-row {
