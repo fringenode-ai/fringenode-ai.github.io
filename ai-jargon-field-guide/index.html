@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The AI Jargon Field Guide</title>
+<meta name="description" content="The 19 AI terms to learn first for AI engineering and agent orchestration, in stack order, ending on context engineering. Plus a skimmable glossary of 78 more.">
+<link rel="canonical" href="https://fringenode-ai.github.io/ai-jargon-field-guide/">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../favicon-32.png" type="image/png" sizes="32x32">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The AI Jargon Field Guide">
+<meta property="og:description" content="The 19 AI terms to learn first for AI engineering and agent orchestration, in stack order, ending on context engineering. Plus a skimmable glossary of 78 more.">
+<meta property="og:url" content="https://fringenode-ai.github.io/ai-jargon-field-guide/">
+<meta property="og:image" content="https://fringenode-ai.github.io/ai-jargon-field-guide/og-cover-1200x630.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="FringeNode">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The AI Jargon Field Guide">
+<meta name="twitter:description" content="The 19 AI terms to learn first for AI engineering and agent orchestration, in stack order, ending on context engineering. Plus a skimmable glossary of 78 more.">
+<meta name="twitter:image" content="https://fringenode-ai.github.io/ai-jargon-field-guide/og-cover-1200x630.jpg">
+<meta name="theme-color" content="#1f3d32">
+<link rel="stylesheet" href="style.css">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+<div class="progress" aria-hidden="true"><span></span></div>
+
+<header class="top">
+<div class="sitebar">
+  <a class="wordmark" href="../">FringeNode</a>
+  <span class="site-meta">Learn the words</span>
+</div>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="mast">
+      <p class="kicker">Field Guide 02 · AI jargon</p>
+      <h1 class="title">The AI Jargon Field Guide</h1>
+      <p class="subtitle">The 19 terms to learn first for AI engineering and agent orchestration, in order, plus 78 more in one plain line each.</p>
+      <div class="meta"><span>22 min read</span><span>19-term path</span><span>97 terms total</span><span>12-question review</span></div>
+    </div>
+    <div class="deck" aria-hidden="true">
+      <div class="mini c1"><span class="n">01</span><span class="t">LLM</span></div>
+      <div class="mini c2"><span class="n">02</span><span class="t">Token</span></div>
+      <div class="mini c3"><span class="n">03</span><span class="t">Inference</span></div>
+    </div>
+  </div>
+</div>
+</header>
+
+<main id="content">
+<div class="layout">
+  <aside class="toc" aria-label="Contents">
+    <nav>
+      <div class="toc-label">Contents</div>
+      <ol>
+        <li><a href="#why-words">Why the words matter</a></li>
+        <li><a href="#the-engine">The engine (1–4)</a></li>
+        <li><a href="#what-you-hand-it">What you hand it (5–7)</a></li>
+        <li><a href="#confidently-wrong">Confidently wrong (8)</a></li>
+        <li><a href="#giving-it-hands">Giving it hands (9–12)</a></li>
+        <li><a href="#the-attack">The attack (13)</a></li>
+        <li><a href="#making-it-useful">Making it useful (14–17)</a></li>
+        <li><a href="#orchestration">Orchestration (18)</a></li>
+        <li><a href="#context-engineering">Context engineering (19)</a></li>
+        <li><a href="#g-core">The big words</a></li>
+        <li><a href="#g-internals">Inside the engine</a></li>
+        <li><a href="#g-training">How it learned</a></li>
+        <li><a href="#g-prompts">What you hand it</a></li>
+        <li><a href="#g-agents">Agents and products</a></li>
+        <li><a href="#g-infra">The hardware underneath</a></li>
+        <li><a href="#g-safety">Safety and trust</a></li>
+        <li><a href="#g-hype">Hype words</a></li>
+        <li><a href="#g-everyday">AI you already use</a></li>
+        <li><a href="#sources">Sources</a></li>
+        <li><a href="#review">Quick review</a></li>
+      </ol>
+    </nav>
+  </aside>
+
+  <article class="article">
+<p class="lede">This field guide gives you the 19 AI words to learn first, in the order that builds a true picture, if you are heading into AI engineering and agent orchestration. After that come 78 more terms, one plain line each, sorted by layer so you can skim.</p>
+<p>Each of the 19 gets three lines: what it means, why it matters now, and a common myth about it, clearly marked as not true. The path ends on <b>orchestration</b> (designing the whole agent loop) and <b>context engineering</b> (deciding what the model sees at each step), which get the most room. A quick self-check waits at the bottom.</p>
+<div class="callout"><span class="label">Snapshot</span><p>Definitions are current as of November 2026. AI words drift fast; when in doubt, check a glossary from the sources list at the end.</p></div>
+
+<div class="part"><span><em>A</em> · The learning path</span></div>
+
+<section class="sec" id="why-words" data-toc="Why the words matter">
+<header class="sec-head"><span class="sec-num">01</span><h2>Why the words matter</h2></header>
+<p>Most people have heard of AI, but far fewer know what it is doing. In a 2026 Pew Research Center survey of 5,119 U.S. adults, 96% said they had heard at least a little about AI. Yet in an August 2025 Searchlight Institute survey of 2,301 U.S. adults, only 28% knew a chatbot works by guessing which words should come next. Another 45% thought it looks up the exact answer in a database.</p>
+<blockquote class="pull"><p>If you think AI looks things up, you will trust it like a reference book. It is not one.</p></blockquote>
+<p>That gap matters more for builders. When you wire a model to tools, a wrong mental model turns into a wrong design. So the path below starts with what the model really is, then adds one layer at a time:</p>
+<ol class="path">
+<li><b>The engine</b><span>LLM, next-word prediction, token, inference</span></li>
+<li><b>What you hand it</b><span>Prompt, system prompt, context window</span></li>
+<li><b>Built-in failure</b><span>Hallucination</span></li>
+<li><b>Giving it hands</b><span>API, agent, tool use, human-in-the-loop</span></li>
+<li><b>The attack</b><span>Prompt injection</span></li>
+<li><b>Making it useful</b><span>RAG, memory, structured output, evals</span></li>
+<li><b>The job</b><span>Orchestration, then context engineering</span></li>
+</ol>
+</section>
+
+<section class="sec" id="the-engine" data-toc="The engine (1–4)">
+<header class="sec-head"><span class="sec-num">02</span><h2>The engine</h2></header>
+<p class="small">Terms 1–4 · what the model actually is.</p>
+<div class="tcard"><div class="tcard-head"><span class="tnum">01</span><h3>Large language model (LLM)</h3></div>
+<p>A huge text model trained to guess the next <b>token</b> (a chunk of text). Do that enough and it picks up grammar, style and a lot of facts, and it also makes things up.</p>
+<p class="why"><b>Why now:</b> It is the engine every agent wraps. Everything else on this list sits on top of it.</p>
+<p class="myth"><b>Common myth (not true):</b> It looks up the exact answer in a database, follows a script, or understands the way a person does.</p></div>
+<div class="tcard"><div class="tcard-head"><span class="tnum">02</span><h3>Next-word prediction</h3></div>
+<p>The basic job an LLM is trained to do: guess the next token, again and again.</p>
+<p class="why"><b>Why now:</b> If this does not click, every later idea (made-up answers, agents, reasoning) sits on a false picture of the model.</p>
+<p class="myth"><b>Common myth (not true):</b> If it only guesses the next word, it cannot plan, write code or sound smart, so it must be looking facts up.</p></div>
+<div class="tcard"><div class="tcard-head"><span class="tnum">03</span><h3>Token</h3></div>
+<p>The chunk of text a model actually reads and writes: a word, part of a word, or a character. Use, limits and price are usually counted in tokens.</p>
+<p class="why"><b>Why now:</b> Rate limits and context budgets are measured in tokens. You cannot size a prompt or an agent loop without them.</p>
+<p class="myth"><b>Common myth (not true):</b> The model reads whole words, or a token is a login key or a crypto coin.</p></div>
+<div class="tcard"><div class="tcard-head"><span class="tnum">04</span><h3>Inference</h3></div>
+<p>The model actually running to produce an answer: the live use, not the earlier training.</p>
+<p class="why"><b>Why now:</b> Every step an agent takes is an inference call, and each one costs time and money. It is not the same as training.</p>
+<p class="myth"><b>Common myth (not true):</b> Chatting with it trains it, or inference means it draws a logical conclusion like a person.</p></div>
+</section>
+
+<section class="sec" id="what-you-hand-it" data-toc="What you hand it (5–7)">
+<header class="sec-head"><span class="sec-num">03</span><h2>What you hand it</h2></header>
+<p class="small">Terms 5–7 · the words you control.</p>
+<div class="tcard"><div class="tcard-head"><span class="tnum">05</span><h3>Prompt</h3></div>
+<p>The instruction or question you give the model, and in a fuller sense everything else in that request (files, chat history, hidden instructions).</p>
+<p class="why"><b>Why now:</b> It is the basic control surface. Every agent step is a prompt, and vague wording is a common cause of surprising actions.</p>
+<p class="myth"><b>Common myth (not true):</b> A prompt is only the one line you type, or a fancy prompt turns the model into an expert you no longer need to check.</p></div>
+<div class="tcard"><div class="tcard-head"><span class="tnum">06</span><h3>System prompt</h3></div>
+<p>Standing instructions placed ahead of your message, usually hidden from the user: the model's job description for that product or agent.</p>
+<p class="why"><b>Why now:</b> When you build an agent, this is where the role, the limits and the tool rules live. It is separate from the user&#x27;s request.</p>
+<p class="myth"><b>Common myth (not true):</b> The chatbot has no extra instructions, or the system prompt is a secret personality rather than rules and tools.</p></div>
+<div class="tcard"><div class="tcard-head"><span class="tnum">07</span><h3>Context window</h3></div>
+<p>The model's short-term workspace: how much it can see at once (your question, the chat, files, tool results). Past the limit, earlier parts drop off or get squeezed into a summary.</p>
+<p class="why"><b>Why now:</b> Every orchestration choice runs into this cap. It is why you cannot paste everything into an agent and hope.</p>
+<p class="myth"><b>Common myth (not true):</b> It has a long-term memory of everything you ever said, or it forgets because it is bored.</p></div>
+</section>
+
+<section class="sec" id="confidently-wrong" data-toc="Confidently wrong (8)">
+<header class="sec-head"><span class="sec-num">04</span><h2>When it is confidently wrong</h2></header>
+<p class="small">Term 8 · the failure you design around.</p>
+<div class="tcard"><div class="tcard-head"><span class="tnum">08</span><h3>Hallucination</h3></div>
+<p>A confident, plausible answer that is wrong or made up. The model is doing what it always does, guessing likely tokens, with no check against the real world.</p>
+<p class="why"><b>Why now:</b> You cannot let an agent email, book or spend based on an unchecked fact. This is the failure you design around.</p>
+<p class="myth"><b>Common myth (not true):</b> The AI is seeing pictures in its mind, or only wild answers count.</p></div>
+<p>The word itself confuses people. In the same Searchlight survey, only 51% understood that generative AI can make things up, and 21% took “hallucination” literally, as the AI creating images in its mind.</p>
+</section>
+
+<section class="sec" id="giving-it-hands" data-toc="Giving it hands (9–12)">
+<header class="sec-head"><span class="sec-num">05</span><h2>Giving it hands</h2></header>
+<p class="small">Terms 9–12 · from talking to doing.</p>
+<div class="tcard"><div class="tcard-head"><span class="tnum">09</span><h3>API</h3></div>
+<p>Short for application programming interface: a defined way for one program to ask another for work. It is how your code calls a model or a tool.</p>
+<p class="why"><b>Why now:</b> This is how you hook models and tools together in code, not only in a chat window.</p>
+<p class="myth"><b>Common myth (not true):</b> An API is an app for people, or you need a special API to unlock the “real” AI.</p></div>
+<div class="tcard"><div class="tcard-head"><span class="tnum">10</span><h3>Agent</h3></div>
+<p>A model plus tools, permissions and a loop, so it can take several steps toward a goal (search, click, email, book) instead of answering once.</p>
+<p class="why"><b>Why now:</b> This is the thing you are learning to build: a model that acts, which is why tools, limits and review matter.</p>
+<p class="myth"><b>Common myth (not true):</b> Any chatbot with an LLM inside is an agent, or an agent is a little person who cannot make mistakes.</p></div>
+<div class="tcard"><div class="tcard-head"><span class="tnum">11</span><h3>Tool use (function calling)</h3></div>
+<p>The model picks a predefined tool (search, calendar, email, your API) and fills in its inputs, instead of only writing prose.</p>
+<p class="why"><b>Why now:</b> This is how an agent actually does work. Orchestration starts with which tools you expose and what each may do.</p>
+<p class="myth"><b>Common myth (not true):</b> If it mentions a tool, it already used it, or it can invent a tool that was never connected.</p></div>
+<div class="tcard"><div class="tcard-head"><span class="tnum">12</span><h3>Human-in-the-loop</h3></div>
+<p>A person reviews or approves certain steps, especially sending, deleting or spending, before the agent finishes them.</p>
+<p class="why"><b>Why now:</b> For agents that can email, book or spend, the review step is part of the design, not an optional extra.</p>
+<p class="myth"><b>Common myth (not true):</b> If a person built the agent, it already has a human in the loop.</p></div>
+</section>
+
+<section class="sec" id="the-attack" data-toc="The attack (13)">
+<header class="sec-head"><span class="sec-num">06</span><h2>The attack to design against</h2></header>
+<p class="small">Term 13 · why reading and acting together is risky.</p>
+<div class="tcard"><div class="tcard-head"><span class="tnum">13</span><h3>Prompt injection</h3></div>
+<p>Hidden or hostile instructions inside a page, file or email that try to hijack an agent that reads them and can also use tools.</p>
+<p class="why"><b>Why now:</b> Once an agent reads untrusted text and can take actions, this is the main attack you design against.</p>
+<p class="myth"><b>Common myth (not true):</b> It is the same as a wording trick you type yourself, or only badly built agents fall for it.</p></div>
+<p>Prompt injection sits at the top of the OWASP Top 10 for large language model applications, a widely used security checklist. The practical defenses are mostly design choices: give agents the fewest tools they need, treat anything they read as data rather than orders, and keep a person in the loop for risky steps.</p>
+</section>
+
+<section class="sec" id="making-it-useful" data-toc="Making it useful (14–17)">
+<header class="sec-head"><span class="sec-num">07</span><h2>Making it useful</h2></header>
+<p class="small">Terms 14–17 · the patterns that turn a demo into a tool.</p>
+<div class="tcard"><div class="tcard-head"><span class="tnum">14</span><h3>RAG (retrieval-augmented generation)</h3></div>
+<p>Look something up first (your files, a database, the web), then have the model write its answer from what was found.</p>
+<p class="why"><b>Why now:</b> It is the usual way to give an agent fresh, checkable facts without retraining it, and a core orchestration pattern.</p>
+<p class="myth"><b>Common myth (not true):</b> RAG means the model can no longer make things up, or it is the same as fine-tuning.</p></div>
+<div class="tcard"><div class="tcard-head"><span class="tnum">15</span><h3>Memory</h3></div>
+<p>Notes or facts saved on purpose and fed back in later. The LLM itself keeps nothing once a chat leaves the window.</p>
+<p class="why"><b>Why now:</b> You decide what carries over between sessions. It is not free, and it is not the same as the context window.</p>
+<p class="myth"><b>Common myth (not true):</b> The model remembers everything like a person, or “memory” means its weights changed.</p></div>
+<div class="tcard"><div class="tcard-head"><span class="tnum">16</span><h3>Structured output</h3></div>
+<p>Making the model answer in a fixed format, such as JSON (a simple text format programs can read), a table or a form, so other software can use it reliably.</p>
+<p class="why"><b>Why now:</b> Agents that call tools or fill forms need machine-readable answers, not a friendly paragraph.</p>
+<p class="myth"><b>Common myth (not true):</b> If it sounds confident and well written, your app can already trust the text.</p></div>
+<div class="tcard"><div class="tcard-head"><span class="tnum">17</span><h3>Evaluation (evals)</h3></div>
+<p>Repeatable tests of whether a model or agent actually does the job, not one demo that went well.</p>
+<p class="why"><b>Why now:</b> You cannot improve or safely ship an agent without tests you can rerun after every change.</p>
+<p class="myth"><b>Common myth (not true):</b> A glowing demo or a leaderboard score means it will handle your messy real inputs.</p></div>
+</section>
+
+<section class="sec" id="orchestration" data-toc="Orchestration (18)">
+<header class="sec-head"><span class="sec-num">08</span><h2>Orchestration</h2></header>
+<p class="small">Term 18 · the shape of the whole job.</p>
+<div class="tcard"><div class="tcard-head"><span class="tnum">18</span><h3>Orchestration (workflow)</h3></div>
+<p>The design of the whole loop: which model, which tools, in what order, with what checks, retries and hand-offs to a person.</p>
+<p class="why"><b>Why now:</b> This is the job itself: not one clever prompt, but the system of steps, tools and guardrails around the model.</p>
+<p class="myth"><b>Common myth (not true):</b> Orchestration is just chaining prompts, or once you have an agent you no longer need a workflow.</p></div>
+<p>One agent step in a well-orchestrated loop looks like this:</p>
+<div class="diagram"><div class="n"><b>Plan</b>pick the next step</div><div class="a">→</div><div class="n"><b>Act</b>call one tool</div><div class="a">→</div><div class="n"><b>Check</b>test the result</div><div class="a">→</div><div class="n bridge"><b>Ask</b>a person, if risky</div></div>
+<p>Orchestration decides the order and the checks. Context engineering, next, decides what the model sees at every one of those steps.</p>
+</section>
+
+<section class="sec" id="context-engineering" data-toc="Context engineering (19)">
+<header class="sec-head"><span class="sec-num">09</span><h2>Context engineering</h2></header>
+<p class="small">Term 19 · the capstone of the path.</p>
+<div class="tcard"><div class="tcard-head"><span class="tnum">19</span><h3>Context engineering</h3></div>
+<p>Choosing everything that goes into the model's window (rules, files, memory, tool results, past messages) and what to leave out, so the next step is focused and true.</p>
+<p class="why"><b>Why now:</b> It is the capstone skill of agent orchestration, and it ties the whole list together: prompts, memory, RAG, tools and the window.</p>
+<p class="myth"><b>Common myth (not true):</b> It is a fancier name for prompt engineering, or it means retraining the model.</p></div>
+<h3>What it means, in one breath</h3>
+<p>A model only knows what is in its context window at that moment. Context engineering is the work of choosing that window’s contents for every single step: what to put in, what to leave out, and in what shape. The AI company Anthropic describes it as “the natural progression of prompt engineering” and sums up the goal as finding “the smallest possible set of high-signal tokens” that make the result you want most likely.</p>
+<blockquote class="pull"><p>RAG is the open-book test. Context engineering is everything else you hand the student before the test.</p></blockquote>
+
+<h3>Prompt engineering vs. context engineering</h3>
+<div class="table-wrap"><table class="stack"><thead><tr><th>Question</th><th>Prompt engineering</th><th>Context engineering</th></tr></thead><tbody>
+<tr><td data-l="Question"><b>Main question</b></td><td data-l="Prompt engineering">How do I word the ask?</td><td data-l="Context engineering">What should the model see right now?</td></tr>
+<tr><td data-l="Question"><b>Scope</b></td><td data-l="Prompt engineering">Mostly the instructions</td><td data-l="Context engineering">Everything in the window: rules, tools, files, memory, results, history</td></tr>
+<tr><td data-l="Question"><b>When</b></td><td data-l="Prompt engineering">Written once, then tuned</td><td data-l="Context engineering">Redone at every step of an agent loop</td></tr>
+</tbody></table></div>
+
+<h3>What goes into the window</h3>
+<div class="table-wrap"><table class="stack"><thead><tr><th>Ingredient</th><th>What it is</th><th>Keep it tight by</th></tr></thead><tbody>
+<tr><td data-l="Ingredient"><b>System prompt</b></td><td data-l="What it is">The standing role, rules and limits</td><td data-l="Keep it tight by">Clear, direct sections; no wall of edge cases</td></tr>
+<tr><td data-l="Ingredient"><b>The task</b></td><td data-l="What it is">What this step must achieve</td><td data-l="Keep it tight by">One goal per step, with what “done” looks like</td></tr>
+<tr><td data-l="Ingredient"><b>Tool list</b></td><td data-l="What it is">The tools the model may call, with descriptions</td><td data-l="Keep it tight by">Only the tools this job needs, with no overlap</td></tr>
+<tr><td data-l="Ingredient"><b>Retrieved facts (RAG)</b></td><td data-l="What it is">Documents or search results pulled in</td><td data-l="Keep it tight by">The few most relevant passages, not whole files</td></tr>
+<tr><td data-l="Ingredient"><b>Memory notes</b></td><td data-l="What it is">Facts saved from earlier sessions</td><td data-l="Keep it tight by">Short, dated notes that still apply</td></tr>
+<tr><td data-l="Ingredient"><b>Tool results</b></td><td data-l="What it is">What the last tool call returned</td><td data-l="Keep it tight by">Clear old raw results once they have been used</td></tr>
+<tr><td data-l="Ingredient"><b>Chat history</b></td><td data-l="What it is">The conversation so far</td><td data-l="Keep it tight by">Summarize older turns instead of keeping every word</td></tr>
+<tr><td data-l="Ingredient"><b>Examples</b></td><td data-l="What it is">A few sample inputs and ideal outputs</td><td data-l="Keep it tight by">A small, varied set rather than a long list</td></tr>
+</tbody></table></div>
+
+<h3>Why less is often more</h3>
+<p>A bigger window does not mean the model uses all of it well. In July 2025, the database company Chroma tested 18 LLMs and found that performance grew less reliable as input length grew, even on simple tasks. In one test, models answered questions about a long chat far better when given only the relevant part (about 300 tokens) than when given the full history (about 113,000 tokens). This slide is often called <b>context rot</b>.</p>
+
+<h3>Three moves for long jobs</h3>
+<p>When a task runs longer than one window can hold, Anthropic’s guide describes three common techniques:</p>
+<ul>
+<li><b>Compaction:</b> summarize the conversation as it nears the limit, then start a fresh window with the summary.</li>
+<li><b>Structured note-taking:</b> the agent writes notes to a file outside the window and reads them back later. This is memory done on purpose.</li>
+<li><b>Sub-agents:</b> hand a focused job to a helper agent with a clean window, and take back only a short summary of what it found.</li>
+</ul>
+
+<h3>One step, engineered</h3>
+<p>Say an agent must answer, “Which of our three suppliers can deliver by Friday?” A well-engineered window for that one step might hold:</p>
+<div class="inout">
+<div class="in"><span class="label">In</span><ul><li>Rules: answer only from supplied facts; say “not sure” if missing</li><li>The question</li><li>The three suppliers’ latest delivery notes</li><li>Today’s date</li></ul></div>
+<div class="out"><span class="label">Left out</span><ul><li>Last month’s unrelated chat</li><li>Every old supplier email</li><li>Tools it cannot need here, such as “send email”</li><li>Untrusted text it has not been told how to treat</li></ul></div>
+</div>
+<p>Leaving the send tool out is not only tidier. It also means a hidden instruction in a supplier note cannot trigger an email, so context engineering doubles as a safety layer.</p>
+<div class="terms"><span class="label">Key terms</span><dl><div><dt>Context engineering</dt><dd>Choosing what the model sees at each step, and what it does not.</dd></div><div><dt>Context rot</dt><dd>Answers slipping as the input grows, before the window is full.</dd></div><div><dt>Compaction</dt><dd>Summarizing a long history into a fresh, shorter window.</dd></div><div><dt>Sub-agent</dt><dd>A helper agent with its own clean window that reports back a summary.</dd></div></dl></div>
+</section>
+
+<div class="part"><span><em>B</em> · The field glossary</span></div>
+
+<section class="sec" id="g-core" data-toc="The big words">
+<header class="sec-head"><span class="sec-num">10</span><h2>The big words</h2></header>
+<p>The words you hear in every headline, sorted out.</p>
+<p class="small">One line per term. <span class="tag next">Next</span> means learn soon after the path; <span class="tag later">Later</span> means good to recognize in the news.</p>
+<dl class="gloss"><div><dt>Artificial intelligence (AI) <span class="tag next">Next</span></dt><dd>The umbrella name for computers doing tasks that used to take human judgment: writing, seeing, planning, talking.</dd></div><div><dt>Machine learning <span class="tag next">Next</span></dt><dd>A way to build AI by finding patterns in examples, instead of writing every rule by hand.</dd></div><div><dt>Deep learning <span class="tag next">Next</span></dt><dd>Machine learning that uses large, many-layer neural networks to learn complicated patterns from lots of data.</dd></div><div><dt>Neural network <span class="tag next">Next</span></dt><dd>A setup of simple connected units (loosely inspired by brain cells) that learn by adjusting connection strengths.</dd></div><div><dt>Algorithm <span class="tag next">Next</span></dt><dd>A step-by-step recipe a computer follows to finish a task.</dd></div><div><dt>Model <span class="tag next">Next</span></dt><dd>The trained program that actually produces the answer: the thing behind the chatbot window.</dd></div><div><dt>Generative AI <span class="tag next">Next</span></dt><dd>AI that makes new text, images, audio, or video, instead of only labeling or retrieving something that already exists.</dd></div><div><dt>Chatbot <span class="tag next">Next</span></dt><dd>The thing you actually talk to, usually a chat window sitting on top of a model.</dd></div><div><dt>Foundation model <span class="tag next">Next</span></dt><dd>A large general-purpose model trained on a wide range of data, then adapted for many different jobs.</dd></div><div><dt>Artificial general intelligence (AGI) <span class="tag later">Later</span></dt><dd>A much-debated label for AI with human-level (or broader) ability across many kinds of tasks; there is no single agreed test.</dd></div><div><dt>Superintelligence (ASI) <span class="tag later">Later</span></dt><dd>Hypothetical AI that is far more capable than humans at almost every cognitive task.</dd></div><div><dt>Narrow AI <span class="tag later">Later</span></dt><dd>AI built for one limited job (a spam filter, photo search, a chess engine), not a general stand-in for a person.</dd></div></dl>
+</section>
+
+<section class="sec" id="g-internals" data-toc="Inside the engine">
+<header class="sec-head"><span class="sec-num">11</span><h2>Inside the engine</h2></header>
+<p>What happens between your question and its answer.</p>
+<dl class="gloss"><div><dt>Transformer <span class="tag next">Next</span></dt><dd>The neural-network design behind most modern LLMs; it uses attention to weigh how parts of the input relate.</dd></div><div><dt>Tokenization <span class="tag next">Next</span></dt><dd>The step that splits text into tokens before the model sees it.</dd></div><div><dt>Parameters (weights) <span class="tag next">Next</span></dt><dd>The billions of numbers inside a model, adjusted during training, that shape how it behaves.</dd></div><div><dt>Attention <span class="tag next">Next</span></dt><dd>A method that lets the model weigh which parts of the input matter most when it produces the next token.</dd></div><div><dt>Embedding <span class="tag next">Next</span></dt><dd>A list of numbers that represents a word, sentence, or image so similar things sit closer together.</dd></div><div><dt>Temperature <span class="tag next">Next</span></dt><dd>A setting that makes the model&#x27;s word choices more focused (lower) or more varied (higher).</dd></div><div><dt>Reasoning model <span class="tag next">Next</span></dt><dd>A model or mode that spends extra work on in-between steps before answering; better on hard problems, still able to be wrong.</dd></div><div><dt>Knowledge cutoff <span class="tag next">Next</span></dt><dd>The date after which a model&#x27;s training data no longer includes world events, unless a tool (search, RAG, a file) feeds it newer information.</dd></div><div><dt>Multimodal <span class="tag next">Next</span></dt><dd>The model can take in or produce more than one kind of input or output: text, images, audio, video, PDFs.</dd></div><div><dt>Scaling laws <span class="tag later">Later</span></dt><dd>Rough patterns in how performance often improves as you add data, parameters or compute; not a guarantee.</dd></div></dl>
+</section>
+
+<section class="sec" id="g-training" data-toc="How it learned">
+<header class="sec-head"><span class="sec-num">12</span><h2>How it learned</h2></header>
+<p>Where a model&#x27;s habits come from, before you ever type a word.</p>
+<dl class="gloss"><div><dt>Training (pretraining) <span class="tag next">Next</span></dt><dd>The expensive, one-time-ish process of adjusting a model&#x27;s weights on a huge pile of data so it learns to predict tokens.</dd></div><div><dt>Fine-tuning <span class="tag next">Next</span></dt><dd>Extra training on a smaller, more specific set of examples so a general model gets better at a particular job.</dd></div><div><dt>RLHF <span class="tag next">Next</span></dt><dd>Reinforcement learning from human feedback: people rate answers, and those ratings steer the model&#x27;s later behavior.</dd></div><div><dt>Distillation <span class="tag later">Later</span></dt><dd>Training a smaller model to copy a larger one&#x27;s behavior, so it is cheaper or faster to run.</dd></div><div><dt>Training data <span class="tag next">Next</span></dt><dd>The examples (text, images, audio and more) used to teach a model, often a huge slice of the public web plus other sources.</dd></div><div><dt>Bias (in AI) <span class="tag next">Next</span></dt><dd>Systematic skew in data or behavior: the model&#x27;s normal is whatever showed up most, or what it was rewarded for, which may not match your world.</dd></div><div><dt>Synthetic data <span class="tag later">Later</span></dt><dd>Examples made by a model or a simulation, used as training or test data, rather than collected only from the real world.</dd></div><div><dt>Overfitting <span class="tag later">Later</span></dt><dd>The model memorizes its training examples too closely, including noise, and then does worse on new cases.</dd></div><div><dt>Trained on the web (copyright) <span class="tag next">Next</span></dt><dd>Many large models were trained on text and images from the public internet, which raises unsettled legal and ethical questions about whose work was used.</dd></div><div><dt>Model collapse <span class="tag later">Later</span></dt><dd>A feared or observed drop in quality when models are trained too much on AI-made data instead of fresh human data.</dd></div></dl>
+</section>
+
+<section class="sec" id="g-prompts" data-toc="What you hand it">
+<header class="sec-head"><span class="sec-num">13</span><h2>What you hand it</h2></header>
+<p>The craft around the window, beyond the path&#x27;s core terms.</p>
+<dl class="gloss"><div><dt>Prompt engineering <span class="tag next">Next</span></dt><dd>The craft of writing clear requests: the goal, the format, examples, and what done looks like.</dd></div><div><dt>Context rot <span class="tag next">Next</span></dt><dd>Answers getting worse as the prompt grows, often before the window is actually full.</dd></div><div><dt>Few-shot and zero-shot <span class="tag next">Next</span></dt><dd>Few-shot: you show a couple of examples so it follows the pattern. Zero-shot: you give the task with none.</dd></div><div><dt>Grounding <span class="tag next">Next</span></dt><dd>Tying the answer to a real source you provided or retrieved, so it is less likely to invent a fact.</dd></div></dl>
+</section>
+
+<section class="sec" id="g-agents" data-toc="Agents and products">
+<header class="sec-head"><span class="sec-num">14</span><h2>Agents and products</h2></header>
+<p>Names for the ways models get packaged and put to work.</p>
+<dl class="gloss"><div><dt>Model Context Protocol (MCP) <span class="tag next">Next</span></dt><dd>An open standard for plugging an AI app into tools and data sources through one common interface.</dd></div><div><dt>Copilot <span class="tag next">Next</span></dt><dd>A product pattern: AI sitting beside you in an app (mail, docs, code) suggesting or drafting, with you still in charge.</dd></div><div><dt>Computer-use or browser agent <span class="tag next">Next</span></dt><dd>An agent that can click, type, and navigate a computer or website as if it were using the screen.</dd></div><div><dt>Benchmark <span class="tag next">Next</span></dt><dd>A standard test used to compare models on a task such as math or coding; useful, and easy to overclaim.</dd></div></dl>
+</section>
+
+<section class="sec" id="g-infra" data-toc="The hardware underneath">
+<header class="sec-head"><span class="sec-num">15</span><h2>The hardware underneath</h2></header>
+<p>Where models actually run, and what that costs.</p>
+<dl class="gloss"><div><dt>Latency <span class="tag next">Next</span></dt><dd>How long you wait for an answer or a step to finish.</dd></div><div><dt>Data center <span class="tag next">Next</span></dt><dd>A warehouse of servers where a lot of training and most large-model answers actually run.</dd></div><div><dt>GPU <span class="tag next">Next</span></dt><dd>A chip first made for graphics that is very good at the parallel math models need; data centers are packed with them.</dd></div><div><dt>On-device AI <span class="tag next">Next</span></dt><dd>The model (or part of it) runs on the phone or laptop itself, which can be faster, more private, and more limited than a data-center model.</dd></div><div><dt>Open source vs open weights <span class="tag next">Next</span></dt><dd>Open weights means you can download the trained numbers; open source, strictly, also shares the code and recipe.</dd></div><div><dt>Closed (proprietary) model <span class="tag next">Next</span></dt><dd>You can use it through an app or API, but you cannot download the weights or fully inspect how it was built.</dd></div><div><dt>Compute <span class="tag next">Next</span></dt><dd>The chip-time and electricity it takes to train or run a model.</dd></div><div><dt>TPU <span class="tag later">Later</span></dt><dd>A specialized chip, originally from Google, built to speed up machine-learning math.</dd></div></dl>
+</section>
+
+<section class="sec" id="g-safety" data-toc="Safety and trust">
+<header class="sec-head"><span class="sec-num">16</span><h2>Safety and trust</h2></header>
+<p>The words for what can go wrong, and the work that limits it.</p>
+<dl class="gloss"><div><dt>Data poisoning <span class="tag later">Later</span></dt><dd>An attack that slips bad or mislabeled examples into training or retrieval data so the system behaves in a way the attacker wants.</dd></div><div><dt>Alignment <span class="tag next">Next</span></dt><dd>The work of making a system behave the way people actually intend: their values, rules and goals.</dd></div><div><dt>Guardrails <span class="tag next">Next</span></dt><dd>Limits built into the product (refusals, filters, permission checks) meant to block some harmful or off-limits uses.</dd></div><div><dt>Jailbreak <span class="tag later">Later</span></dt><dd>A trick in the wording of a prompt that tries to get the model to ignore its safety rules.</dd></div><div><dt>Deepfake <span class="tag next">Next</span></dt><dd>AI-made or AI-altered audio, image, or video that looks or sounds like a real person or event.</dd></div><div><dt>Voice clone <span class="tag next">Next</span></dt><dd>A model trained or prompted on a short sample of someone&#x27;s voice so it can say new sentences in that voice.</dd></div><div><dt>Sycophancy <span class="tag next">Next</span></dt><dd>The model agrees with you or flatters you because that pattern was common in training and feedback, not because you are right.</dd></div><div><dt>Privacy <span class="tag next">Next</span></dt><dd>What happens to what you type, upload, or say: whether it is stored, used to train, or sent to a server.</dd></div><div><dt>AI disclosure (AI label) <span class="tag next">Next</span></dt><dd>Telling viewers or users that content was made or altered with AI, often with an official platform label.</dd></div><div><dt>Watermark / content credentials <span class="tag later">Later</span></dt><dd>A hidden or attached mark meant to show a file was generated or edited, which people and some platforms can later check.</dd></div><div><dt>Red teaming <span class="tag next">Next</span></dt><dd>A structured attempt to break or misuse a system on purpose, so the builders can find holes before the public does.</dd></div></dl>
+</section>
+
+<section class="sec" id="g-hype" data-toc="Hype words">
+<header class="sec-head"><span class="sec-num">17</span><h2>Hype words</h2></header>
+<p>When you hear one of these, ask two questions: what does it actually do, and who checks it?</p>
+<dl class="gloss"><div><dt>Agentic <span class="tag next">Next</span></dt><dd>An adjective meaning agent-like, able to take steps toward a goal; often used more loosely than “agent.”</dd></div><div><dt>AI slop <span class="tag next">Next</span></dt><dd>A nickname for low-effort, high-volume AI content that is generic, repetitive, or made mainly to fill a feed.</dd></div><div><dt>AI-powered <span class="tag next">Next</span></dt><dd>A marketing label meaning some AI is in the product, which might be a real model, a tiny classifier, or almost nothing.</dd></div><div><dt>Digital worker / AI employee <span class="tag later">Later</span></dt><dd>Sales language for software (often an agent) that is supposed to take over a chunk of a person&#x27;s job.</dd></div><div><dt>Autonomous <span class="tag next">Next</span></dt><dd>Able to keep going for a while without a person clicking each step; how much supervision it gets varies a lot.</dd></div><div><dt>Frontier model <span class="tag later">Later</span></dt><dd>A loosely used name for a leading, highly capable general model at the edge of what labs can train.</dd></div><div><dt>World model <span class="tag later">Later</span></dt><dd>A system (or a hoped-for system) that keeps an internal picture of how the world works, so it can predict and plan, not only continue text.</dd></div><div><dt>Vibe coding <span class="tag next">Next</span></dt><dd>Writing software mainly by asking an AI to produce and edit code, guided by what feels right, often with less hand-written code.</dd></div><div><dt>The singularity <span class="tag later">Later</span></dt><dd>A speculative idea of a tipping point after which AI improvement becomes extremely fast and hard to predict.</dd></div><div><dt>AI winter <span class="tag later">Later</span></dt><dd>A past (or possible future) period when funding and interest in AI dropped after a wave of hype.</dd></div><div><dt>Anthropomorphism (it thinks / knows / understands) <span class="tag next">Next</span></dt><dd>Talking about a model as if it had a mind; handy shorthand, misleading if taken literally.</dd></div></dl>
+</section>
+
+<section class="sec" id="g-everyday" data-toc="AI you already use">
+<header class="sec-head"><span class="sec-num">18</span><h2>AI you already use</h2></header>
+<p>Older and quieter AI that was around long before chatbots.</p>
+<dl class="gloss"><div><dt>AI detector <span class="tag next">Next</span></dt><dd>A tool that claims to guess whether text or media was made by AI; these are often unreliable, especially on short text.</dd></div><div><dt>Image generator <span class="tag next">Next</span></dt><dd>A model that makes a picture from a text prompt, a sketch, or another image.</dd></div><div><dt>Text-to-video <span class="tag next">Next</span></dt><dd>A model that makes a short video from a text prompt or a still image.</dd></div><div><dt>AI Overview <span class="tag next">Next</span></dt><dd>A generated summary at the top of some search results, built from sources the search engine retrieved.</dd></div><div><dt>Recommendation system <span class="tag next">Next</span></dt><dd>An older, still-huge kind of AI that ranks what you see next (feeds, videos, shopping, music) from patterns in behavior.</dd></div><div><dt>Computer vision <span class="tag next">Next</span></dt><dd>AI that works on pictures and video: finding faces or objects, reading a scene, spotting a package, and so on.</dd></div><div><dt>Speech-to-text <span class="tag next">Next</span></dt><dd>Turning spoken audio into written words, often on a phone or in a meeting app.</dd></div><div><dt>Autocomplete <span class="tag next">Next</span></dt><dd>The older cousin of an LLM: guess the next word or line as you type, in mail, search, or a phone keyboard.</dd></div></dl>
+</section>
+
+<section class="sec" id="sources" data-toc="Sources">
+<header class="sec-head"><span class="sec-num">19</span><h2>Sources</h2></header>
+<p>Survey numbers come from the studies below. Plain-English definitions are adapted from the listed glossaries and are a late-2026 snapshot.</p>
+<ul class="sources">
+<li><a href="https://www.pewresearch.org/internet/2026/06/17/what-do-americans-think-ai-is/">Pew Research Center, “What do Americans think AI is?”</a> (survey of 5,119 U.S. adults, Feb. 17–23, 2026)</li>
+<li><a href="https://punyamishra.com/2026/01/15/how-do-people-think-ai-works-some-surprising-findings/">Analysis of the Searchlight Institute / Tavern Research survey</a> (2,301 U.S. adults, August 2025; published Jan. 15, 2026)</li>
+<li><a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents">Anthropic, “Effective context engineering for AI agents”</a> (Sept. 29, 2025)</li>
+<li><a href="https://research.trychroma.com/context-rot">Chroma, “Context Rot: How Increasing Input Tokens Impacts LLM Performance”</a> (July 14, 2025)</li>
+<li><a href="https://genai.owasp.org/llmrisk/llm01-prompt-injection/">OWASP GenAI Security Project, LLM01: Prompt Injection</a></li>
+<li><a href="https://hai.stanford.edu/ai-definitions">Stanford HAI, AI definitions</a></li>
+<li><a href="https://www.nngroup.com/articles/artificial-intelligence-glossary/">Nielsen Norman Group, AI glossary</a></li>
+<li><a href="https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-3.pdf">NIST AI 100-3, The Language of Trustworthy AI</a> (PDF)</li>
+<li><a href="https://modelcontextprotocol.io/">Model Context Protocol, official site</a></li>
+<li><a href="https://davidwidder.me/open.pdf">Widder et al., on how “open” is used in AI</a> (PDF)</li>
+</ul>
+</section>
+
+
+
+    <section class="sec" id="review" data-toc="Quick review">
+      <header class="sec-head"><span class="sec-num">20</span><h2>Quick review</h2></header>
+      <div class="quiz-bar"><p class="small" style="margin:0">Answer out loud first, then tap a question to check.</p><button class="btn" type="button" id="revealAll">Reveal all</button></div>
+      <div class="quiz">
+        <details><summary>What is an LLM actually doing when it answers you?</summary><div class="ans">Guessing the next token (a chunk of text), again and again, based on patterns it learned. It is not looking the answer up in a database.</div></details>
+        <details><summary>What is a token, and why should a builder care?</summary><div class="ans">The chunk of text a model reads and writes: a word, part of a word, or a character. Limits, context budgets and usually price are counted in tokens.</div></details>
+        <details><summary>Is chatting with a model the same as training it?</summary><div class="ans">No. Chatting is inference: the finished model running. Training is the earlier, expensive process that set its weights.</div></details>
+        <details><summary>How is a system prompt different from your prompt?</summary><div class="ans">The system prompt is the standing job description (role, limits, tool rules) placed ahead of the user&#x27;s message, usually hidden.</div></details>
+        <details><summary>What happens when a conversation outgrows the context window?</summary><div class="ans">Earlier parts drop off or get squeezed into a summary. The model only sees what fits in the window right now.</div></details>
+        <details><summary>Why does a model hallucinate?</summary><div class="ans">It always produces likely-sounding tokens. With no check against real sources, a likely-sounding answer can be wrong.</div></details>
+        <details><summary>What turns a chatbot into an agent?</summary><div class="ans">Tools, permissions and a loop, so it can take several steps toward a goal instead of answering once.</div></details>
+        <details><summary>What is prompt injection, and one way to limit it?</summary><div class="ans">Hostile instructions hidden in text an agent reads. Limit it by giving the agent only the tools it needs, treating what it reads as data, and keeping a person in the loop for risky steps.</div></details>
+        <details><summary>Does RAG stop a model from making things up?</summary><div class="ans">No. It gives the model relevant facts to write from, which helps a lot, but the answer still needs checking.</div></details>
+        <details><summary>Does the model remember your last chat by itself?</summary><div class="ans">No. Memory is notes saved on purpose and fed back in later. The model&#x27;s weights do not change.</div></details>
+        <details><summary>Why run evals instead of trusting a good demo?</summary><div class="ans">A demo shows one lucky run. Evals are repeatable tests you rerun after every change, on realistic inputs.</div></details>
+        <details><summary>How is context engineering different from prompt engineering?</summary><div class="ans">Prompt engineering is mostly how you word the ask. Context engineering decides everything the model sees at each step (rules, tools, retrieved facts, memory, results, history) and what to leave out.</div></details>
+      </div>
+    </section>
+
+    <div class="endmark" aria-hidden="true"><i></i><i></i><i></i></div>
+  </article>
+</div>
+
+
+</main>
+
+<footer class="footer">
+  <form class="signup" action="https://buttondown.com/api/emails/embed-subscribe/fringenode" method="post" target="_blank" rel="noopener noreferrer">
+    <label for="signup-email">Email address</label>
+    <div class="signup-row">
+      <input type="email" id="signup-email" name="email" placeholder="you@example.com" autocomplete="email" required aria-describedby="signup-privacy">
+      <button type="submit">Notify me</button>
+    </div>
+    <input type="hidden" value="1" name="embed">
+    <p class="signup-note" id="signup-privacy">No spam. Unsubscribe anytime.</p>
+  </form>
+  <p class="footer-meta">End of guide · November 2026 snapshot</p>
+  <p class="footer-brand"><a href="../">FringeNode</a> · Field Guide 02 · <a href="../feed.xml">RSS</a></p>
+</footer>
+
+<script>
+(function(){
+  var bar=document.querySelector('.progress span');
+  function onScroll(){
+    var h=document.documentElement,max=h.scrollHeight-h.clientHeight,p=max>0?h.scrollTop/max:0;
+    if(bar)bar.style.width=(p*100)+'%';
+  }
+  addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',onScroll);onScroll();
+  var links=[].slice.call(document.querySelectorAll('.toc a'));
+  if('IntersectionObserver' in window&&links.length){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){
+      links.forEach(function(l){l.classList.toggle('active',l.getAttribute('href')==='#'+e.target.id)});}})},
+      {rootMargin:'-30% 0px -60% 0px'});
+    document.querySelectorAll('.sec[id]').forEach(function(s){io.observe(s)});
+  }
+  var btn=document.getElementById('revealAll');
+  if(btn)btn.addEventListener('click',function(){
+    var d=document.querySelectorAll('.quiz details'),open=btn.dataset.open!=='1';
+    d.forEach(function(x){x.open=open});btn.dataset.open=open?'1':'0';btn.textContent=open?'Hide all':'Reveal all';
+  });
+})();
+</script>
+</body>
+</html>

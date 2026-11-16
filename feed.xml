@@ -5,7 +5,14 @@
     <link>https://fringenode-ai.github.io/</link>
     <description>AI engineering for living systems. Field guides and notes from the edges.</description>
     <language>en-us</language>
-    <lastBuildDate>Mon, 16 Nov 2026 02:58:22 -0500</lastBuildDate>
+    <lastBuildDate>Mon, 16 Nov 2026 14:26:52 -0500</lastBuildDate>
+    <item>
+      <title>Field Guide 02 · The AI Jargon Field Guide</title>
+      <link>https://fringenode-ai.github.io/ai-jargon-field-guide/</link>
+      <guid isPermaLink="true">https://fringenode-ai.github.io/ai-jargon-field-guide/</guid>
+      <pubDate>Mon, 16 Nov 2026 00:00:00 -0500</pubDate>
+      <description>The 19 AI terms to learn first for AI engineering and agent orchestration, in stack order, ending on context engineering. Plus a skimmable glossary of 78 more.</description>
+    </item>
     <item>
       <title>Field Guide 01 · Understanding AI</title>
       <link>https://fringenode-ai.github.io/understanding-ai/</link>
