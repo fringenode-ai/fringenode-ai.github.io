@@ -5,7 +5,14 @@
     <link>https://fringenode-ai.github.io/</link>
     <description>AI engineering for living systems. Field guides and notes from the edges.</description>
     <language>en-us</language>
-    <lastBuildDate>Mon, 16 Nov 2026 14:26:52 -0500</lastBuildDate>
+    <lastBuildDate>Mon, 16 Nov 2026 15:30:53 -0500</lastBuildDate>
+    <item>
+      <title>Field Guide 03 · Context Engineering in Practice</title>
+      <link>https://fringenode-ai.github.io/context-engineering-in-practice/</link>
+      <guid isPermaLink="true">https://fringenode-ai.github.io/context-engineering-in-practice/</guid>
+      <pubDate>Mon, 16 Nov 2026 00:00:00 -0500</pubDate>
+      <description>A practice field guide to context engineering: pack a messy-versus-focused window for a supplier delivery job, handle work that outgrows one window, treat safety as a packing choice, and leave with a reusable checklist.</description>
+    </item>
     <item>
       <title>Field Guide 02 · The AI Jargon Field Guide</title>
       <link>https://fringenode-ai.github.io/ai-jargon-field-guide/</link>
