@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>FringeNode</title>
+    <link>https://fringenode-ai.github.io/</link>
+    <description>AI engineering for living systems. Field guides and notes from the edges.</description>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 15 Nov 2026 15:32:31 -0500</lastBuildDate>
+    <item>
+      <title>Field Guide 01 · Understanding AI</title>
+      <link>https://fringenode-ai.github.io/understanding-ai/</link>
+      <guid isPermaLink="true">https://fringenode-ai.github.io/understanding-ai/</guid>
+      <pubDate>Thu, 12 Nov 2026 00:00:00 -0500</pubDate>
+      <description>A beginner field guide to open-weight models, running them locally, agents, and privacy.</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,394 @@
+/* FringeNode landing page. Alive and natural — not the study-guide abyss look. */
+:root {
+  --paper: #f3eee4;
+  --paper-raised: #f8f3ea;
+  --paper-deep: #e8e0d2;
+  --ink: #1c1a14;
+  --ink-soft: #4a453c;
+  --moss: #2f4a36;
+  --moss-deep: #1e3126;
+  --bronze: #8c6a3a;
+  --bronze-deep: #6f522c;
+  --bronze-light: #c4a066;
+  --cream: #f4efe4;
+  --rule: #d4cbb8;
+  --hero-ink: #f4efe4;
+  --focus: #8c6a3a;
+  --shadow: 0 1px 2px rgba(28, 26, 20, 0.06), 0 18px 40px rgba(28, 26, 20, 0.08);
+}
+
+@font-face {
+  font-family: "Fraunces";
+  src: url("fonts/fraunces.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Fraunces";
+  src: url("fonts/fraunces-italic.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Source Sans 3";
+  src: url("fonts/source-sans-3.woff2") format("woff2");
+  font-weight: 200 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Source Sans 3", "Source Sans Pro", system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+::selection {
+  background: rgba(140, 106, 58, 0.28);
+  color: var(--ink);
+}
+
+.skip {
+  position: absolute;
+  left: 0.75rem;
+  top: -3rem;
+  z-index: 10;
+  padding: 0.5rem 0.8rem;
+  background: var(--paper);
+  color: var(--ink);
+  text-decoration: none;
+  border-radius: 4px;
+}
+.skip:focus {
+  top: 0.75rem;
+}
+
+a { color: var(--bronze-deep); }
+a:hover { color: var(--moss); }
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+}
+
+/* ----- Hero ----- */
+.hero {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: 100vh;
+  min-height: 100svh;
+  color: var(--hero-ink);
+  overflow: hidden;
+}
+
+.hero picture {
+  display: contents;
+}
+
+.hero img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 45%;
+}
+
+.hero-scrim {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      to top,
+      rgba(14, 18, 12, 0.82) 0%,
+      rgba(14, 18, 12, 0.52) 28%,
+      rgba(14, 18, 12, 0.18) 55%,
+      rgba(14, 18, 12, 0.28) 100%
+    );
+  pointer-events: none;
+}
+
+.wordmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  padding: 1.35rem 1.4rem;
+  font-family: "Fraunces", Georgia, "Times New Roman", serif;
+  font-weight: 560;
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+  color: var(--hero-ink);
+  text-decoration: none;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
+}
+.wordmark:hover { color: var(--hero-ink); }
+
+.hero-copy {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 40rem;
+  padding: 0 1.4rem 3.25rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 10px 28px rgba(0, 0, 0, 0.28);
+}
+
+.hero h1 {
+  margin: 0 0 0.8rem;
+  font-family: "Fraunces", Georgia, "Times New Roman", serif;
+  font-optical-sizing: auto;
+  font-weight: 560;
+  font-size: clamp(2.15rem, 7.2vw, 4.4rem);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: var(--hero-ink);
+}
+
+.hero h1 .break { display: block; }
+
+.hero .tagline {
+  margin: 0;
+  font-size: clamp(0.98rem, 2.2vw, 1.2rem);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  color: #ebe3d4;
+}
+
+/* ----- Signal ----- */
+.signal {
+  padding: 3.5rem 1.4rem 2.5rem;
+}
+
+.signal p {
+  margin: 0 auto;
+  max-width: 40rem;
+  font-family: "Fraunces", Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-weight: 450;
+  font-size: clamp(1.15rem, 2.6vw, 1.45rem);
+  line-height: 1.45;
+  color: var(--moss-deep);
+  text-align: center;
+}
+
+.signal p::before {
+  content: "";
+  display: block;
+  width: 2.5rem;
+  height: 1px;
+  margin: 0 auto 1.4rem;
+  background: var(--bronze);
+  opacity: 0.7;
+}
+
+/* ----- Field journal card ----- */
+.journal {
+  padding: 1rem 1.25rem 3.75rem;
+}
+
+.entry {
+  position: relative;
+  max-width: 36rem;
+  margin: 0 auto;
+  padding: 1.85rem 1.5rem 2rem;
+  background: var(--paper-raised);
+  border: 1px solid var(--rule);
+  box-shadow: var(--shadow);
+  border-radius: 2px;
+}
+
+.entry::before {
+  content: "";
+  position: absolute;
+  top: 0.55rem;
+  left: 0.55rem;
+  right: 0.55rem;
+  bottom: 0.55rem;
+  border: 1px solid rgba(140, 106, 58, 0.18);
+  pointer-events: none;
+}
+
+.entry-kicker {
+  margin: 0 0 0.65rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--bronze);
+}
+
+.entry h2 {
+  margin: 0 0 0.85rem;
+  font-family: "Fraunces", Georgia, "Times New Roman", serif;
+  font-weight: 560;
+  font-size: clamp(1.45rem, 3.4vw, 1.85rem);
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+
+.entry-blurb {
+  margin: 0 0 1.5rem;
+  color: var(--ink-soft);
+  font-size: 1.02rem;
+  max-width: 36em;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.65rem 1.25rem;
+  background: var(--bronze);
+  color: var(--cream);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  border-radius: 3px;
+  border: 1px solid var(--bronze-deep);
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.btn:hover {
+  background: var(--moss);
+  border-color: var(--moss-deep);
+  color: var(--cream);
+}
+
+/* ----- Follow ----- */
+.follow {
+  padding: 3rem 1.4rem 3.25rem;
+  background: var(--paper-deep);
+  border-top: 1px solid var(--rule);
+}
+
+.follow h2 {
+  margin: 0 auto 0.5rem;
+  max-width: 36rem;
+  font-family: "Fraunces", Georgia, "Times New Roman", serif;
+  font-weight: 560;
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+}
+
+.follow-lead {
+  margin: 0 auto 1.5rem;
+  max-width: 36rem;
+  color: var(--ink-soft);
+}
+
+.signup {
+  max-width: 36rem;
+  margin: 0 auto;
+}
+
+.signup label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+}
+
+.signup-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.signup input[type="email"] {
+  width: 100%;
+  padding: 0.7rem 0.8rem;
+  border: 1px solid #c9bfae;
+  border-radius: 3px;
+  background: var(--paper-raised);
+  color: var(--ink);
+  font: inherit;
+  font-size: 1rem;
+}
+.signup input[type="email"]:focus {
+  outline: 2px solid var(--focus);
+  outline-offset: 0;
+  border-color: var(--bronze);
+}
+
+.signup button {
+  padding: 0.7rem 1.15rem;
+  background: var(--moss);
+  color: var(--cream);
+  border: 1px solid var(--moss-deep);
+  border-radius: 3px;
+  font: inherit;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.signup-note {
+  margin: 0.75rem 0 0;
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+}
+
+.rss {
+  max-width: 36rem;
+  margin: 1.5rem auto 0;
+  font-size: 0.95rem;
+}
+.rss a { font-weight: 600; }
+
+/* ----- Footer ----- */
+.footer {
+  padding: 1.35rem 1.4rem 1.6rem;
+  border-top: 1px solid var(--rule);
+  background: var(--paper);
+}
+.footer p {
+  margin: 0;
+  font-family: "Fraunces", Georgia, "Times New Roman", serif;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+}
+
+/* ----- Wider screens ----- */
+@media (min-width: 640px) {
+  .wordmark,
+  .hero-copy { padding-left: 3rem; padding-right: 3rem; }
+  .wordmark { padding-top: 1.75rem; }
+  .hero-copy { padding-bottom: 4.5rem; max-width: 44rem; }
+  .signal { padding: 5rem 2rem 3rem; }
+  .journal { padding: 1.25rem 2rem 5rem; }
+  .entry { padding: 2.35rem 2.35rem 2.5rem; }
+  .follow { padding: 4rem 2rem 4.25rem; }
+  .signup-row {
+    flex-direction: row;
+    align-items: stretch;
+  }
+  .signup input[type="email"] { flex: 1; }
+  .signup button { flex: 0 0 auto; }
+  .footer { padding-left: 2rem; padding-right: 2rem; }
+}
+
+@media (min-width: 1100px) {
+  .wordmark,
+  .hero-copy { padding-left: 5rem; padding-right: 5rem; }
+  .hero-copy { max-width: 48rem; padding-bottom: 5.5rem; }
+}

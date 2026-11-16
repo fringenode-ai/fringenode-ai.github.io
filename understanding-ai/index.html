@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Understanding Open AI Models &amp; Local AI</title>
+<meta name="description" content="A beginner&#x27;s guide to open AI models, running AI locally, privacy, AI agents and context engineering, and AI careers.">
+<link rel="canonical" href="https://fringenode-ai.github.io/understanding-ai/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Understanding Open AI Models &amp; Local AI">
+<meta property="og:description" content="A beginner&#x27;s guide to open AI models, running AI locally, privacy, AI agents and context engineering, and AI careers.">
+<meta property="og:url" content="https://fringenode-ai.github.io/understanding-ai/">
+<meta property="og:image" content="https://fringenode-ai.github.io/understanding-ai/og-cover-1200x630.jpg">
+<meta property="og:site_name" content="FringeNode">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://fringenode-ai.github.io/understanding-ai/og-cover-1200x630.jpg">
+<meta name="theme-color" content="#0c1a2e">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<div class="progress" aria-hidden="true"><span></span></div>
+
+<header class="hero">
+  <img src="hero.jpg" alt="A nuclear-powered data center on the tip of an iceberg at dusk, cooling pipes running down into the ice where a giant steel Wraith machine with a single vertical red sensor slit is frozen below the waterline. Tagline: Learn the system before it learns you." width="1280" height="720">
+  <div class="snow" aria-hidden="true"></div>
+</header>
+
+<div class="waterline" aria-hidden="true">
+  <svg viewBox="0 0 1440 64" preserveAspectRatio="none">
+    <defs><linearGradient id="wlg" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#a9c9e2" stop-opacity=".16"/><stop offset="1" stop-color="#a9c9e2" stop-opacity="0"/></linearGradient></defs>
+    <path d="M0 18 C120 10 240 26 360 18 S600 10 720 18 960 26 1080 18 1320 10 1440 18 V64 H0Z" fill="url(#wlg)"/>
+    <path d="M0 18 C120 10 240 26 360 18 S600 10 720 18 960 26 1080 18 1320 10 1440 18" fill="none" stroke="#cfe4f4" stroke-opacity=".55" stroke-width="1.2"/>
+    <path d="M0 26 C160 20 280 32 420 26 S700 20 840 26 1120 32 1260 26 1400 22 1440 26" fill="none" stroke="#7fa6c6" stroke-opacity=".25" stroke-width="1"/>
+  </svg>
+  <span class="wl-depth">0 m · WATERLINE</span>
+</div>
+
+<div class="masthead">
+  <div class="kicker">Field Guide · AI</div>
+  <h1 class="title">Understanding Open AI Models &amp; Local AI</h1>
+  <p class="subtitle">A beginner field guide to open-weight models, running them locally, agents, and privacy.</p>
+  <div class="meta"><span>November 12, 2026</span><span>20 min read</span><span>13 sections</span><span>22-question review</span></div>
+</div>
+
+<div class="layout has-ending">
+  <aside class="toc" aria-label="Contents">
+    <nav>
+      <div class="toc-label">Contents</div>
+      <ol>
+        <li><a href="#how-models-work">How AI models work</a></li>
+        <li><a href="#open-vs-closed">Open vs. closed models</a></li>
+        <li><a href="#who-makes">Who makes the models</a></li>
+        <li><a href="#customizing">Customizing &amp; trusting models</a></li>
+        <li><a href="#comparing">Comparing models</a></li>
+        <li><a href="#running-locally">Running models locally</a></li>
+        <li><a href="#home-ai-box">Building a home AI box</a></li>
+        <li><a href="#privacy">Privacy &amp; security</a></li>
+        <li><a href="#agents">Agents &amp; context engineering</a></li>
+        <li><a href="#orchestration">Agent orchestration</a></li>
+        <li><a href="#bigger-picture">Data centers &amp; the future</a></li>
+        <li><a href="#skynet">Skynet is real (sort of)</a></li>
+        <li><a href="#careers">Careers in AI engineering</a></li>
+        <li><a href="#review">Quick review</a></li>
+      </ol>
+      <div class="depth">DEPTH<b id="depth">0 m</b></div>
+    </nav>
+  </aside>
+
+  <article class="article">
+    <div class="pipe-fill" aria-hidden="true"></div>
+<p class="lede">An AI model is not magic, and it is not a mind. It is a very large file of numbers that learned patterns from huge amounts of data, plus software that runs it. Once you understand those two pieces, everything else, from who makes these models to how you can run one privately at home, starts to make sense.</p>
+<p>This guide walks through the whole picture in order: what models are and who makes them, how to compare and run them yourself, how to keep that setup private, how AI agents are shaped, and where the field and its careers are heading. Each part builds on the one before. Every section ends with a set of key terms, and a quick self-check waits at the bottom.</p>
+<div class="callout warn"><span class="label">Snapshot warning</span><p>AI changes month to month. Model names, rankings, and licenses here reflect late 2026. Check the maker's official page before relying on a detail.</p></div>
+
+<div class="part"><span><em>A</em> · Foundations</span></div>
+
+<section class="sec" id="how-models-work" data-toc="How AI models work">
+<header class="sec-head"><span class="sec-num">01</span><h2>How AI models work</h2></header>
+<p>An AI <b>model</b> is a program that learned patterns from huge amounts of data. A <b>large language model (LLM)</b> learned mainly from text (often also code and images). It writes by predicting the next small chunk of text, a <b>token</b>, over and over.</p>
+<p>What it learned is stored as billions of numbers called <b>weights</b> (also called <b>parameters</b>). "Downloading a model" means downloading those weight files. Model size is given in parameters: "8B" means 8 billion.</p>
+<div class="table-wrap"><table class="stack"><thead><tr><th>Stage</th><th>What happens</th><th>Cost / who</th></tr></thead><tbody>
+<tr><td data-l="Stage"><b>Training</b></td><td data-l="What happens">The model learns from a massive dataset; its weights are adjusted over and over.</td><td data-l="Cost / who">Very expensive. Done by big labs on thousands of GPUs in data centers.</td></tr>
+<tr><td data-l="Stage"><b>Fine-tuning</b></td><td data-l="What happens">Extra training of an existing model on a smaller, focused dataset to change its skills or style. <b>LoRA</b> is a cheap method that trains a small add-on instead of every weight.</td><td data-l="Cost / who">Affordable. Companies and hobbyists do it; small models can be tuned on one good GPU.</td></tr>
+<tr><td data-l="Stage"><b>Inference</b></td><td data-l="What happens">Using the finished model to answer. Weights do not change.</td><td data-l="Cost / who">Everyday use, in chat apps or on your own PC.</td></tr>
+</tbody></table></div>
+<blockquote class="pull"><p>Chatting with a model is inference, not training. The model does not learn from your conversation.</p></blockquote>
+<p>When an app seems to "remember" you, it saved notes and fed them back in as extra text. Section 9 explains how to use this on purpose.</p>
+<aside class="terms"><span class="label">Key terms</span><dl><div><dt>Model</dt><dd>A trained AI program.</dd></div><div><dt>LLM</dt><dd>A large language model: a model for language.</dd></div><div><dt>Token</dt><dd>A chunk of text, often part of a word.</dd></div><div><dt>Weights / parameters</dt><dd>The learned numbers.</dd></div><div><dt>Training / fine-tuning / inference</dt><dd>Learn from scratch / adjust / use.</dd></div></dl></aside>
+</section>
+
+<section class="sec" id="open-vs-closed" data-toc="Open vs. closed models">
+<header class="sec-head"><span class="sec-num">02</span><h2>Open vs. closed models</h2></header>
+<div class="table-wrap"><table class="stack"><thead><tr><th>Type</th><th>What you get</th><th>Examples</th></tr></thead><tbody>
+<tr><td data-l="Type"><b>Closed</b></td><td data-l="What you get">Use only through the maker's app or paid API; weights are secret.</td><td data-l="Examples">Flagship models from the largest commercial labs</td></tr>
+<tr><td data-l="Type"><b>Open-weight</b></td><td data-l="What you get">Download and run the weights yourself. Training data and full recipe usually not shared. License rules vary.</td><td data-l="Examples">Llama, Gemma, Qwen, DeepSeek, Mistral, gpt-oss</td></tr>
+<tr><td data-l="Type"><b>Fully open</b></td><td data-l="What you get">Weights <i>plus</i> training data, code, and details, so anyone can study or reproduce it.</td><td data-l="Examples">OLMo (AI2)</td></tr>
+</tbody></table></div>
+<h3>Licenses: the rules for using the weights</h3>
+<ul>
+<li><b>Apache 2.0</b>: permissive. Use, modify, and sell freely; keep the notice. It also includes a patent grant.</li>
+<li><b>MIT</b>: very short and very permissive. Keep the copyright notice.</li>
+<li><b>Llama license</b>: Meta's custom community license. It is free for most uses but adds an acceptable-use policy, attribution rules, and a separate-license requirement for very large companies.</li>
+<li><b>Other custom or non-commercial licenses</b> add limits. Read the license on the model page before any business use.</li>
+</ul>
+<aside class="terms"><span class="label">Key terms</span><dl><div><dt>Open-weight</dt><dd>Downloadable weights.</dd></div><div><dt>Fully open</dt><dd>Weights + training data + code.</dd></div><div><dt>Closed</dt><dd>Available only through an API or app.</dd></div><div><dt>License</dt><dd>The legal terms of use.</dd></div></dl></aside>
+</section>
+
+<section class="sec" id="who-makes" data-toc="Who makes the models">
+<header class="sec-head"><span class="sec-num">03</span><h2>Who makes the models</h2></header>
+<p class="small">Late-2026 snapshot. Versions change constantly, so check current sources.</p>
+<div class="table-wrap"><table class="stack"><thead><tr><th>Family</th><th>Maker</th><th>Known for</th></tr></thead><tbody>
+<tr><td data-l="Family"><b>Llama</b></td><td data-l="Maker">Meta (USA)</td><td data-l="Known for">Popularized open-weight LLMs; huge ecosystem of community fine-tunes</td></tr>
+<tr><td data-l="Family"><b>Gemma</b></td><td data-l="Maker">Google (USA)</td><td data-l="Known for">Small-to-mid models from the research behind Gemini</td></tr>
+<tr><td data-l="Family"><b>Qwen</b></td><td data-l="Maker">Alibaba (China)</td><td data-l="Known for">Many sizes; strong multilingual and coding versions</td></tr>
+<tr><td data-l="Family"><b>DeepSeek</b></td><td data-l="Maker">DeepSeek (China)</td><td data-l="Known for">Efficient large models; the R1 reasoning model drew wide attention in 2025</td></tr>
+<tr><td data-l="Family"><b>Mistral</b></td><td data-l="Maker">Mistral AI (France)</td><td data-l="Known for">Europe's best-known lab; efficient and mixture-of-experts models</td></tr>
+<tr><td data-l="Family"><b>Phi</b></td><td data-l="Maker">Microsoft (USA)</td><td data-l="Known for">Small models that perform well for their size</td></tr>
+<tr><td data-l="Family"><b>gpt-oss</b></td><td data-l="Maker">OpenAI (USA)</td><td data-l="Known for">OpenAI's open-weight models (2025), Apache 2.0</td></tr>
+<tr><td data-l="Family"><b>Grok (older)</b></td><td data-l="Maker">xAI (USA)</td><td data-l="Known for">Weights of older Grok versions released; newest kept closed</td></tr>
+<tr><td data-l="Family"><b>OLMo</b></td><td data-l="Maker">AI2 (USA, nonprofit)</td><td data-l="Known for">Fully open: weights, data, code, and logs</td></tr>
+<tr><td data-l="Family"><b>Command R</b></td><td data-l="Maker">Cohere (Canada)</td><td data-l="Known for">Business-focused; tuned for RAG and tool use; non-commercial weights</td></tr>
+<tr><td data-l="Family"><b>Falcon</b></td><td data-l="Maker">TII (Abu Dhabi, UAE)</td><td data-l="Known for">One of the early big open models</td></tr>
+<tr><td data-l="Family"><b>Kimi</b></td><td data-l="Maker">Moonshot AI (China)</td><td data-l="Known for">Very large models aimed at coding and agent tasks</td></tr>
+<tr><td data-l="Family"><b>GLM</b></td><td data-l="Maker">Zhipu AI / Z.ai (China)</td><td data-l="Known for">Reasoning, coding, and agent-focused releases</td></tr>
+<tr><td data-l="Family"><b>Nemotron</b></td><td data-l="Maker">Nvidia (USA)</td><td data-l="Known for">Models and open datasets, often built on other open models</td></tr>
+</tbody></table></div>
+<h3>The big closed models</h3>
+<p>These are the models most people meet first, in apps like ChatGPT or Claude. <b>Closed</b> means the company keeps the <b>weights</b> (the trained numbers you would download to run a model on your own computer). You can use the model only through their app or API; you cannot run it at home.</p>
+<div class="table-wrap"><table class="stack"><thead><tr><th>Family</th><th>Maker</th><th>Known for</th></tr></thead><tbody>
+<tr><td data-l="Family"><b>Claude</b></td><td data-l="Maker">Anthropic (USA)</td><td data-l="Known for">Careful, long-context writing; widely used for coding and research</td></tr>
+<tr><td data-l="Family"><b>GPT / ChatGPT</b></td><td data-l="Maker">OpenAI (USA)</td><td data-l="Known for">The models behind ChatGPT; available only through OpenAI's app and API</td></tr>
+<tr><td data-l="Family"><b>Gemini</b></td><td data-l="Maker">Google (USA)</td><td data-l="Known for">Built into Search, Android, and Google's apps; handles text, images, and more</td></tr>
+<tr><td data-l="Family"><b>Grok</b></td><td data-l="Maker">xAI (USA)</td><td data-l="Known for">The chatbot on X; newest versions stay closed (older weights were released)</td></tr>
+<tr><td data-l="Family"><b>Nova</b></td><td data-l="Maker">Amazon (USA)</td><td data-l="Known for">Amazon's models, used through AWS (Bedrock) and Amazon products</td></tr>
+<tr><td data-l="Family"><b>Doubao</b></td><td data-l="Maker">ByteDance (China)</td><td data-l="Known for">Powers the Doubao app; available only through ByteDance's API</td></tr>
+</tbody></table></div>
+<aside class="terms"><span class="label">Key terms</span><dl><div><dt>Model family</dt><dd>A series of related models from one maker.</dd></div><div><dt>Mixture of experts (MoE)</dt><dd>A design where only some parts of the model work on each token, so huge models run more cheaply.</dd></div></dl></aside>
+</section>
+
+<section class="sec" id="customizing" data-toc="Customizing &amp; trusting models">
+<header class="sec-head"><span class="sec-num">04</span><h2>Customizing and trusting models</h2></header>
+<h3>Do you have to rely on big-company models?</h3>
+<p>Mostly yes, for the <i>base</i> model. Training a strong model from scratch takes resources only large labs have. But you can customize a lot on top:</p>
+<div class="table-wrap"><table class="stack"><thead><tr><th>Approach</th><th>What it does</th><th>Effort</th></tr></thead><tbody>
+<tr><td data-l="Approach"><b>Community models</b></td><td data-l="What it does">Thousands of fine-tuned variants (coding, writing, other languages) shared on Hugging Face.</td><td data-l="Effort">Download and try</td></tr>
+<tr><td data-l="Approach"><b>RAG</b></td><td data-l="What it does">The system looks up your own documents and adds relevant passages to the model's input, so answers use your data. The model itself is unchanged.</td><td data-l="Effort">Moderate; the most common business approach</td></tr>
+<tr><td data-l="Approach"><b>Fine-tuning / LoRA</b></td><td data-l="What it does">Trains the model further on your examples to change style or skills.</td><td data-l="Effort">Higher; needs data and a GPU</td></tr>
+<tr><td data-l="Approach"><b>Context engineering</b></td><td data-l="What it does">Instructions, examples, and memory supplied with each request (Section 9).</td><td data-l="Effort">Low; start here</td></tr>
+</tbody></table></div>
+<h3>Hugging Face</h3>
+<p>Hugging Face is the main hub for sharing models, datasets, and demos, often called the "GitHub of AI." It is named after the 🤗 hugging-face emoji and began in 2016 as a chatbot app for teenagers before switching to open-source AI tools.</p>
+<h3>Can a model file hide malicious code?</h3>
+<div class="table-wrap"><table class="stack"><thead><tr><th>Format</th><th>What it is</th><th>Risk</th></tr></thead><tbody>
+<tr><td data-l="Format"><b>safetensors</b></td><td data-l="What it is">Modern format that stores only numbers</td><td data-l="Risk">Safe: it cannot run code when loaded. Prefer it.</td></tr>
+<tr><td data-l="Format"><b>pickle</b> (.bin/.pt)</td><td data-l="What it is">Older Python save format</td><td data-l="Risk">Loading one can run hidden code. Use only from trusted sources.</td></tr>
+<tr><td data-l="Format"><b>GGUF</b></td><td data-l="What it is">Single-file format from llama.cpp, usually quantized</td><td data-l="Risk">A data-only format; still download from reputable uploaders.</td></tr>
+</tbody></table></div>
+<p>The weights themselves are just numbers. The bigger risks are unsafe file formats and the <i>software</i> around the model. That's one reason open-source runners help: anyone can inspect their code.</p>
+<aside class="terms"><span class="label">Key terms</span><dl><div><dt>RAG</dt><dd>Retrieval-augmented generation: look up your documents, then answer.</dd></div><div><dt>LoRA</dt><dd>A cheap add-on fine-tune.</dd></div><div><dt>Hugging Face</dt><dd>The main model-sharing hub.</dd></div><div><dt>safetensors / pickle / GGUF</dt><dd>Safe / risky / llama.cpp file formats.</dd></div></dl></aside>
+</section>
+
+<div class="part"><span><em>B</em> · Choosing &amp; running models</span></div>
+
+<section class="sec" id="comparing" data-toc="Comparing models">
+<header class="sec-head"><span class="sec-num">05</span><h2>Comparing models: what makes one "better"</h2></header>
+<div class="table-wrap"><table class="stack"><thead><tr><th>Factor</th><th>Why it matters</th></tr></thead><tbody>
+<tr><td data-l="Factor"><b>Parameters (size)</b></td><td data-l="Why it matters">Bigger is usually smarter but needs more memory and runs slower.</td></tr>
+<tr><td data-l="Factor"><b>Quantization</b></td><td data-l="Why it matters">Compressed versions (e.g., 4-bit) are smaller and faster, with slight quality loss.</td></tr>
+<tr><td data-l="Factor"><b>Specialty</b></td><td data-l="Why it matters">Coding, reasoning, vision, or language-specific models beat general ones at their specialty.</td></tr>
+<tr><td data-l="Factor"><b>Age</b></td><td data-l="Why it matters">Newer small models often beat older, bigger ones. Last year's leader may be average today.</td></tr>
+<tr><td data-l="Factor"><b>Context window</b></td><td data-l="Why it matters">How much text it can consider at once. Some frontier models advertise a million tokens or more, but quality can drop near the limit, and long context needs a lot of memory locally.</td></tr>
+<tr><td data-l="Factor"><b>Speed / cost</b></td><td data-l="Why it matters">Tokens per second; API price per token or the hardware needed.</td></tr>
+</tbody></table></div>
+<h3>How the "AI race" is scored</h3>
+<ul>
+<li><b>Benchmarks</b> are standardized tests. <b>MMLU</b> covers broad knowledge across ~57 subjects. <b>GPQA</b> is hard graduate-level science. <b>SWE-bench</b> asks models to fix real GitHub bugs. <b>AIME</b> uses contest math.</li>
+<li><b>LMArena</b> (formerly Chatbot Arena): people vote between two anonymous answers. Votes become <b>Elo</b>-style ratings, like chess, where beating strong opponents earns more points. It measures preference, which includes style.</li>
+</ul>
+<div class="callout warn"><span class="label">Caution</span><p>Benchmarks can be gamed. Test questions can leak into training data, labs tune for popular tests, and companies highlight their best scores. The most reliable test is your own: try candidates on your real tasks.</p></div>
+<aside class="terms"><span class="label">Key terms</span><dl><div><dt>Benchmark</dt><dd>A standard test.</dd></div><div><dt>Leaderboard</dt><dd>A ranked list of scores.</dd></div><div><dt>Elo</dt><dd>A head-to-head rating system.</dd></div><div><dt>Context window</dt><dd>How much text fits at once.</dd></div><div><dt>Reasoning model</dt><dd>Thinks step by step before answering.</dd></div></dl></aside>
+</section>
+
+<section class="sec" id="running-locally" data-toc="Running models locally">
+<header class="sec-head"><span class="sec-num">06</span><h2>Running models locally</h2></header>
+<p>The single biggest constraint is <b>VRAM</b>, the memory on the graphics card (GPU). The model has to fit in VRAM to run fast. If it doesn't, part of it spills into regular RAM and runs much slower.</p>
+<div class="table-wrap"><table class="stack"><thead><tr><th>Model size</th><th>Rough memory at 4-bit (Q4)</th><th>Typical hardware</th></tr></thead><tbody>
+<tr><td data-l="Model size"><b>~7–8B</b></td><td data-l="Rough memory at 4-bit (Q4)">~5–6 GB</td><td data-l="Typical hardware">8–12 GB GPUs; many Apple Silicon laptops</td></tr>
+<tr><td data-l="Model size"><b>~14–32B</b></td><td data-l="Rough memory at 4-bit (Q4)">~9–20 GB</td><td data-l="Typical hardware">16–24 GB GPUs; a sweet spot for home use</td></tr>
+<tr><td data-l="Model size"><b>70B+</b></td><td data-l="Rough memory at 4-bit (Q4)">~40 GB and up</td><td data-l="Typical hardware">Multiple GPUs, workstation cards, or a high-memory Mac</td></tr>
+</tbody></table></div>
+<div class="callout"><span class="label">Rule of thumb</span><p>About 0.5–0.6 GB per billion parameters at Q4, plus extra for context. Full 16-bit precision needs about 2 GB per billion.</p></div>
+<h3>How the pieces fit together</h3>
+<div class="diagram"><div class="n"><b>Model file</b>e.g., GGUF from Hugging Face</div><div class="a">→</div><div class="n"><b>Runner</b>Ollama, llama.cpp, LM Studio…</div><div class="a">→</div><div class="n"><b>Front end</b>Open WebUI chat page</div><div class="a">→</div><div class="n"><b>You</b>Any browser on your network</div></div>
+<div class="table-wrap"><table class="stack"><thead><tr><th>Runner</th><th>Best for</th></tr></thead><tbody>
+<tr><td data-l="Runner"><b>Ollama</b></td><td data-l="Best for">The simplest start: one command downloads and runs a model; provides an API for other apps.</td></tr>
+<tr><td data-l="Runner"><b>LM Studio</b></td><td data-l="Best for">Polished desktop app for browsing, downloading, and chatting; very beginner-friendly.</td></tr>
+<tr><td data-l="Runner"><b>llama.cpp</b></td><td data-l="Best for">The open-source engine under many tools; creator of GGUF; maximum control.</td></tr>
+<tr><td data-l="Runner"><b>vLLM</b></td><td data-l="Best for">High-throughput serving to many users on strong GPUs; common in production.</td></tr>
+<tr><td data-l="Runner"><b>Jan</b></td><td data-l="Best for">Open-source desktop app focused on offline privacy.</td></tr>
+<tr><td data-l="Runner"><b>GPT4All</b></td><td data-l="Best for">Easy desktop app that also runs on ordinary CPUs; can chat with local documents.</td></tr>
+<tr><td data-l="Runner"><b>KoboldCpp</b></td><td data-l="Best for">Single-file app built on llama.cpp, popular for storytelling and role-play.</td></tr>
+<tr><td data-l="Runner"><b>text-generation-webui</b> ("oobabooga")</td><td data-l="Best for">The tinkerer's Swiss Army knife. "Oobabooga" is the developer's handle. It loads almost any model format, exposes every generation setting, and supports character chats, LoRA training, voice/image extensions, and an API. Start with LM Studio; come here to experiment.</td></tr>
+</tbody></table></div>
+<p><b>Open WebUI</b> is a self-hosted, ChatGPT-style web interface that connects to Ollama or any compatible server, with accounts, chat history, and document upload.</p>
+<aside class="terms"><span class="label">Key terms</span><dl><div><dt>GPU / VRAM</dt><dd>The graphics chip / its memory.</dd></div><div><dt>Quantization (Q4, Q8)</dt><dd>Fewer bits per weight.</dd></div><div><dt>Runner</dt><dd>Software that loads and runs a model.</dd></div><div><dt>Front end</dt><dd>The interface you use.</dd></div><div><dt>API</dt><dd>A way for programs to talk to each other.</dd></div></dl></aside>
+</section>
+
+<section class="sec" id="home-ai-box" data-toc="Building a home AI box">
+<header class="sec-head"><span class="sec-num">07</span><h2>Building a home AI box</h2></header>
+<p>A computer dedicated to running models, sometimes called an <b>AI node</b>, has different priorities from a gaming PC.</p>
+<div class="table-wrap"><table class="stack"><thead><tr><th></th><th>Dedicated AI node</th><th>Gaming PC</th></tr></thead><tbody>
+<tr><td><b>Top priority</b></td><td data-l="Dedicated AI node">VRAM, so bigger models fit</td><td data-l="Gaming PC">GPU speed and frame rates</td></tr>
+<tr><td><b>Setup</b></td><td data-l="Dedicated AI node">Often <b>headless</b> (no monitor), managed remotely</td><td data-l="Gaming PC">Monitor and peripherals</td></tr>
+<tr><td><b>Uptime</b></td><td data-l="Dedicated AI node">24/7; reliability and efficiency matter</td><td data-l="Gaming PC">On when in use</td></tr>
+<tr><td><b>OS</b></td><td data-l="Dedicated AI node">Usually Linux</td><td data-l="Gaming PC">Usually Windows</td></tr>
+<tr><td><b>Cooling</b></td><td data-l="Dedicated AI node">Quiet, steady cooling for long loads</td><td data-l="Gaming PC">Short bursts of heavy load</td></tr>
+<tr><td><b>Power</b></td><td data-l="Dedicated AI node"><b>UPS</b> battery backup so outages don't crash it or corrupt data</td><td data-l="Gaming PC">Optional</td></tr>
+</tbody></table></div>
+<div class="table-wrap"><table class="stack"><thead><tr><th>Operating system</th><th>Notes</th></tr></thead><tbody>
+<tr><td data-l="Operating system"><b>Ubuntu Linux</b></td><td data-l="Notes">Most common for AI servers; best support for Nvidia drivers, Docker, and AI tools.</td></tr>
+<tr><td data-l="Operating system"><b>Windows</b></td><td data-l="Notes">Fine for LM Studio and Ollama; WSL2 runs Linux tools inside Windows.</td></tr>
+<tr><td data-l="Operating system"><b>macOS (Apple Silicon)</b></td><td data-l="Notes">"Unified memory" is shared by CPU and GPU, so high-memory Macs can load large models. Quiet and efficient, but usually slower than a high-end Nvidia GPU.</td></tr>
+<tr><td data-l="Operating system"><b>Proxmox</b></td><td data-l="Notes">Free Linux-based platform that turns one machine into many virtual machines and containers, managed from a web page. Ideal for split roles (Section 8).</td></tr>
+</tbody></table></div>
+<p><b>Wired Ethernet</b> is more reliable than Wi-Fi and can't be snooped over the air. Plugging in doesn't make the box unsafe. What matters is what the box can reach, and what can reach it, which is covered next.</p>
+<aside class="terms"><span class="label">Key terms</span><dl><div><dt>AI node</dt><dd>A computer dedicated to running models.</dd></div><div><dt>Headless</dt><dd>Runs with no monitor.</dd></div><div><dt>UPS</dt><dd>Battery backup power.</dd></div><div><dt>Unified memory</dt><dd>Memory shared by CPU and GPU.</dd></div><div><dt>Proxmox / hypervisor</dt><dd>Software that runs many virtual machines.</dd></div></dl></aside>
+</section>
+
+<div class="part"><span><em>C</em> · Privacy &amp; security</span></div>
+
+<section class="sec" id="privacy" data-toc="Privacy &amp; security">
+<header class="sec-head"><span class="sec-num">08</span><h2>Privacy &amp; security</h2></header>
+<h3>How private is "local"?</h3>
+<p>With <b>local inference</b>, prompts and files are processed on your own machine, not a company's servers. But apps may still send <b>telemetry</b> (usage data), and anything with web search, downloads, or plugins reaches the internet. Local is private only if you control those connections.</p>
+<h3>Can network traffic be hidden?</h3>
+<p>Not made invisible, but it can be made <b>unreadable</b> and <b>limited</b>:</p>
+<div class="table-wrap"><table class="stack"><thead><tr><th>Technique</th><th>What it does</th></tr></thead><tbody>
+<tr><td data-l="Technique"><b>Encryption</b> (HTTPS, VPN, Tailscale)</td><td data-l="What it does">Scrambles the contents. Your internet provider or a Wi-Fi snoop can still see <i>that</i> you send data and where to, but not what.</td></tr>
+<tr><td data-l="Technique"><b>Firewall / outbound blocking</b></td><td data-l="What it does">Stops the box talking to the internet except for what you allow.</td></tr>
+<tr><td data-l="Technique"><b>DNS filtering</b> (Pi-hole)</td><td data-l="What it does">Blocks known tracking and telemetry addresses for the whole network, and shows what each device tries to contact.</td></tr>
+<tr><td data-l="Technique"><b>VLAN / guest network</b></td><td data-l="What it does">Puts the AI box in its own network zone so other devices can't see or reach it. Many routers' guest networks do a basic version.</td></tr>
+<tr><td data-l="Technique"><b>Tailscale, not port forwarding</b></td><td data-l="What it does">Port forwarding opens your box to the whole internet. Tailscale creates a private encrypted network among <i>your</i> devices only.</td></tr>
+<tr><td data-l="Technique"><b>Air gap</b></td><td data-l="What it does">No network at all; files move by USB. Maximum isolation, least convenient.</td></tr>
+</tbody></table></div>
+<h3>Split roles: a standard security method</h3>
+<blockquote class="pull"><p>Never keep the most valuable data on the machine that faces the internet.</p></blockquote>
+<p>Security professionals call this <b>segmentation</b>, layered as <b>defense in depth</b>, with <b>least privilege</b> (each part gets only the access it needs). Banks, hospitals, and militaries work this way.</p>
+<div class="diagram"><div class="n priv"><b>Box A · Private</b>Model, documents, memory. No internet, or updates only.</div><div class="a">⇄</div><div class="n bridge"><b>Narrow bridge</b>Only specific requests pass (e.g., a web page as plain text)</div><div class="a">⇄</div><div class="n pub"><b>Box B · Public-facing</b>Web search, email, downloads. Nothing valuable stored.</div></div>
+<p>If Box B is compromised, the attacker lands somewhere with nothing worth stealing. Box A never browses the web itself. With Proxmox, both "boxes" can be virtual machines on one physical computer.</p>
+<div class="table-wrap"><table class="stack"><thead><tr><th>Isolation tool</th><th>What it is</th><th>Strength</th></tr></thead><tbody>
+<tr><td data-l="Isolation tool"><b>Container</b> (Docker)</td><td data-l="What it is">A walled-off package for one app, sharing the host's operating system</td><td data-l="Strength">Light, fast, easy to rebuild</td></tr>
+<tr><td data-l="Isolation tool"><b>Virtual machine (VM)</b></td><td data-l="What it is">A complete simulated computer with its own OS</td><td data-l="Strength">Stronger isolation; heavier</td></tr>
+<tr><td data-l="Isolation tool"><b>Separate hardware</b></td><td data-l="What it is">Physically different machines</td><td data-l="Strength">Strongest; most cost</td></tr>
+</tbody></table></div>
+<aside class="terms"><span class="label">Key terms</span><dl><div><dt>Telemetry</dt><dd>Data apps send home.</dd></div><div><dt>Firewall</dt><dd>Allows or blocks connections.</dd></div><div><dt>DNS</dt><dd>The internet's address book.</dd></div><div><dt>VLAN</dt><dd>A separate virtual network.</dd></div><div><dt>Segmentation</dt><dd>Splitting systems into zones.</dd></div><div><dt>Defense in depth</dt><dd>Layered protection.</dd></div><div><dt>Least privilege</dt><dd>Each part gets only the access it needs.</dd></div><div><dt>Sandbox</dt><dd>An isolated place to run things safely.</dd></div></dl></aside>
+</section>
+
+<div class="part"><span><em>D</em> · Agents</span></div>
+
+<section class="sec" id="agents" data-toc="Agents &amp; context engineering">
+<header class="sec-head"><span class="sec-num">09</span><h2>AI agents &amp; context engineering</h2></header>
+<p>A chatbot answers one message. An <b>agent</b> works toward a goal: it plans steps, uses <b>tools</b> (web search, email, files, code), checks results, and continues until done or until it needs a human. Assistant bots with tools, memory, and scheduled routines are agents.</p>
+<blockquote class="pull"><p>Using an agent does not train it. You shape its behavior through what it sees each time it works.</p></blockquote>
+<p>That is <b>context engineering</b>, a fuller way to think about "prompting." It has five main levers:</p>
+<div class="table-wrap"><table class="stack"><thead><tr><th>Lever</th><th>What it is</th><th>Use for</th></tr></thead><tbody>
+<tr><td data-l="Lever"><b>Instructions</b></td><td data-l="What it is">Standing role and rules read every time</td><td data-l="Use for">Mission, tone, boundaries, default format</td></tr>
+<tr><td data-l="Lever"><b>Memory</b></td><td data-l="What it is">Saved facts recalled later</td><td data-l="Use for">Preferences, decisions, key details</td></tr>
+<tr><td data-l="Lever"><b>Skills</b></td><td data-l="What it is">Saved step-by-step recipes</td><td data-l="Use for">Repeatable multi-step tasks</td></tr>
+<tr><td data-l="Lever"><b>Tools / connectors</b></td><td data-l="What it is">Abilities to fetch real data or act</td><td data-l="Use for">Current facts instead of guesses</td></tr>
+<tr><td data-l="Lever"><b>Examples</b></td><td data-l="What it is">Samples of good output</td><td data-l="Use for">Matching format and detail</td></tr>
+</tbody></table></div>
+<h3>Best practices for shaping agents</h3>
+<ol>
+<li><b>One clear job per agent</b>: e.g., one for household tasks, one for research, one for finances. Also state what it does <i>not</i> do.</li>
+<li><b>Correct right away, specifically</b>: "Next time, keep summaries to 5 bullets with a source link." Then ask it to save the lesson to memory.</li>
+<li><b>Turn a well-done task into a skill</b> with a trigger (when to use), inputs, numbered steps, an output format, and stop rules.</li>
+<li><b>Show examples</b> of the output you want, and define the format.</li>
+<li><b>Set boundaries</b>: it may search, read, and draft on its own, but must ask before sending messages, spending money, deleting, or sharing.</li>
+<li><b>Routines</b>: run on a schedule or trigger, and stay quiet when nothing changed.</li>
+<li><b>Prune memory</b> regularly. Stale or wrong facts steer it wrong.</li>
+<li><b>Test</b>: keep a few test cases, rerun the same task to check consistency, and retest after changes.</li>
+</ol>
+<div class="table-wrap"><table class="stack"><thead><tr><th>Failure</th><th>Fix</th></tr></thead><tbody>
+<tr><td data-l="Failure"><b>Hallucination</b> (confident false facts)</td><td data-l="Fix">Require sources opened during the task; give it real-data tools.</td></tr>
+<tr><td data-l="Failure"><b>Overconfidence</b></td><td data-l="Fix">Instruct it to state uncertainty and how it would check.</td></tr>
+<tr><td data-l="Failure"><b>Scope creep</b></td><td data-l="Fix">Tighten the mission; add stop rules.</td></tr>
+<tr><td data-l="Failure"><b>Stale memory</b></td><td data-l="Fix">Regular memory review; update when things change.</td></tr>
+<tr><td data-l="Failure"><b>Prompt injection</b> (hostile text in pages or emails)</td><td data-l="Fix">Boundaries that require approval for risky actions.</td></tr>
+</tbody></table></div>
+<aside class="terms"><span class="label">Key terms</span><dl><div><dt>Agent</dt><dd>Goal-driven AI that uses tools.</dd></div><div><dt>Context engineering</dt><dd>Shaping what the model sees.</dd></div><div><dt>Memory / skill</dt><dd>Saved facts / a saved recipe.</dd></div><div><dt>Hallucination</dt><dd>Confident false output.</dd></div><div><dt>Guardrails</dt><dd>Limits and required approvals.</dd></div></dl></aside>
+</section>
+
+<section class="sec" id="orchestration" data-toc="Agent orchestration">
+<header class="sec-head"><span class="sec-num">10</span><h2>Agent orchestration</h2></header>
+<p><b>Orchestration</b> means designing a <i>system</i> of agents rather than a single chatbot.</p>
+<div class="table-wrap"><table class="stack"><thead><tr><th>Building block</th><th>Role</th></tr></thead><tbody>
+<tr><td data-l="Building block"><b>Router</b></td><td data-l="Role">Reads each request and sends it to the right specialist agent.</td></tr>
+<tr><td data-l="Building block"><b>Planner / workers</b></td><td data-l="Role">A planner splits a goal into tasks; workers each own one; results are combined.</td></tr>
+<tr><td data-l="Building block"><b>Handoffs</b></td><td data-l="Role">Passing work with a concise summary: goal, what's known, constraints, what "done" means.</td></tr>
+<tr><td data-l="Building block"><b>Shared memory</b></td><td data-l="Role">Facts that several agents can use.</td></tr>
+<tr><td data-l="Building block"><b>Tools via MCP</b></td><td data-l="Role">Model Context Protocol, an open standard plug system that connects tools and data to AI apps.</td></tr>
+<tr><td data-l="Building block"><b>Human approval</b></td><td data-l="Role">Human-in-the-loop checkpoints for risky actions.</td></tr>
+<tr><td data-l="Building block"><b>Evals</b></td><td data-l="Role">Tests that confirm the system keeps doing the job right after changes.</td></tr>
+</tbody></table></div>
+<aside class="terms"><span class="label">Key terms</span><dl><div><dt>Orchestration</dt><dd>Coordinating multiple agents.</dd></div><div><dt>MCP</dt><dd>The standard for connecting tools to AI apps.</dd></div><div><dt>Function calling</dt><dd>A model requesting a tool run.</dd></div><div><dt>Embedding / vector database</dt><dd>Meaning stored as numbers / the search engine behind RAG.</dd></div><div><dt>Eval</dt><dd>A repeatable quality test.</dd></div></dl></aside>
+</section>
+
+<div class="part"><span><em>E</em> · The bigger picture</span></div>
+
+<section class="sec" id="bigger-picture" data-toc="Data centers &amp; the future">
+<header class="sec-head"><span class="sec-num">11</span><h2>Data centers, capabilities &amp; the future</h2></header>
+<h3>Why giant data centers?</h3>
+<p>Companies and governments are building huge AI data centers, such as OpenAI's <b>Stargate</b> project and xAI's <b>Colossus</b> in Memphis. They serve two jobs: <b>training</b> new models, which takes the most compute, and running <b>inference</b> for millions of users. <b>Power</b> has become the bottleneck, so some builders are adding or buying their own power supply.</p>
+<aside class="qa">
+<p class="q">Does anyone know everything these models can do?</p>
+<p class="a">No, not even the labs.</p>
+</aside>
+<p>Abilities sometimes appear that nobody specifically trained for, which is called <b>emergent capability</b>. Labs run evaluations before release, and users keep discovering new uses afterward. Progress has been fast, but whether it keeps compounding is genuinely debated. Some expect acceleration as AI helps build AI; others expect limits from power, data, and cost.</p>
+<div class="callout warn"><span class="label">Speculation · possibilities, not predictions</span><ul>
+<li>Agents running small-business back offices around the clock (scheduling, billing, follow-ups, bookkeeping).</li>
+<li>Personal AI with long-term memory of your projects, home, and health, running locally for privacy.</li>
+<li>AI doing real science: proposing experiments, designing materials and drugs, running robotic labs.</li>
+<li>Robots in homes and job sites that learn tasks by watching once.</li>
+<li>Simulations of whole systems (a town, a business) to test decisions before making them.</li>
+</ul></div>
+<aside class="terms"><span class="label">Key terms</span><dl><div><dt>Data center</dt><dd>A building full of servers and GPUs.</dd></div><div><dt>Compute</dt><dd>Processing power.</dd></div><div><dt>Emergent capability</dt><dd>An ability nobody explicitly trained for.</dd></div><div><dt>Multimodal</dt><dd>Handles text, images, audio, and more.</dd></div></dl></aside>
+</section>
+
+<section class="sec" id="skynet" data-toc="Skynet is real (sort of)">
+<header class="sec-head"><span class="sec-num">12</span><h2>Skynet is real (sort of)</h2></header>
+<p>The Skynet joke is a pop-culture shortcut for AI going rogue. Real programs that analyze <b>metadata</b> at scale are a clearer warning: where your data goes matters, which is one reason running AI locally matters.</p>
+<p>In <i>The Terminator</i> (1984), Skynet is a military AI that turns on humanity. The name is real, and it is older than the movie.</p>
+<h3>The satellites</h3>
+<p>Skynet is the name of the UK Ministry of Defence's military communications satellites. The first, <b>Skynet 1A</b>, launched on a US rocket in November 1969, fifteen years before the film. The system is still running. The next-generation <b>Skynet 6A</b>, built by Airbus, is scheduled to launch in 2027. It is a communications network, not an AI.</p>
+<h3>The algorithm</h3>
+<p>In May 2015, <i>The Intercept</i> published NSA slides from the Snowden documents describing a program called <b>SKYNET</b>. It used <b>machine learning</b> on the phone <b>metadata</b> of about 55 million Pakistani mobile users. Metadata means who called whom, when, and from where, not what was said. SKYNET looked for people whose travel and calling patterns resembled those of known Al Qaeda couriers. The flagged behaviors included frequent trips between certain cities, swapping SIM cards or handsets, and receiving incoming calls only.</p>
+<p>A June 2012 slide showed the "highest scoring" person as probably <b>Ahmad Zaidan</b>, Al Jazeera's Islamabad bureau chief. Zaidan is a journalist whose job meant interviewing Al Qaeda leaders, and he denied any membership. The document showed he was already on a US watch list, but it gave no evidence for that label.</p>
+<blockquote class="pull"><p>To a pattern-matching system, a reporter who meets dangerous people can look exactly like a courier.</p></blockquote>
+<p>In 2016, data scientist <b>Patrick Ball</b> told Ars Technica that the NSA's testing was "ridiculously optimistic." The model was trained and tested on just seven known couriers. Even the best false-alarm rate in the slides, 0.008%, would wrongly flag about 15,000 people out of 55 million. Others, including a <i>Guardian</i> analysis, pointed out that the slides describe preliminary research. Public documents do not show how SKYNET's output was actually used.</p>
+<h3>The real lesson</h3>
+<p>The real risk isn't a chrome robot. It is quiet statistical systems making judgments about people from data they never knew was being collected. Even when content is encrypted, metadata can still reveal patterns of life. When these systems are wrong, they are wrong about real people, at scale. Understanding how they work is how you notice when they are making mistakes, and how you push back. That is also why running models on your own machine, and controlling what leaves it, is more than a convenience.</p>
+<aside class="terms"><span class="label">Key terms</span><dl><div><dt>Metadata</dt><dd>Data about communications (who, when, where), not their content.</dd></div><div><dt>Machine learning</dt><dd>Software that learns patterns from examples instead of following hand-written rules.</dd></div><div><dt>False positive</dt><dd>An innocent case wrongly flagged as a match.</dd></div><div><dt>Pattern of life</dt><dd>A profile of someone's routine built from their location and contact data.</dd></div></dl></aside>
+<p class="small">Sources: <a href="https://theintercept.com/2015/05/08/u-s-government-designated-prominent-al-jazeera-journalist-al-qaeda-member-put-watch-list/">The Intercept (2015)</a> · <a href="https://theintercept.com/document/skynet-courier/">NSA slides: "SKYNET: Courier Detection via Machine Learning"</a> · <a href="https://arstechnica.com/information-technology/2016/02/the-nsas-skynet-program-may-be-killing-thousands-of-innocent-people/">Ars Technica (2016)</a> · <a href="https://www.theguardian.com/science/the-lay-scientist/2016/feb/18/has-a-rampaging-ai-algorithm-really-killed-thousands-in-pakistan">The Guardian (2016)</a> · <a href="https://www.raf.mod.uk/what-we-do/centre-for-air-and-space-power-studies/aspr/aspr-vol24-iss2-5-pdf/">RAF Air and Space Power Review</a> · <a href="https://www.gov.uk/guidance/skynet-6">GOV.UK: SKYNET 6</a> · <a href="https://www.airbus.com/en/newsroom/press-releases/2025-05-airbus-next-generation-skynet-satellite-reaches-major-milestone">Airbus (2025)</a></p>
+</section>
+
+<section class="sec" id="careers" data-toc="Careers in AI engineering">
+<header class="sec-head"><span class="sec-num">13</span><h2>Careers in AI engineering</h2></header>
+<p>Demand is shifting from "can you use a chatbot" to "can you <b>build, deploy, and maintain</b> an AI system that reliably runs part of a business." Small businesses especially need people who can set AI up securely and keep it working.</p>
+<div class="table-wrap"><table class="stack"><thead><tr><th>Role</th><th>Focus</th></tr></thead><tbody>
+<tr><td data-l="Role"><b>AI engineer</b></td><td data-l="Focus">Builds products on existing models: APIs, context, RAG, tools, evals, deployment</td></tr>
+<tr><td data-l="Role"><b>Applied AI / LLM engineer</b></td><td data-l="Focus">Model choice, fine-tuning, quality, cost, and speed</td></tr>
+<tr><td data-l="Role"><b>Agent / automation engineer</b></td><td data-l="Focus">Multi-step agent workflows connected to business tools, with approvals and monitoring</td></tr>
+<tr><td data-l="Role"><b>AI solutions consultant</b></td><td data-l="Focus">Finds where AI helps a small business, sets it up, trains staff, maintains it</td></tr>
+</tbody></table></div>
+<h3>Skills to build</h3>
+<ul class="chips"><li>Python basics</li><li>APIs</li><li>Context engineering</li><li>RAG</li><li>Evals</li><li>Docker</li><li>Linux</li><li>Cloud basics</li><li>Git</li></ul>
+<h3>Five starter projects</h3>
+<div class="table-wrap"><table class="stack"><thead><tr><th>Step</th><th>Starter project</th><th>Teaches</th></tr></thead><tbody>
+<tr><td data-l="Step"><b>1</b></td><td data-l="Starter project">Home AI box: Ollama + Open WebUI in Docker, reached via Tailscale</td><td data-l="Teaches">Linux, Docker, VRAM, quantization, secure access</td></tr>
+<tr><td data-l="Step"><b>2</b></td><td data-l="Starter project">RAG over your own documents</td><td data-l="Teaches">Embeddings, vector databases, citing sources</td></tr>
+<tr><td data-l="Step"><b>3</b></td><td data-l="Starter project">A script that calls a model API with function calling</td><td data-l="Teaches">APIs, JSON, tool use</td></tr>
+<tr><td data-l="Step"><b>4</b></td><td data-l="Starter project">Small multi-agent workflow (router + specialists, or planner + workers + reviewer)</td><td data-l="Teaches">Orchestration, handoffs, guardrails</td></tr>
+<tr><td data-l="Step"><b>5</b></td><td data-l="Starter project">An eval set for one project, then improve the score</td><td data-l="Teaches">Measuring quality</td></tr>
+</tbody></table></div>
+<p class="small">Pay and job-market figures vary widely by region and change quickly. Check current job boards and industry surveys rather than any single number.</p>
+</section>
+
+
+    <section class="sec" id="review" data-toc="Quick review">
+      <header class="sec-head"><span class="sec-num">14</span><h2>Quick review</h2></header>
+      <div class="quiz-bar"><p class="small" style="margin:0">Answer out loud first, then tap a question to check.</p><button class="btn" type="button" id="revealAll">Reveal all</button></div>
+      <div class="quiz">
+        <details><summary>Does chatting with a model retrain it?</summary><div class="ans">No. Chatting is inference; weights don&#x27;t change. Memory and instructions are fed back in as context.</div></details>
+        <details><summary>Open-weight vs. fully open?</summary><div class="ans">Open-weight shares the weights; fully open also shares training data and code (e.g., OLMo).</div></details>
+        <details><summary>Name two permissive licenses, and one custom one.</summary><div class="ans">Apache 2.0 and MIT; Meta&#x27;s Llama license.</div></details>
+        <details><summary>Who makes Qwen, Gemma, and Phi?</summary><div class="ans">Alibaba, Google, Microsoft.</div></details>
+        <details><summary>Three ways to customize a model without training one from scratch?</summary><div class="ans">Community fine-tunes, RAG, your own fine-tuning/LoRA (plus context engineering).</div></details>
+        <details><summary>Why prefer safetensors over pickle?</summary><div class="ans">Safetensors can&#x27;t run code when loaded; a malicious pickle can.</div></details>
+        <details><summary>Why can a newer 14B model beat an older 70B model?</summary><div class="ans">Better training methods and data. Age and specialty matter, not just size.</div></details>
+        <details><summary>Why be skeptical of benchmark scores?</summary><div class="ans">Test leakage, tuning for the test, and cherry-picking. Test on your own tasks.</div></details>
+        <details><summary>What is the main hardware limit for local models?</summary><div class="ans">GPU VRAM. The model must fit to run fast.</div></details>
+        <details><summary>About how much memory does an 8B model need at Q4?</summary><div class="ans">Roughly 5–6 GB, plus room for context.</div></details>
+        <details><summary>Ollama vs. Open WebUI?</summary><div class="ans">Ollama runs the model; Open WebUI is the chat interface.</div></details>
+        <details><summary>Who is text-generation-webui (&quot;oobabooga&quot;) for?</summary><div class="ans">Tinkerers who want every setting, many formats, extensions, and LoRA training.</div></details>
+        <details><summary>Can encryption hide that you&#x27;re sending traffic?</summary><div class="ans">No. It hides the content, not the fact, timing, or destination.</div></details>
+        <details><summary>Describe split roles in one sentence.</summary><div class="ans">The private model and data box stays offline, a separate box faces the internet, and a narrow bridge sits between them (segmentation and defense in depth).</div></details>
+        <details><summary>Container vs. VM?</summary><div class="ans">A container shares the host OS (light); a VM is a full simulated computer (stronger isolation).</div></details>
+        <details><summary>Name the five context-engineering levers.</summary><div class="ans">Instructions, memory, skills, tools/connectors, examples.</div></details>
+        <details><summary>What are the five parts of a good agent skill?</summary><div class="ans">Trigger, inputs, steps, output format, stop rules.</div></details>
+        <details><summary>What does MCP standardize?</summary><div class="ans">How AI apps connect to tools and data sources.</div></details>
+        <details><summary>Why are AI data centers limited by power?</summary><div class="ans">Training and serving models take enormous electricity; supply hasn&#x27;t kept pace.</div></details>
+        <details><summary>What is emergent capability?</summary><div class="ans">An ability that appears without being specifically trained for.</div></details>
+        <details><summary>Which came first: the UK&#x27;s Skynet satellites or The Terminator?</summary><div class="ans">The satellites. Skynet 1A launched in 1969; the film came out in 1984.</div></details>
+        <details><summary>What did the NSA&#x27;s SKYNET analyze, and why did critics worry?</summary><div class="ans">Phone metadata (travel and calling patterns) of about 55 million Pakistani users, to flag suspected couriers. Critics warned that even tiny false-positive rates would wrongly flag thousands of people, and it flagged a journalist as its top match.</div></details>
+      </div>
+    </section>
+
+    <div class="endmark" aria-hidden="true"><i></i><i></i><i></i></div>
+  </article>
+</div>
+
+<section class="ending" aria-label="Closing image">
+  <div class="ending-frame"><img src="ending.jpg" alt="A giant steel Wraith machine with a single vertical red sensor slit bursts out of the iceberg, crushing the nuclear-powered data center in fire and shattered ice, while more Wraiths rise from the sea to attack the burning data-center icebergs in the distance." width="1280" height="720" loading="lazy" decoding="async"><div class="ending-glow" aria-hidden="true"></div><div class="ending-cracks" aria-hidden="true"></div></div>
+</section>
+<footer class="footer">End of guide · Late-2026 snapshot · Verify details at official sources</footer>
+
+<script>
+(function(){
+  var bar=document.querySelector('.progress span'),pipe=document.querySelector('.pipe-fill'),
+      art=document.querySelector('.article'),depth=document.getElementById('depth'),
+      MAX_DEPTH=3800;
+  function onScroll(){
+    var h=document.documentElement,max=h.scrollHeight-h.clientHeight,p=max>0?h.scrollTop/max:0;
+    bar.style.width=(p*100)+'%';
+    var r=art.getBoundingClientRect(),a=Math.min(1,Math.max(0,(innerHeight*0.5-r.top)/r.height));
+    pipe.style.height=(a*r.height)+'px';
+    if(depth)depth.textContent=Math.round(a*MAX_DEPTH).toLocaleString()+' m';
+    document.body.classList.toggle('bottomed',a>=0.995);
+  }
+  addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',onScroll);onScroll();
+  var links=[].slice.call(document.querySelectorAll('.toc a'));
+  if('IntersectionObserver' in window&&links.length){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){
+      links.forEach(function(l){l.classList.toggle('active',l.getAttribute('href')==='#'+e.target.id)});}})},
+      {rootMargin:'-30% 0px -60% 0px'});
+    document.querySelectorAll('.sec[id]').forEach(function(s){io.observe(s)});
+  }
+  var end=document.querySelector('.ending');
+  if(end){
+    if('IntersectionObserver' in window){
+      var eo=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){end.classList.add('in');eo.disconnect();}})},{threshold:0.22});
+      eo.observe(end);
+    } else end.classList.add('in');
+  }
+  var btn=document.getElementById('revealAll');
+  if(btn)btn.addEventListener('click',function(){
+    var d=document.querySelectorAll('.quiz details'),open=btn.dataset.open!=='1';
+    d.forEach(function(x){x.open=open});btn.dataset.open=open?'1':'0';btn.textContent=open?'Hide all':'Reveal all';
+  });
+})();
+</script>
+</body>
+</html>
