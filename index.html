@@ -64,16 +64,14 @@
     <h2>Be first to hear what's next</h2>
     <p class="follow-lead">A quiet list, for when there's something new to share.</p>
 
-    <!-- TODO: put the Buttondown form action here once the account is created.
-         Typical action: https://buttondown.com/api/emails/embed-subscribe/USERNAME
-         The email field name should remain "email". -->
-    <form class="signup" action="#" method="post" onsubmit="return false;">
+    <form class="signup" action="https://buttondown.com/api/emails/embed-subscribe/fringenode" method="post" target="_blank" rel="noopener noreferrer">
       <label for="email">Email address</label>
       <div class="signup-row">
-        <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" required>
-        <button type="submit" disabled>Notify me</button>
+        <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" required aria-describedby="signup-privacy">
+        <button type="submit">Notify me</button>
       </div>
-      <p class="signup-note">Email signup is not live yet. This is a placeholder until the Buttondown list is ready.</p>
+      <input type="hidden" value="1" name="embed">
+      <p class="signup-note" id="signup-privacy">No spam. Unsubscribe anytime.</p>
     </form>
 
     <p class="rss"><a href="feed.xml">RSS feed</a></p>
