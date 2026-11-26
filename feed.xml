@@ -5,13 +5,20 @@
     <link>https://fringenode-ai.github.io/</link>
     <description>AI engineering for living systems. Field guides and notes from the edges.</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 25 Nov 2026 14:30:00 -0500</lastBuildDate>
+    <lastBuildDate>Wed, 25 Nov 2026 20:52:00 -0500</lastBuildDate>
     <item>
       <title>Checkpoint 01 · The Closed Loop</title>
       <link>https://fringenode-ai.github.io/the-closed-loop/</link>
       <guid isPermaLink="true">https://fringenode-ai.github.io/the-closed-loop/</guid>
       <pubDate>Wed, 25 Nov 2026 00:00:00 -0500</pubDate>
       <description>The whole FringeNode idea as one cycle: a small solar computer on the land learns from a healthy reference area, watches a damaged plot, proposes one small fix, and measures whether it helped. What exists today, and what is still a plan.</description>
+    </item>
+    <item>
+      <title>Field Guide 04 · Your First Agent, Safely</title>
+      <link>https://fringenode-ai.github.io/your-first-agent-safely/</link>
+      <guid isPermaLink="true">https://fringenode-ai.github.io/your-first-agent-safely/</guid>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 -0500</pubDate>
+      <description>A practice field guide: design a first agent that can read supplier notes and draft a reply, but cannot send, delete, or spend, with least privilege, a human approval step, and a worked prompt-injection example.</description>
     </item>
     <item>
       <title>Field Guide 03 · Context Engineering in Practice</title>

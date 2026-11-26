@@ -286,13 +286,13 @@ th:first-child{min-width:132px}
 .ending-cracks{position:absolute;inset:0;z-index:2;pointer-events:none;opacity:0;mix-blend-mode:screen;
   background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900' fill='none' stroke='%23e6f4ff' stroke-linecap='round' stroke-linejoin='round'%3E%3Cg stroke-width='2.2' stroke-opacity='.75'%3E%3Cpath d='M800 430 L700 380 L610 395 L470 300 L300 280 L120 170 L0 150'/%3E%3Cpath d='M800 430 L905 360 L1010 372 L1150 270 L1330 250 L1600 120'/%3E%3Cpath d='M800 430 L760 560 L800 660 L740 800 L770 900'/%3E%3Cpath d='M800 430 L690 520 L520 560 L380 690 L180 760 L0 820'/%3E%3Cpath d='M800 430 L930 520 L1090 540 L1240 680 L1430 730 L1600 800'/%3E%3Cpath d='M800 430 L820 300 L780 190 L830 60 L810 0'/%3E%3C/g%3E%3Cg stroke-width='1.1' stroke-opacity='.5'%3E%3Cpath d='M610 395 L560 470 L470 500'/%3E%3Cpath d='M470 300 L430 220 L350 190'/%3E%3Cpath d='M1010 372 L1060 450 L1160 470'/%3E%3Cpath d='M1150 270 L1190 190 L1280 160'/%3E%3Cpath d='M520 560 L500 650'/%3E%3Cpath d='M1090 540 L1120 630'/%3E%3Cpath d='M780 190 L700 150'/%3E%3Cpath d='M800 660 L880 720'/%3E%3C/g%3E%3C/svg%3E") center/cover no-repeat}
 /* hidden until revealed (only when JS is running) */
-.js .ending-frame{opacity:0;transform:translateY(60px) scale(1.05);transition:opacity 1.4s ease,transform 1.6s cubic-bezier(.2,.8,.2,1)}
+.js .ending-frame{opacity:0;transform:translateY(60px);transition:opacity 1.4s ease,transform 1.6s cubic-bezier(.2,.8,.2,1)}
 .js .ending.in .ending-frame{opacity:1;transform:none}
 .ending.in::before{opacity:1;transform:translateX(-50%) scaleX(1)}
 .ending.in .ending-glow{animation:ember 4.5s ease-in-out 1.2s infinite;opacity:1}
 .ending.in .ending-cracks{animation:crack 2.4s ease-out .5s both}
 .ending.in .ending-frame img{animation:quake .6s linear .55s 1}
-@keyframes crack{0%{opacity:0;transform:scale(.92)}12%{opacity:.85}100%{opacity:0;transform:scale(1.06)}}
+@keyframes crack{0%{opacity:0;transform:scale(.92)}12%{opacity:.85}100%{opacity:0;transform:scale(1)}}
 @keyframes ember{0%,100%{opacity:.75}50%{opacity:1}}
 @keyframes quake{0%,100%{transform:translate(0,0)}15%{transform:translate(-5px,2px)}30%{transform:translate(4px,-3px)}45%{transform:translate(-3px,3px)}60%{transform:translate(3px,-1px)}80%{transform:translate(-1px,1px)}}
 /* copper pipe "hits bottom" */

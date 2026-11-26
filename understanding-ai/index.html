@@ -89,8 +89,8 @@
 </div>
 
 <div class="layout has-ending">
-  <aside class="toc" aria-label="Contents">
-    <nav>
+  <div class="toc">
+    <nav aria-label="Contents">
       <div class="toc-label">Contents</div>
       <ol>
         <li><a href="#how-models-work">How AI models work</a></li>
@@ -110,7 +110,7 @@
       </ol>
       <div class="depth">DEPTH<b id="depth">0 m</b></div>
     </nav>
-  </aside>
+  </div>
 
   <article class="article">
     <div class="pipe-fill" aria-hidden="true"></div>
@@ -131,7 +131,7 @@
 </tbody></table></div>
 <blockquote class="pull"><p>Chatting with a model is inference, not training. The model file itself does not change.</p></blockquote>
 <p>If you use a cloud app, the company may still keep your chats, or use them to train later models, unless you turn that off. When an app seems to "remember" you, it saved notes and fed them back in as extra text. Section 9 explains how to use this on purpose.</p>
-<aside class="terms"><span class="label">Key terms</span><dl><div><dt>Model</dt><dd>A trained AI program.</dd></div><div><dt>LLM</dt><dd>A large language model: a model for language.</dd></div><div><dt>Token</dt><dd>A chunk of text, often part of a word.</dd></div><div><dt>Weights / parameters</dt><dd>The learned numbers.</dd></div><div><dt>Training / fine-tuning / inference</dt><dd>Learn from scratch / adjust / use.</dd></div></dl></aside>
+<div class="terms"><span class="label">Key terms</span><dl><div><dt>Model</dt><dd>A trained AI program.</dd></div><div><dt>LLM</dt><dd>A large language model: a model for language.</dd></div><div><dt>Token</dt><dd>A chunk of text, often part of a word.</dd></div><div><dt>Weights / parameters</dt><dd>The learned numbers.</dd></div><div><dt>Training / fine-tuning / inference</dt><dd>Learn from scratch / adjust / use.</dd></div></dl></div>
 </section>
 
 <section class="sec" id="open-vs-closed" data-toc="Open vs. closed models">
@@ -148,7 +148,7 @@
 <li><b>Llama license</b>: Meta's custom community license. It is free for most uses but adds an acceptable-use policy, attribution rules, and a separate-license requirement for very large companies.</li>
 <li><b>Other custom or non-commercial licenses</b> add limits. Read the license on the model page before any business use.</li>
 </ul>
-<aside class="terms"><span class="label">Key terms</span><dl><div><dt>Open-weight</dt><dd>Downloadable weights.</dd></div><div><dt>Fully open</dt><dd>Weights + training data + code.</dd></div><div><dt>Closed</dt><dd>Available only through an API or app.</dd></div><div><dt>License</dt><dd>The legal terms of use.</dd></div></dl></aside>
+<div class="terms"><span class="label">Key terms</span><dl><div><dt>Open-weight</dt><dd>Downloadable weights.</dd></div><div><dt>Fully open</dt><dd>Weights + training data + code.</dd></div><div><dt>Closed</dt><dd>Available only through an API or app.</dd></div><div><dt>License</dt><dd>The legal terms of use.</dd></div></dl></div>
 </section>
 
 <section class="sec" id="who-makes" data-toc="Who makes the models">
@@ -180,7 +180,7 @@
 <tr><td data-l="Family"><b>Nova</b></td><td data-l="Maker">Amazon (USA)</td><td data-l="Known for">Amazon's models, used through AWS (Bedrock) and Amazon products</td></tr>
 <tr><td data-l="Family"><b>Doubao</b></td><td data-l="Maker">ByteDance (China)</td><td data-l="Known for">Powers the Doubao app; available only through ByteDance's API</td></tr>
 </tbody></table></div>
-<aside class="terms"><span class="label">Key terms</span><dl><div><dt>Model family</dt><dd>A series of related models from one maker.</dd></div><div><dt>Mixture of experts (MoE)</dt><dd>A design where only some parts of the model work on each token, so huge models run more cheaply.</dd></div></dl></aside>
+<div class="terms"><span class="label">Key terms</span><dl><div><dt>Model family</dt><dd>A series of related models from one maker.</dd></div><div><dt>Mixture of experts (MoE)</dt><dd>A design where only some parts of the model work on each token, so huge models run more cheaply.</dd></div></dl></div>
 </section>
 
 <section class="sec" id="customizing" data-toc="Customizing &amp; trusting models">
@@ -202,7 +202,7 @@
 <tr><td data-l="Format"><b>GGUF</b></td><td data-l="What it is">Single-file format from llama.cpp, usually quantized</td><td data-l="Risk">A data-only format; still download from reputable uploaders.</td></tr>
 </tbody></table></div>
 <p>The weights themselves are just numbers. The bigger risks are unsafe file formats and the <i>software</i> around the model. That's one reason open-source runners help: anyone can inspect their code.</p>
-<aside class="terms"><span class="label">Key terms</span><dl><div><dt>RAG</dt><dd>Retrieval-augmented generation: look up your documents, then answer.</dd></div><div><dt>LoRA</dt><dd>A cheap add-on fine-tune.</dd></div><div><dt>Hugging Face</dt><dd>The main model-sharing hub.</dd></div><div><dt>safetensors / pickle / GGUF</dt><dd>Safe / risky / llama.cpp file formats.</dd></div></dl></aside>
+<div class="terms"><span class="label">Key terms</span><dl><div><dt>RAG</dt><dd>Retrieval-augmented generation: look up your documents, then answer.</dd></div><div><dt>LoRA</dt><dd>A cheap add-on fine-tune.</dd></div><div><dt>Hugging Face</dt><dd>The main model-sharing hub.</dd></div><div><dt>safetensors / pickle / GGUF</dt><dd>Safe / risky / llama.cpp file formats.</dd></div></dl></div>
 </section>
 
 <div class="part"><span><em>B</em> · Choosing &amp; running models</span></div>
@@ -223,7 +223,7 @@
 <li><b>LMArena</b> (formerly Chatbot Arena): people vote between two anonymous answers. Votes become <b>Elo</b>-style ratings, like chess, where beating strong opponents earns more points. It measures preference, which includes style.</li>
 </ul>
 <div class="callout warn"><span class="label">Caution</span><p>Benchmarks can be gamed. Test questions can leak into training data, labs tune for popular tests, and companies highlight their best scores. The most reliable test is your own: try candidates on your real tasks.</p></div>
-<aside class="terms"><span class="label">Key terms</span><dl><div><dt>Benchmark</dt><dd>A standard test.</dd></div><div><dt>Leaderboard</dt><dd>A ranked list of scores.</dd></div><div><dt>Elo</dt><dd>A head-to-head rating system.</dd></div><div><dt>Context window</dt><dd>How much text fits at once.</dd></div><div><dt>Reasoning model</dt><dd>Thinks step by step before answering.</dd></div></dl></aside>
+<div class="terms"><span class="label">Key terms</span><dl><div><dt>Benchmark</dt><dd>A standard test.</dd></div><div><dt>Leaderboard</dt><dd>A ranked list of scores.</dd></div><div><dt>Elo</dt><dd>A head-to-head rating system.</dd></div><div><dt>Context window</dt><dd>How much text fits at once.</dd></div><div><dt>Reasoning model</dt><dd>Thinks step by step before answering.</dd></div></dl></div>
 </section>
 
 <section class="sec" id="running-locally" data-toc="Running models locally">
@@ -248,7 +248,7 @@
 <tr><td data-l="Runner"><b>text-generation-webui</b> ("oobabooga")</td><td data-l="Best for">The tinkerer's Swiss Army knife. "Oobabooga" is the developer's handle. It loads almost any model format, exposes every generation setting, and supports character chats, LoRA training, voice/image extensions, and an API. Start with LM Studio; come here to experiment.</td></tr>
 </tbody></table></div>
 <p><b>Open WebUI</b> is a self-hosted, ChatGPT-style web interface that connects to Ollama or any compatible server, with accounts, chat history, and document upload.</p>
-<aside class="terms"><span class="label">Key terms</span><dl><div><dt>GPU / VRAM</dt><dd>The graphics chip / its memory.</dd></div><div><dt>Quantization (Q4, Q8)</dt><dd>Fewer bits per weight.</dd></div><div><dt>Runner</dt><dd>Software that loads and runs a model.</dd></div><div><dt>Front end</dt><dd>The interface you use.</dd></div><div><dt>API</dt><dd>A way for programs to talk to each other.</dd></div></dl></aside>
+<div class="terms"><span class="label">Key terms</span><dl><div><dt>GPU / VRAM</dt><dd>The graphics chip / its memory.</dd></div><div><dt>Quantization (Q4, Q8)</dt><dd>Fewer bits per weight.</dd></div><div><dt>Runner</dt><dd>Software that loads and runs a model.</dd></div><div><dt>Front end</dt><dd>The interface you use.</dd></div><div><dt>API</dt><dd>A way for programs to talk to each other.</dd></div></dl></div>
 </section>
 
 <section class="sec" id="home-ai-box" data-toc="Building a home AI box">
@@ -269,7 +269,7 @@
 <tr><td data-l="Operating system"><b>Proxmox</b></td><td data-l="Notes">Free Linux-based platform that turns one machine into many virtual machines and containers, managed from a web page. Ideal for split roles (Section 8).</td></tr>
 </tbody></table></div>
 <p><b>Wired Ethernet</b> is more reliable than Wi-Fi and can't be snooped over the air. Plugging in doesn't make the box unsafe. What matters is what the box can reach, and what can reach it, which is covered next.</p>
-<aside class="terms"><span class="label">Key terms</span><dl><div><dt>AI node</dt><dd>A computer dedicated to running models.</dd></div><div><dt>Headless</dt><dd>Runs with no monitor.</dd></div><div><dt>UPS</dt><dd>Battery backup power.</dd></div><div><dt>Unified memory</dt><dd>Memory shared by CPU and GPU.</dd></div><div><dt>Proxmox / hypervisor</dt><dd>Software that runs many virtual machines.</dd></div></dl></aside>
+<div class="terms"><span class="label">Key terms</span><dl><div><dt>AI node</dt><dd>A computer dedicated to running models.</dd></div><div><dt>Headless</dt><dd>Runs with no monitor.</dd></div><div><dt>UPS</dt><dd>Battery backup power.</dd></div><div><dt>Unified memory</dt><dd>Memory shared by CPU and GPU.</dd></div><div><dt>Proxmox / hypervisor</dt><dd>Software that runs many virtual machines.</dd></div></dl></div>
 </section>
 
 <div class="part"><span><em>C</em> · Privacy &amp; security</span></div>
@@ -298,7 +298,7 @@
 <tr><td data-l="Isolation tool"><b>Virtual machine (VM)</b></td><td data-l="What it is">A complete simulated computer with its own OS</td><td data-l="Strength">Stronger isolation; heavier</td></tr>
 <tr><td data-l="Isolation tool"><b>Separate hardware</b></td><td data-l="What it is">Physically different machines</td><td data-l="Strength">Strongest; most cost</td></tr>
 </tbody></table></div>
-<aside class="terms"><span class="label">Key terms</span><dl><div><dt>Telemetry</dt><dd>Data apps send home.</dd></div><div><dt>Firewall</dt><dd>Allows or blocks connections.</dd></div><div><dt>DNS</dt><dd>The internet's address book.</dd></div><div><dt>VLAN</dt><dd>A separate virtual network.</dd></div><div><dt>Segmentation</dt><dd>Splitting systems into zones.</dd></div><div><dt>Defense in depth</dt><dd>Layered protection.</dd></div><div><dt>Least privilege</dt><dd>Each part gets only the access it needs.</dd></div><div><dt>Sandbox</dt><dd>An isolated place to run things safely.</dd></div></dl></aside>
+<div class="terms"><span class="label">Key terms</span><dl><div><dt>Telemetry</dt><dd>Data apps send home.</dd></div><div><dt>Firewall</dt><dd>Allows or blocks connections.</dd></div><div><dt>DNS</dt><dd>The internet's address book.</dd></div><div><dt>VLAN</dt><dd>A separate virtual network.</dd></div><div><dt>Segmentation</dt><dd>Splitting systems into zones.</dd></div><div><dt>Defense in depth</dt><dd>Layered protection.</dd></div><div><dt>Least privilege</dt><dd>Each part gets only the access it needs.</dd></div><div><dt>Sandbox</dt><dd>An isolated place to run things safely.</dd></div></dl></div>
 </section>
 
 <div class="part"><span><em>D</em> · Agents</span></div>
@@ -333,7 +333,7 @@
 <tr><td data-l="Failure"><b>Stale memory</b></td><td data-l="Fix">Regular memory review; update when things change.</td></tr>
 <tr><td data-l="Failure"><b>Prompt injection</b> (hostile text in pages or emails)</td><td data-l="Fix">Boundaries that require approval for risky actions.</td></tr>
 </tbody></table></div>
-<aside class="terms"><span class="label">Key terms</span><dl><div><dt>Agent</dt><dd>Goal-driven AI that uses tools.</dd></div><div><dt>Context engineering</dt><dd>Shaping what the model sees.</dd></div><div><dt>Memory / skill</dt><dd>Saved facts / a saved recipe.</dd></div><div><dt>Hallucination</dt><dd>Confident false output.</dd></div><div><dt>Guardrails</dt><dd>Limits and required approvals.</dd></div></dl></aside>
+<div class="terms"><span class="label">Key terms</span><dl><div><dt>Agent</dt><dd>Goal-driven AI that uses tools.</dd></div><div><dt>Context engineering</dt><dd>Shaping what the model sees.</dd></div><div><dt>Memory / skill</dt><dd>Saved facts / a saved recipe.</dd></div><div><dt>Hallucination</dt><dd>Confident false output.</dd></div><div><dt>Guardrails</dt><dd>Limits and required approvals.</dd></div></dl></div>
 </section>
 
 <section class="sec" id="orchestration" data-toc="Agent orchestration">
@@ -348,7 +348,7 @@
 <tr><td data-l="Building block"><b>Human approval</b></td><td data-l="Role">Human-in-the-loop checkpoints for risky actions.</td></tr>
 <tr><td data-l="Building block"><b>Evals</b></td><td data-l="Role">Tests that confirm the system keeps doing the job right after changes.</td></tr>
 </tbody></table></div>
-<aside class="terms"><span class="label">Key terms</span><dl><div><dt>Orchestration</dt><dd>Coordinating multiple agents.</dd></div><div><dt>MCP</dt><dd>The standard for connecting tools to AI apps.</dd></div><div><dt>Function calling</dt><dd>A model requesting a tool run.</dd></div><div><dt>Embedding / vector database</dt><dd>Meaning stored as numbers / the search engine behind RAG.</dd></div><div><dt>Eval</dt><dd>A repeatable quality test.</dd></div></dl></aside>
+<div class="terms"><span class="label">Key terms</span><dl><div><dt>Orchestration</dt><dd>Coordinating multiple agents.</dd></div><div><dt>MCP</dt><dd>The standard for connecting tools to AI apps.</dd></div><div><dt>Function calling</dt><dd>A model requesting a tool run.</dd></div><div><dt>Embedding / vector database</dt><dd>Meaning stored as numbers / the search engine behind RAG.</dd></div><div><dt>Eval</dt><dd>A repeatable quality test.</dd></div></dl></div>
 </section>
 
 <div class="part"><span><em>E</em> · The bigger picture</span></div>
@@ -357,10 +357,10 @@
 <header class="sec-head"><span class="sec-num">11</span><h2>Data centers, capabilities &amp; the future</h2></header>
 <h3>Why giant data centers?</h3>
 <p>Companies and governments are building huge AI data centers, such as OpenAI's <b>Stargate</b> project and xAI's <b>Colossus</b> in Memphis. They serve two jobs: <b>training</b> new models, which takes the most compute, and running <b>inference</b> for millions of users. <b>Power</b> has become the bottleneck, so some builders are adding or buying their own power supply.</p>
-<aside class="qa">
+<div class="qa">
 <p class="q">Does anyone know everything these models can do?</p>
 <p class="a">No, not even the labs.</p>
-</aside>
+</div>
 <p>Abilities sometimes appear that nobody specifically trained for, which is called <b>emergent capability</b>. Labs run evaluations before release, and users keep discovering new uses afterward. Progress has been fast, but whether it keeps compounding is genuinely debated. Some expect acceleration as AI helps build AI; others expect limits from power, data, and cost.</p>
 <div class="callout warn"><span class="label">Speculation · possibilities, not predictions</span><ul>
 <li>Agents running small-business back offices around the clock (scheduling, billing, follow-ups, bookkeeping).</li>
@@ -369,7 +369,7 @@
 <li>Robots in homes and job sites that learn tasks by watching once.</li>
 <li>Simulations of whole systems (a town, a business) to test decisions before making them.</li>
 </ul></div>
-<aside class="terms"><span class="label">Key terms</span><dl><div><dt>Data center</dt><dd>A building full of servers and GPUs.</dd></div><div><dt>Compute</dt><dd>Processing power.</dd></div><div><dt>Emergent capability</dt><dd>An ability nobody explicitly trained for.</dd></div><div><dt>Multimodal</dt><dd>Handles text, images, audio, and more.</dd></div></dl></aside>
+<div class="terms"><span class="label">Key terms</span><dl><div><dt>Data center</dt><dd>A building full of servers and GPUs.</dd></div><div><dt>Compute</dt><dd>Processing power.</dd></div><div><dt>Emergent capability</dt><dd>An ability nobody explicitly trained for.</dd></div><div><dt>Multimodal</dt><dd>Handles text, images, audio, and more.</dd></div></dl></div>
 </section>
 
 <section class="sec" id="skynet" data-toc="Skynet is real (sort of)">
@@ -385,7 +385,7 @@
 <p>In 2016, data scientist <b>Patrick Ball</b> told Ars Technica that the NSA's testing was "ridiculously optimistic." The model was trained and tested on just seven known couriers. Even the best false-alarm rate in the slides, 0.008%, would still have wrongly flagged about 15,000 people out of Pakistan's population of about 192 million at the time, as Ars Technica calculated. Others, including a <i>Guardian</i> analysis, pointed out that the slides describe preliminary research. Public documents do not show how SKYNET's output was actually used.</p>
 <h3>The real lesson</h3>
 <p>The real risk isn't a chrome robot. It is quiet statistical systems making judgments about people from data they never knew was being collected. Even when content is encrypted, metadata can still reveal patterns of life. When these systems are wrong, they are wrong about real people, at scale. Understanding how they work is how you notice when they are making mistakes, and how you push back. That is also why running models on your own machine, and controlling what leaves it, is more than a convenience.</p>
-<aside class="terms"><span class="label">Key terms</span><dl><div><dt>Metadata</dt><dd>Data about communications (who, when, where), not their content.</dd></div><div><dt>Machine learning</dt><dd>Software that learns patterns from examples instead of following hand-written rules.</dd></div><div><dt>False positive</dt><dd>An innocent case wrongly flagged as a match.</dd></div><div><dt>Pattern of life</dt><dd>A profile of someone's routine built from their location and contact data.</dd></div></dl></aside>
+<div class="terms"><span class="label">Key terms</span><dl><div><dt>Metadata</dt><dd>Data about communications (who, when, where), not their content.</dd></div><div><dt>Machine learning</dt><dd>Software that learns patterns from examples instead of following hand-written rules.</dd></div><div><dt>False positive</dt><dd>An innocent case wrongly flagged as a match.</dd></div><div><dt>Pattern of life</dt><dd>A profile of someone's routine built from their location and contact data.</dd></div></dl></div>
 <p class="small">Sources: <a href="https://theintercept.com/2015/05/08/u-s-government-designated-prominent-al-jazeera-journalist-al-qaeda-member-put-watch-list/">The Intercept (2015)</a> · <a href="https://theintercept.com/document/skynet-courier/">NSA slides: "SKYNET: Courier Detection via Machine Learning"</a> · <a href="https://arstechnica.com/information-technology/2016/02/the-nsas-skynet-program-may-be-killing-thousands-of-innocent-people/">Ars Technica (2016)</a> · <a href="https://www.theguardian.com/science/the-lay-scientist/2016/feb/18/has-a-rampaging-ai-algorithm-really-killed-thousands-in-pakistan">The Guardian (2016)</a> · <a href="https://www.raf.mod.uk/what-we-do/centre-for-air-and-space-power-studies/aspr/aspr-vol24-iss2-5-pdf/">RAF Air and Space Power Review (PDF)</a> · <a href="https://www.gov.uk/guidance/skynet-6">GOV.UK: SKYNET 6</a> · <a href="https://www.airbus.com/en/newsroom/press-releases/2025-05-airbus-next-generation-skynet-satellite-reaches-major-milestone">Airbus (2025)</a></p>
 </section>
 

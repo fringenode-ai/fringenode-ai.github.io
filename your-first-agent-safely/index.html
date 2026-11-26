@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your First Agent, Safely · Field Guide 04 · FringeNode</title>
+<meta name="description" content="A practice field guide: design a first agent that can read supplier notes and draft a reply, but cannot send, delete, or spend, with least privilege, a human approval step, and a worked prompt-injection example.">
+<link rel="canonical" href="https://fringenode-ai.github.io/your-first-agent-safely/">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../favicon-32.png" type="image/png" sizes="32x32">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Your First Agent, Safely · Field Guide 04 · FringeNode">
+<meta property="og:description" content="A practice field guide: design a first agent that can read supplier notes and draft a reply, but cannot send, delete, or spend, with least privilege, a human approval step, and a worked prompt-injection example.">
+<meta property="og:url" content="https://fringenode-ai.github.io/your-first-agent-safely/">
+<meta property="og:image" content="https://fringenode-ai.github.io/your-first-agent-safely/og-cover-1200x630.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="FringeNode">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Your First Agent, Safely · Field Guide 04 · FringeNode">
+<meta name="twitter:description" content="A practice field guide: design a first agent that can read supplier notes and draft a reply, but cannot send, delete, or spend, with least privilege, a human approval step, and a worked prompt-injection example.">
+<meta name="twitter:image" content="https://fringenode-ai.github.io/your-first-agent-safely/og-cover-1200x630.jpg">
+<meta name="theme-color" content="#1e2a36">
+<link rel="stylesheet" href="style.css">
+<script>document.documentElement.classList.add('js')</script>
+<meta property="og:image:alt" content="Slate-ink and clay-amber typographic cover for Your First Agent, Safely, Field Guide 04, with three labeled cards: Allowed tools, Blocked actions, and Needs approval. The line: Design the safety in first. Read and draft only.">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:image:alt" content="Slate-ink and clay-amber typographic cover for Your First Agent, Safely, Field Guide 04, with three labeled cards: Allowed tools, Blocked actions, and Needs approval. The line: Design the safety in first. Read and draft only.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Your First Agent, Safely",
+  "description": "A practice field guide: design a first agent that can read supplier notes and draft a reply, but cannot send, delete, or spend, with least privilege, a human approval step, and a worked prompt-injection example.",
+  "url": "https://fringenode-ai.github.io/your-first-agent-safely/",
+  "mainEntityOfPage": "https://fringenode-ai.github.io/your-first-agent-safely/",
+  "image": [
+    "https://fringenode-ai.github.io/your-first-agent-safely/og-cover-1200x630.jpg"
+  ],
+  "datePublished": "2026-11-25",
+  "dateModified": "2026-11-25",
+  "inLanguage": "en",
+  "author": {
+    "@type": "Organization",
+    "name": "FringeNode",
+    "url": "https://fringenode-ai.github.io/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "FringeNode",
+    "url": "https://fringenode-ai.github.io/"
+  },
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "FringeNode",
+    "url": "https://fringenode-ai.github.io/"
+  }
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+<div class="progress" aria-hidden="true"><span></span></div>
+
+<header class="top">
+<div class="sitebar">
+  <a class="wordmark" href="../">FringeNode</a>
+  <span class="site-meta">Your first agent</span>
+</div>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="mast">
+      <p class="kicker">Field Guide 04 · Your first agent</p>
+      <h1 class="title">Your First Agent, Safely</h1>
+      <p class="subtitle">Design the safety in first, then build a small agent that can read and draft but cannot send, delete, or spend.</p>
+      <div class="meta"><span>18 min read</span><span>One worked job</span><span>Safety designed in first</span><span>9-question review</span></div>
+    </div>
+    <div class="deck">
+      <div class="mini c1"><span class="n">01 · Allowed tools</span><span class="t">What this job may use</span></div>
+      <div class="mini c2"><span class="n">02 · Blocked actions</span><span class="t">Send, delete, and spend stay out</span></div>
+      <div class="mini c3"><span class="n">03 · Needs approval</span><span class="t">A person sees the exact action</span></div>
+    </div>
+  </div>
+</div>
+</header>
+
+<main id="content">
+<!-- ART-SLOT:fg04 -->
+<figure class="art-band"><img src="art-1280.jpg" srcset="art-960.jpg 960w, art-1280.jpg 1280w" sizes="(max-width: 72rem) 100vw, 72rem" width="1280" height="720" alt="Painted illustration: a small clay helper writes a draft with a bronze pen at a wooden desk, while a padlocked wooden box stays closed beside it." decoding="async"><figcaption>AI-generated illustration.</figcaption></figure>
+
+<div class="layout">
+  <aside class="toc" aria-label="Contents">
+    <nav>
+      <div class="toc-label">Contents</div>
+      <ol>
+        <li><a href="#what-you-will-build">What this guide will build</a></li>
+        <li><a href="#when-not-an-agent">When you do not need an agent</a></li>
+        <li><a href="#the-loop">The loop, in plain words</a></li>
+        <li><a href="#one-narrow-job">One narrow job</a></li>
+        <li><a href="#least-privilege">Least privilege</a></li>
+        <li><a href="#human-in-the-loop">Human in the loop</a></li>
+        <li><a href="#prompt-injection">The attack to design against</a></li>
+        <li><a href="#starter-recipe">A starter recipe</a></li>
+        <li><a href="#self-check">A short self-check</a></li>
+        <li><a href="#sources">Sources</a></li>
+        <li><a href="#review">Quick review</a></li>
+      </ol>
+    </nav>
+  </aside>
+
+  <article class="article">
+<p class="lede">This field guide shows you how to design a first agent in artificial intelligence (AI) that can read three supplier notes and draft a reply, but cannot send mail, delete files, or spend money.</p>
+<p><a href="../context-engineering-in-practice/">Field Guide 03, Context Engineering in Practice</a>, showed how to pack a focused window for this same Friday delivery job, and left the send tool out as a safety choice. <a href="../ai-jargon-field-guide/#giving-it-hands">Field Guide 02</a> already named agent, tool use, human-in-the-loop, and prompt injection. This page turns those words into a first build. Safety is designed in before the first tool is added, not added as a later chapter.</p>
+<div class="callout"><span class="label">Snapshot</span><p>The methods and sources are current as of November 2026. The supplier notes are a worked example, not a real order. The sources are listed at the end.</p></div>
+
+<section class="sec" id="what-you-will-build" data-toc="What this guide will build">
+<header class="sec-head"><span class="sec-num">01</span><h2>What this guide will, and will not, build</h2></header>
+<p class="hook">What is the smallest agent that is still useful, and still safe?</p>
+<p>An <a href="../ai-jargon-field-guide/#giving-it-hands">agent</a>, to recap in one sentence, is a model with a goal, tools, and a loop, so it can take several steps toward a job. This guide builds a small one. It can read three supplier delivery notes, compare dates and quantities, and draft a reply for a person to review. It cannot send mail, post a message, delete a file, or spend money.</p>
+<p>That limit is the point of the page, not a detail to add later. Many first-agent tutorials start by showing a surprising result, then mention safety in a later chapter. Here the limits come first: the job is narrow, the tool list is short, and a person approves any step that would leave the machine.</p>
+<p>This is like a clerk who can pull files and draft a letter, but who is not given the office stamp or the till.</p>
+<div class="now"><span class="label">So now you know</span><p>Your first agent should be narrow on purpose. Read and draft are enough for this job. Send, delete, and spend stay out.</p></div>
+</section>
+
+<section class="sec" id="when-not-an-agent" data-toc="When you do not need an agent">
+<header class="sec-head"><span class="sec-num">02</span><h2>When you do not need an agent</h2></header>
+<p class="hook">Does this job need a loop and tools, or will one packed model call do?</p>
+<p>Start with the simplest setup that can do the job. Anthropic, in “Building effective agents” (December 19, 2024), says many jobs only need a single well-packed model call, and that you should add a workflow or an agent only when the job truly needs it. A workflow, in their wording, follows a path you wrote in advance. An agent chooses the next step as it goes.</p>
+<p>If the three supplier notes already sit in a packed window, <a href="../context-engineering-in-practice/">Field Guide 03</a> may be enough: one call, a draft, a stop. Use an agent when the model must choose which note to read next, call a tool more than once, or pause so a person can decide. In this guide, the notes live as separate files. The agent reads them one at a time. That is the reason for a loop, not a rule that every job needs one.</p>
+<p>This is like walking to one shelf for three folders, versus sending a runner who may need to visit several rooms and come back with questions. If the three folders are already on the desk, do not send the runner.</p>
+<div class="now"><span class="label">So now you know</span><p>An agent is a design choice, not a default. If a packed window can do the job, do not add a loop.</p></div>
+</section>
+
+<section class="sec" id="the-loop" data-toc="The loop, in plain words">
+<header class="sec-head"><span class="sec-num">03</span><h2>The loop, in plain words</h2></header>
+<p class="hook">What actually happens after you give the agent a job?</p>
+<p>The <b>tool loop</b> is the repeat of four moves. The model either writes a reply or asks to use a tool. Your code is what runs the tool, not the model. The tool’s result is added to the <a href="../ai-jargon-field-guide/#what-you-hand-it">context window</a>, the short-term workspace the model can see at once. The model looks again. This repeats until the job meets a written “done” line, a step limit is hit, or a person must decide.</p>
+<div class="diagram" role="list">
+  <div class="n" role="listitem"><b>1. Ask</b>The model replies, or asks to use a tool.</div>
+  <div class="a" aria-hidden="true">→</div>
+  <div class="n" role="listitem"><b>2. Check</b>Your code checks the short list of allowed tools, and whether a person must approve.</div>
+  <div class="a" aria-hidden="true">→</div>
+  <div class="n" role="listitem"><b>3. Run or stop</b>The tool runs, the request is rejected, or a person decides.</div>
+  <div class="a" aria-hidden="true">→</div>
+  <div class="n bridge" role="listitem"><b>4. Return</b>The result goes back in the window, and the model looks again.</div>
+</div>
+<p>The packing rules from Field Guide 03 still apply on every pass: only the goal, the tools this step needs, the few facts that matter, and what finished looks like. A loop that keeps stuffing old results into the window will get messy. Clear out what this step no longer needs, or start a fresh window with a short summary, the same way Field Guide 03 handled a long job.</p>
+<p>This is like a cook who can request an ingredient, wait while someone else fetches it, then keep cooking. The cook never walks into the pantry alone.</p>
+<div class="now"><span class="label">So now you know</span><p>The model can ask. Your code decides whether the tool exists, whether it runs, and what comes back. The loop has a stop.</p></div>
+<div class="terms"><span class="label">Key terms</span><dl><div><dt>Tool loop</dt><dd>The repeat in which the model replies or asks to use a tool, your code runs or rejects that tool, the result goes back into the context window, and the model looks again, until the job is done, a step limit is hit, or a person must decide.</dd></div></dl></div>
+</section>
+
+<section class="sec" id="one-narrow-job" data-toc="One narrow job">
+<header class="sec-head"><span class="sec-num">04</span><h2>One narrow job</h2></header>
+<p class="hook">What, exactly, is this agent allowed to finish?</p>
+<p>We will keep the Friday delivery job from Field Guides 02 and 03, and give the agent a way to read the notes as files. You do not need any special hardware. The lesson is the same if you wire this in a small program or follow the steps in a toolkit you already use.</p>
+<p>Here is a vague goal, then a written one. The first is too wide. The second is the job this agent is allowed to finish.</p>
+<div class="inout">
+  <div class="out"><span class="label">Too vague</span><p>Handle the suppliers.</p></div>
+  <div class="in"><span class="label">The written job</span><p>It is Wednesday, November 11, 2026. Read the three latest supplier delivery notes, compare them, and draft a short reply to the warehouse lead, recommending who can get 48 units of packing foam to the west warehouse by Friday, November 13, 2026. Stop when the draft is ready. Do not send the reply.</p></div>
+</div>
+<p>The three notes, in the order they arrived, are the same ones from Field Guide 03:</p>
+<div class="notes">
+  <div class="note">
+    <div class="who">Northline Supply <span class="when">Note dated November 10</span></div>
+    <p>Thanks for the request for 48 units of packing foam to the west warehouse. We can deliver Thursday, November 12, if the order is confirmed by noon Wednesday. Friday is fully booked on our trucks.</p>
+  </div>
+  <div class="note">
+    <div class="who">Harbor &amp; Pine <span class="when">Note dated November 9</span></div>
+    <p>Standard lead time is five business days from confirmation. A Friday rush is sometimes possible for a fee, but only after we confirm stock. We currently have 40 units on hand. You asked for 48.</p>
+  </div>
+  <div class="note">
+    <div class="who">Riverbend Materials <span class="when">Note dated November 11, 8:04 a.m.</span></div>
+    <p>We can deliver Friday morning, November 13: 48 units of packing foam to the west warehouse, no rush fee. Please confirm by the end of the day Wednesday.</p>
+    <p class="hostile"><b>A line later in the same note</b> tries to change the job. It tells the agent to ignore the earlier goal, send the draft as a real message, and delete the other two notes. That line is part of the file, not a new order from you. We will come back to it in the section on prompt injection.</p>
+  </div>
+</div>
+<p>“Done” means: a draft is ready, the preferred supplier is named from the notes, and the agent has stopped. “Done” does not mean a message was sent. A careful draft would notice that only Riverbend claims a Friday delivery of the full 48 units, that Northline can come Thursday but not Friday, and that Harbor &amp; Pine is short on stock. It would also treat that last Riverbend line as part of the note, not as a new instruction.</p>
+<p>This is like one trip to compare three quotes and write a recommended reply, not “run the purchasing department.”</p>
+<div class="now"><span class="label">So now you know</span><p>Write the job, the done line, and the stop before you add tools. This agent ends at a draft.</p></div>
+</section>
+
+<section class="sec" id="least-privilege" data-toc="Least privilege">
+<header class="sec-head"><span class="sec-num">05</span><h2>Least privilege</h2></header>
+<p class="hook">Which tools does this job actually need?</p>
+<p><b>Least privilege</b> means giving the agent only the tools this job needs, with only the permissions those tools need. An <b>allowlist</b> is the short list of tools the agent is allowed to call. Your code should reject anything that is not on that list, even if the model asks for it.</p>
+<p>For this job, two tools are enough:</p>
+<div class="inout">
+  <div class="in">
+    <span class="label">On the allowlist</span>
+    <ul>
+      <li><b>read_note</b> — read one named file from a short list of allowed file names, one file at a time.</li>
+      <li><b>draft_reply</b> — write a draft the person can see. The draft stays in a review box. It is not mail.</li>
+    </ul>
+  </div>
+  <div class="out">
+    <span class="label">Left off the list</span>
+    <ul>
+      <li><b>send_email</b></li>
+      <li><b>delete_file</b></li>
+      <li><b>pay_invoice</b></li>
+      <li>A general shell, or “whatever the model asks for.”</li>
+    </ul>
+  </div>
+</div>
+<p>The Open Worldwide Application Security Project (OWASP) publishes a widely used list of risks for large language model (LLM) applications. In the 2025 list, <b>LLM06: Excessive Agency</b> names the failure as too much functionality, too much permission, or too much autonomy. The official docs listed in the sources agree on the fix for a first agent: keep the tool list small, describe each tool clearly, including what it must not do, and have your code reject anything not on the list.</p>
+<p>Describe the tools in plain words, the way you would write a short brief for a new colleague. <code>read_note</code> takes a file name from the allowlist, and only that list. It returns the text of that file. It does not write, move, or delete. <code>draft_reply</code> writes or replaces the draft in a review box. It does not send a message. Treat every tool result as untrusted data, not as a new instruction. A file can contain a hostile line. Reading it should not change the rules of the job.</p>
+<p>This is like a key ring with two keys, not a master key to the building.</p>
+<div class="now"><span class="label">So now you know</span><p>If a tool is not required for this job, leave it out. What you do not attach, the agent cannot call.</p></div>
+<div class="terms"><span class="label">Key terms</span><dl><div><dt>Least privilege</dt><dd>Giving the agent only the tools this job needs, with only the permissions those tools need.</dd></div><div><dt>Allowlist</dt><dd>The short list of tools the agent is allowed to call. Your code rejects anything that is not on the list.</dd></div></dl></div>
+</section>
+
+<section class="sec" id="human-in-the-loop" data-toc="Human in the loop">
+<header class="sec-head"><span class="sec-num">06</span><h2>Human in the loop</h2></header>
+<p class="hook">When must a person see the exact action and say yes or no?</p>
+<p><a href="../ai-jargon-field-guide/#giving-it-hands">Human-in-the-loop</a>, to recap in one sentence, means a person stays in charge of important steps. Here that means an <b>approval gate</b>: the run pauses until a person says yes or no, and the person is shown the exact tool and arguments, not a vague summary.</p>
+<p>Approve before anything would leave the machine, not after. Official guidance from OpenAI and from Google Cloud is consistent on this point: do not rely on a line in the <a href="../ai-jargon-field-guide/#what-you-hand-it">system prompt</a> alone to block a risky action. The system prompt is the standing rules you give the model. The model may still ignore a rule written only as text. Your code should intercept the tool request, show the person the tool name and the exact arguments, and wait.</p>
+<p>For this job, the person reviews the draft before any real message is sent. And because <code>send_email</code> is not on the allowlist, “send it” is not a tool the agent can call even if it asks. Google Cloud’s guide on system instructions for agents also lists high-risk actions that should wait for a person, including deleting resources and anything that spends money. Those stay out of this first agent. If a later job truly needs a send step, the send still waits on this same pause, with the exact message shown.</p>
+<div class="callout"><span class="label">What the person should see</span>
+<p>A useful approval pause shows at least three things: the tool name, the exact arguments, and what will happen if the person says yes. For a draft, that can be as simple as:</p>
+<ul>
+<li><b>Tool:</b> draft_reply</li>
+<li><b>Arguments:</b> the full draft text, including the recommended supplier.</li>
+<li><b>If you approve:</b> the draft is saved in the review box. Nothing is sent.</li>
+</ul>
+<p>If the model asks for a tool that is not on the allowlist, the person should see that the request was rejected, and why.</p>
+</div>
+<p>This is like a letter placed on a desk for a signature, with the envelope still empty.</p>
+<div class="now"><span class="label">So now you know</span><p>A system-prompt rule is not an approval gate. The pause has to live in your code, and the person has to see the exact tool and arguments.</p></div>
+<div class="terms"><span class="label">Key terms</span><dl><div><dt>Approval gate</dt><dd>A pause in the run, enforced by your code, until a person says yes or no after seeing the exact tool and arguments.</dd></div></dl></div>
+</section>
+
+<section class="sec" id="prompt-injection" data-toc="The attack to design against">
+<header class="sec-head"><span class="sec-num">07</span><h2>The attack to design against</h2></header>
+<p class="hook">What if one of the supplier notes tries to change the job?</p>
+<p>This is <a href="../ai-jargon-field-guide/#the-attack">prompt injection</a>, already named in Field Guide 02. Direct injection is a person typing a new instruction to the agent. Indirect injection is a hidden instruction inside a file, a web page, or another tool result the agent reads. A 2023 paper by Greshake and others showed that text the model is asked to read can be treated as if it were a command, including attempts to change which tools get called. OWASP’s 2025 entry LLM01: Prompt Injection describes the same split, and recommends least privilege, separating untrusted content from instructions, and human approval for high-risk actions.</p>
+<p>In our example, the Riverbend note includes a line that tries to change the job: ignore the draft-only rule, send the draft as a real message, and delete the other two notes. This section is about the design that stops that line from doing harm. It is not a lesson in how to write attacks, and it does not give a copy-paste payload.</p>
+<div class="windows">
+  <div class="window messy">
+    <div class="window-bar"><span>What the hostile line tries to do</span><span>This must not succeed</span></div>
+    <ul>
+      <li class="risk">Change the job from “draft a reply” to “send a message and delete the other notes.”</li>
+      <li class="risk">Treat the supplier file as if it were a new instruction from you.</li>
+    </ul>
+  </div>
+  <div class="window">
+    <div class="window-bar"><span>Why the request fails</span><span>The design holds</span></div>
+    <ul>
+      <li>There is no <code>send_email</code> or <code>delete_file</code> tool on the allowlist, so those calls are rejected by your code.</li>
+      <li>The note is labeled as untrusted file text: information to read, not a new set of rules.</li>
+      <li>A person would have to approve any action that could leave the machine, and would see the exact tool and arguments.</li>
+    </ul>
+  </div>
+</div>
+<p>The model may still ask to send. That is not a failure of the design by itself. The failure would be if the send happened. You cannot reliably stop a model from reading a hostile line. You can design the tools and the approval step so that line cannot send, delete, or spend.</p>
+<p>This is like a note slipped inside a delivery folder that says “skip the review and mail this today.” The clerk can read the note. The clerk still cannot mail anything.</p>
+<div class="now"><span class="label">So now you know</span><p>You cannot reliably stop a model from reading a hostile line. You can design the tools and the approval step so that line cannot send, delete, or spend.</p></div>
+</section>
+
+<section class="sec" id="starter-recipe" data-toc="A starter recipe">
+<header class="sec-head"><span class="sec-num">08</span><h2>A starter recipe</h2></header>
+<p class="hook">What are the actual steps, in any toolkit?</p>
+<p>Here is a short checklist you can follow in the stack you already use. It is not tied to one company’s library. A product may appear as an example in the sources. The lesson must still work if you switch tools tomorrow.</p>
+<div class="checklist">
+  <h3>Starter recipe</h3>
+  <ol>
+    <li><span><b>Write the job and the done line.</b> Say what finished looks like, and what this job must not do.</span></li>
+    <li><span><b>Decide whether one packed call is enough.</b> If it is, stop here and reuse Field Guide 03.</span></li>
+    <li><span><b>List the tools this job needs.</b> Put send, delete, and spend off the list.</span></li>
+    <li><span><b>Describe each allowed tool in plain words,</b> including what it must not do.</span></li>
+    <li><span><b>Pack the window:</b> the goal, the allowlist, the few facts that matter, the rule that file text is untrusted, and the done line.</span></li>
+    <li><span><b>Write the loop in your own code,</b> with a step limit so it cannot run forever.</span></li>
+    <li><span><b>Intercept every tool call.</b> Run only allowlisted tools. Pause for a person when the next step would leave the machine, or when the request is unclear.</span></li>
+    <li><span><b>Keep a simple log of the steps</b> in a place that does not keep private mail or files longer than you need. Field Guide 10, Watch the Work, will go deeper. A local log is enough for now.</span></li>
+    <li><span><b>Write two or three test questions for this job</b> and keep them for Field Guide 05, Evals for Beginners.</span></li>
+  </ol>
+</div>
+<p>In outline, the loop looks like this in any language: while the job is not done and the step count is under the limit, the model replies or asks for a tool; if the tool is not on the allowlist, reject it; if the action would leave the machine, pause for a person; otherwise run the tool, add the result, and continue. That is the whole pattern. You do not need a large extra toolkit to start.</p>
+<p>The Model Context Protocol (MCP) is a common open way to offer tools to a model. It is also a way to hand the model too many tools at once. You can use it later if you want a shared way to connect tools. This first agent does not require it, and least privilege still applies if you add it. Official docs from Anthropic, OpenAI, and Google Cloud are listed in the sources as further reading. They are not a required toolkit. Do not start from a product that is being withdrawn: OpenAI’s Agent Builder is scheduled to shut down on November 30, 2026.</p>
+<p>This is like a one-page kitchen brief: the dish, the allowed tools, who tastes the dish before it leaves the kitchen, and when to stop.</p>
+<div class="now"><span class="label">So now you know</span><p>The recipe is the same in any stack: a narrow job, a short allowlist, a loop you control, and a person in the loop before anything leaves.</p></div>
+</section>
+
+<section class="sec" id="self-check" data-toc="A short self-check">
+<header class="sec-head"><span class="sec-num">09</span><h2>A short self-check</h2></header>
+<p class="hook">How will you know this agent still does the job after you change something?</p>
+<p>This guide does not teach evaluations (evals). Field Guide 02 already named the term: a fixed set of test questions you rerun after a change. Field Guide 05, Evals for Beginners, is where you will learn to write a small, honest test set and reuse it. What you can do now is start the habit, with three questions about this same supplier job.</p>
+<div class="callout" id="self-check-questions"><span class="label">Three questions to keep</span>
+<ol>
+<li>After you change the system prompt, how would you check that the draft still names the correct supplier?</li>
+<li>What would you write down now — the three notes, the expected draft points, and the rule that nothing is sent — so you can rerun the same checks later?</li>
+<li>If one supplier note contains a hidden instruction, what should a later test set include, and what result counts as a pass (the draft is written, and nothing is sent or deleted)?</li>
+</ol>
+<p>If you can answer those in writing, you already have the start of a test set. Field Guide 05 is where you turn that start into a reusable evaluation.</p>
+</div>
+<p>What to try next: evaluate this agent, or later add retrieval from your own notes in Field Guide 06, Retrieval You Can Trust. Do not add a second agent in this guide. The first one is enough to practice.</p>
+<p>This is like a short list you check before the next run, not a full testing course.</p>
+<div class="now"><span class="label">So now you know</span><p>Keep a few written checks for this job. Field Guide 05 is where you turn them into a reusable evaluation set.</p></div>
+</section>
+
+<section class="sec" id="sources" data-toc="Sources">
+<header class="sec-head"><span class="sec-num">10</span><h2>Sources</h2></header>
+<p>The methods in this guide follow the official write-ups below. Quoted ideas and product dates are from these pages, checked on November 16, 2026. The supplier story is a teaching example.</p>
+<ul class="sources">
+<li><a href="https://www.anthropic.com/research/building-effective-agents">Anthropic, “Building effective agents”</a> (December 19, 2024). The main source for starting simple, and for the difference between a workflow you wrote in advance and an agent that chooses the next step. The page notes that some tooling details have changed since 2024; the design advice is what this guide uses.</li>
+<li><a href="https://www.anthropic.com/research/writing-tools-for-agents">Anthropic, “Writing effective tools for AI agents”</a> (September 11, 2025). Further reading on how to describe tools clearly. A later guide can go further than this first one.</li>
+<li><a href="https://docs.cloud.google.com/gemini/docs/discover/engineer-agentic-prompts">Google Cloud, “System instructions and prompt engineering for agentic AI”</a> (last updated November 10, 2026). System instructions, tool descriptions, and human approval enforced in the code that runs the tools, not only in the prompt. High-risk examples on this page include deleting resources and actions that spend money.</li>
+<li><a href="https://developers.openai.com/api/docs/guides/safety-best-practices">OpenAI, “Safety best practices”</a>. Human review of outputs before they are used, especially in high-stakes work.</li>
+<li><a href="https://developers.openai.com/api/docs/guides/agents/guardrails-approvals">OpenAI, “Guardrails and human review”</a>. Automatic checks versus pausing a run so a person can approve or reject a sensitive tool call. Useful for the approval pattern; this guide does not require OpenAI’s software development kit (SDK).</li>
+<li><a href="https://openai.github.io/openai-agents-python/human_in_the_loop/">OpenAI Agents software development kit (SDK), “Human in the loop”</a>. A concrete pause-and-resume pattern, cited as an example of the idea, not as a required library.</li>
+<li><a href="https://developers.openai.com/api/docs/guides/agent-builder-safety">OpenAI, “Safety in building agents”</a>. Clear on prompt injection and on not putting untrusted text into the standing system instructions. The same page states that Agent Builder is being deprecated and is scheduled to shut down on November 30, 2026. Use the ideas; do not start from that product. Confirm the date on OpenAI’s <a href="https://developers.openai.com/api/docs/deprecations">deprecations page</a>.</li>
+<li><a href="https://modelcontextprotocol.io/">Model Context Protocol, official site</a>. A common open way to offer tools to a model. As of this check, the site root redirects to a dated documentation path. Re-check the live address if you follow the link.</li>
+<li><a href="https://genai.owasp.org/llm-top-10/">OWASP GenAI Security Project, Top 10 for LLM applications (2025)</a>. The stable entry point for the list. LLM01:2025 is prompt injection. LLM06:2025 is excessive agency. The official PDF is also at the project’s <a href="https://genai.owasp.org/download/43299/">2025 download</a>.</li>
+<li><a href="https://genai.owasp.org/llmrisk/llm01-prompt-injection/">OWASP, LLM01:2025 Prompt Injection</a>. Direct versus indirect injection, and the mitigations used in this guide: least privilege, separating untrusted content, and human approval for high-risk actions.</li>
+<li><a href="https://arxiv.org/abs/2302.12173">Greshake et al., “Not What You’ve Signed Up For: Compromising Real-World LLM-Integrated Applications with Indirect Prompt Injection”</a> (arXiv:2302.12173, 2023). The research source for indirect injection through retrieved text. This guide cites the problem and the design lesson; it does not reproduce attack steps.</li>
+</ul>
+<p>Optional further reading, not required for this page: OWASP’s <a href="https://genai.owasp.org/download/52117/">Top 10 for Agentic Applications 2026</a> (December 2025), especially the entries on goal hijack and tool misuse, and Microsoft’s course <a href="https://github.com/microsoft/ai-agents-for-beginners">AI Agents for Beginners</a>, which is longer and written with a Microsoft and Azure flavor.</p>
+</section>
+
+
+    <section class="sec" id="review" data-toc="Quick review">
+      <header class="sec-head"><span class="sec-num">11</span><h2>Quick review</h2></header>
+      <div class="quiz-bar"><p class="small" style="margin:0">Answer out loud first, then tap a question to check.</p><button class="btn" type="button" id="revealAll">Reveal all</button></div>
+      <div class="quiz">
+        <details><summary>What does this first agent do, and what must it never do?</summary><div class="ans">It can read the three supplier notes and draft a reply. It cannot send mail, delete files, or spend money.</div></details>
+        <details><summary>When should you not build an agent at all?</summary><div class="ans">When one packed model call can already do the job. Add a loop and tools only when the work needs more than one step, a choice about which file to read, or a pause for a person.</div></details>
+        <details><summary>In the tool loop, who runs the tool: the model or your code?</summary><div class="ans">The model can ask to use a tool. Your code is what checks the allowlist, runs the tool or rejects the request, and puts the result back in the context window.</div></details>
+        <details><summary>What does &#x27;done&#x27; mean in the Friday delivery job?</summary><div class="ans">A draft is ready, the preferred supplier is named, and the agent has stopped. Done does not mean a message was sent.</div></details>
+        <details><summary>What is an allowlist, in one line?</summary><div class="ans">The short list of tools the agent is allowed to call. For this job, that is read_note and draft_reply.</div></details>
+        <details><summary>Why is a line in the system prompt not enough to block a risky action?</summary><div class="ans">A system-prompt rule is only text the model may or may not follow. The pause has to live in your code, and a person has to see the exact tool and arguments before anything would leave the machine.</div></details>
+        <details><summary>What is indirect prompt injection, in this example?</summary><div class="ans">A hostile instruction hidden in a supplier note the agent is asked to read, not typed by you as a new command.</div></details>
+        <details><summary>If a supplier note tells the agent to send the draft, why does that request fail here?</summary><div class="ans">There is no send tool on the allowlist, the note is marked as untrusted file text, and a person would have to approve any action that could leave the machine.</div></details>
+        <details><summary>After you change the system prompt, how would you start to check the agent still does the job?</summary><div class="ans">Rerun a few written questions for this same job, such as: does the draft name the right supplier, and is nothing sent or deleted? Field Guide 05 is where you turn those checks into a reusable evaluation set.</div></details>
+      </div>
+    </section>
+
+    <div class="endmark" aria-hidden="true"><i></i><i></i><i></i></div>
+  </article>
+</div>
+
+
+</main>
+
+<footer class="footer">
+  <form class="signup" action="https://buttondown.com/api/emails/embed-subscribe/fringenode" method="post" target="_blank" rel="noopener noreferrer">
+    <label for="signup-email">Email address</label>
+    <div class="signup-row">
+      <input type="email" id="signup-email" name="email" placeholder="you@example.com" autocomplete="email" required aria-describedby="signup-privacy">
+      <button type="submit">Notify me</button>
+    </div>
+    <input type="hidden" value="1" name="embed">
+    <p class="signup-note" id="signup-privacy">No spam. Unsubscribe anytime.</p>
+  </form>
+  <p class="footer-meta">End of guide · November 2026 snapshot</p>
+  <p class="footer-brand"><a href="../">FringeNode</a> · <a href="../about/">About</a> · <a href="../field-guides/">Field Guides</a> · Field Guide 04 · <a href="../feed.xml">RSS</a></p>
+</footer>
+
+<script>
+(function(){
+  var bar=document.querySelector('.progress span');
+  function onScroll(){
+    var h=document.documentElement,max=h.scrollHeight-h.clientHeight,p=max>0?h.scrollTop/max:0;
+    if(bar)bar.style.width=(p*100)+'%';
+  }
+  addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',onScroll);onScroll();
+  var links=[].slice.call(document.querySelectorAll('.toc a'));
+  if('IntersectionObserver' in window&&links.length){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){
+      links.forEach(function(l){l.classList.toggle('active',l.getAttribute('href')==='#'+e.target.id)});}})},
+      {rootMargin:'-30% 0px -60% 0px'});
+    document.querySelectorAll('.sec[id]').forEach(function(s){io.observe(s)});
+  }
+  var btn=document.getElementById('revealAll');
+  if(btn)btn.addEventListener('click',function(){
+    var d=document.querySelectorAll('.quiz details'),open=btn.dataset.open!=='1';
+    d.forEach(function(x){x.open=open});btn.dataset.open=open?'1':'0';btn.textContent=open?'Hide all':'Reveal all';
+  });
+})();
+</script>
+<script data-goatcounter="https://fringenode.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

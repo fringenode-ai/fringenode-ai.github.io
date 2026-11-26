@@ -108,3 +108,8 @@ body.about .footer [aria-current="page"] {
     padding-right: 5rem;
   }
 }
+
+/* ART-SLOT (apply_art.py) */
+.art-band{margin:0 auto;max-width:72rem;padding:1rem 1rem 0}
+.art-band img{display:block;width:100%;height:auto;border-radius:12px}
+.art-band figcaption{font-size:.95rem;margin-top:.4rem;opacity:.85}
