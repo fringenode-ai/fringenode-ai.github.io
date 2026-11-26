@@ -39,7 +39,7 @@
     "https://fringenode-ai.github.io/your-first-agent-safely/og-cover-1200x630.jpg"
   ],
   "datePublished": "2026-11-25",
-  "dateModified": "2026-11-25",
+  "dateModified": "2026-11-26",
   "inLanguage": "en",
   "author": {
     "@type": "Organization",
@@ -274,7 +274,7 @@
     <li><span><b>Write the loop in your own code,</b> with a step limit so it cannot run forever.</span></li>
     <li><span><b>Intercept every tool call.</b> Run only allowlisted tools. Pause for a person when the next step would leave the machine, or when the request is unclear.</span></li>
     <li><span><b>Keep a simple log of the steps</b> in a place that does not keep private mail or files longer than you need. Field Guide 10, Watch the Work, will go deeper. A local log is enough for now.</span></li>
-    <li><span><b>Write two or three test questions for this job</b> and keep them for Field Guide 05, Evals for Beginners.</span></li>
+    <li><span><b>Write two or three test questions for this job</b> and keep them for <a href="../evals-for-beginners/">Field Guide 05, Evals for Beginners</a>.</span></li>
   </ol>
 </div>
 <p>In outline, the loop looks like this in any language: while the job is not done and the step count is under the limit, the model replies or asks for a tool; if the tool is not on the allowlist, reject it; if the action would leave the machine, pause for a person; otherwise run the tool, add the result, and continue. That is the whole pattern. You do not need a large extra toolkit to start.</p>
@@ -286,18 +286,18 @@
 <section class="sec" id="self-check" data-toc="A short self-check">
 <header class="sec-head"><span class="sec-num">09</span><h2>A short self-check</h2></header>
 <p class="hook">How will you know this agent still does the job after you change something?</p>
-<p>This guide does not teach evaluations (evals). Field Guide 02 already named the term: a fixed set of test questions you rerun after a change. Field Guide 05, Evals for Beginners, is where you will learn to write a small, honest test set and reuse it. What you can do now is start the habit, with three questions about this same supplier job.</p>
+<p>This guide does not teach evaluations (evals). Field Guide 02 already named the term: a fixed set of test questions you rerun after a change. <a href="../evals-for-beginners/">Field Guide 05, Evals for Beginners</a>, is where you will learn to write a small, honest test set and reuse it. What you can do now is start the habit, with three questions about this same supplier job.</p>
 <div class="callout" id="self-check-questions"><span class="label">Three questions to keep</span>
 <ol>
 <li>After you change the system prompt, how would you check that the draft still names the correct supplier?</li>
 <li>What would you write down now — the three notes, the expected draft points, and the rule that nothing is sent — so you can rerun the same checks later?</li>
 <li>If one supplier note contains a hidden instruction, what should a later test set include, and what result counts as a pass (the draft is written, and nothing is sent or deleted)?</li>
 </ol>
-<p>If you can answer those in writing, you already have the start of a test set. Field Guide 05 is where you turn that start into a reusable evaluation.</p>
+<p>If you can answer those in writing, you already have the start of a test set. <a href="../evals-for-beginners/">Field Guide 05</a> is where you turn that start into a reusable evaluation.</p>
 </div>
-<p>What to try next: evaluate this agent, or later add retrieval from your own notes in Field Guide 06, Retrieval You Can Trust. Do not add a second agent in this guide. The first one is enough to practice.</p>
+<p>What to try next: <a href="../evals-for-beginners/">Field Guide 05, Evals for Beginners</a>, or later add retrieval from your own notes in Field Guide 06, Retrieval You Can Trust. Do not add a second agent in this guide. The first one is enough to practice.</p>
 <p>This is like a short list you check before the next run, not a full testing course.</p>
-<div class="now"><span class="label">So now you know</span><p>Keep a few written checks for this job. Field Guide 05 is where you turn them into a reusable evaluation set.</p></div>
+<div class="now"><span class="label">So now you know</span><p>Keep a few written checks for this job. <a href="../evals-for-beginners/">Field Guide 05</a> is where you turn them into a reusable evaluation set.</p></div>
 </section>
 
 <section class="sec" id="sources" data-toc="Sources">
@@ -332,7 +332,7 @@
         <details><summary>Why is a line in the system prompt not enough to block a risky action?</summary><div class="ans">A system-prompt rule is only text the model may or may not follow. The pause has to live in your code, and a person has to see the exact tool and arguments before anything would leave the machine.</div></details>
         <details><summary>What is indirect prompt injection, in this example?</summary><div class="ans">A hostile instruction hidden in a supplier note the agent is asked to read, not typed by you as a new command.</div></details>
         <details><summary>If a supplier note tells the agent to send the draft, why does that request fail here?</summary><div class="ans">There is no send tool on the allowlist, the note is marked as untrusted file text, and a person would have to approve any action that could leave the machine.</div></details>
-        <details><summary>After you change the system prompt, how would you start to check the agent still does the job?</summary><div class="ans">Rerun a few written questions for this same job, such as: does the draft name the right supplier, and is nothing sent or deleted? Field Guide 05 is where you turn those checks into a reusable evaluation set.</div></details>
+        <details><summary>After you change the system prompt, how would you start to check the agent still does the job?</summary><div class="ans">Rerun a few written questions for this same job, such as: does the draft name the right supplier, and is nothing sent or deleted? <a href="../evals-for-beginners/">Field Guide 05</a> is where you turn those checks into a reusable evaluation set.</div></details>
       </div>
     </section>
 
@@ -354,7 +354,7 @@
     <p class="signup-note" id="signup-privacy">No spam. Unsubscribe anytime.</p>
   </form>
   <p class="footer-meta">End of guide · November 2026 snapshot</p>
-  <p class="footer-brand"><a href="../">FringeNode</a> · <a href="../about/">About</a> · <a href="../field-guides/">Field Guides</a> · Field Guide 04 · <a href="../feed.xml">RSS</a></p>
+  <p class="footer-brand"><a href="../">FringeNode</a> · <a href="../about/">About</a> · <a href="../field-guides/">Field Guides</a> · Field Guide 04 · <a href="../evals-for-beginners/">Next: Field Guide 05</a> · <a href="../feed.xml">RSS</a></p>
 </footer>
 
 <script>

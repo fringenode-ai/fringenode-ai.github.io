@@ -5,7 +5,21 @@
     <link>https://fringenode-ai.github.io/</link>
     <description>AI engineering for living systems. Field guides and notes from the edges.</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 25 Nov 2026 20:52:00 -0500</lastBuildDate>
+    <lastBuildDate>Thu, 26 Nov 2026 12:00:00 -0500</lastBuildDate>
+        <item>
+      <title>Checkpoint 02 · Land Restoration Tech Tree</title>
+      <link>https://fringenode-ai.github.io/land-restoration-tech-tree/</link>
+      <guid isPermaLink="true">https://fringenode-ai.github.io/land-restoration-tech-tree/</guid>
+      <pubDate>Thu, 26 Nov 2026 12:00:00 -0500</pubDate>
+      <description>Checkpoint 02: the map of parts for a FringeNode site. What already exists, what still has to be built, and what must exist first, for a small computer that stays on a piece of land and helps that land recover.</description>
+    </item>
+    <item>
+      <title>Field Guide 05 · Evals for Beginners</title>
+      <link>https://fringenode-ai.github.io/evals-for-beginners/</link>
+      <guid isPermaLink="true">https://fringenode-ai.github.io/evals-for-beginners/</guid>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 -0500</pubDate>
+      <description>A practice field guide to evaluations (evals): write a small golden set for the Friday supplier job, grade with exact checks first, tell a capability test from a regression test, and reuse the set after every change. This guide does not use a hosted evaluation product.</description>
+    </item>
     <item>
       <title>Checkpoint 01 · The Closed Loop</title>
       <link>https://fringenode-ai.github.io/the-closed-loop/</link>

@@ -1,0 +1,1861 @@
+{
+  "version": "public-v0.3",
+  "mission": "The land gets a brain and hands of its own, run by the people who live there.",
+  "updated": "2026-11-26",
+  "placeholderDate": true,
+  "stages": [
+    "early",
+    "mid",
+    "late",
+    "research"
+  ],
+  "statuses": [
+    "exists",
+    "buildable-now",
+    "research",
+    "speculative"
+  ],
+  "claimLevels": [
+    "field-proven",
+    "lab-demo",
+    "vendor-claim",
+    "flagged"
+  ],
+  "areas": [
+    {
+      "id": "LR01",
+      "name": "Sensing",
+      "summary": "The node’s eyes and ears. Today’s best forest nodes listen and alert. They do not own a plot."
+    },
+    {
+      "id": "LR02",
+      "name": "Machines",
+      "summary": "Autonomy is already real in mines, solar trenching, and some construction. Ecological restoration earthworks with a friendly construction look are mostly open. This branch waits on the node, the record, the relationships, and the safety stack."
+    },
+    {
+      "id": "LR03",
+      "name": "Security",
+      "summary": "Safety is designed in from day one, because the long-term plan includes machines. This map covers the what and why, not a build guide, a wiring diagram, or a parts list."
+    },
+    {
+      "id": "LR04",
+      "name": "Data and intelligence",
+      "summary": "Local records, a design engine that learns from healthy land, and drafts a qualified person still signs."
+    },
+    {
+      "id": "LR05",
+      "name": "Governance",
+      "summary": "The people who live there own the node and the record, and they approve large changes."
+    },
+    {
+      "id": "LR06",
+      "name": "Jobs and people",
+      "summary": "The point is more paid human work, not less. The node helps describe work; trained local people do it."
+    },
+    {
+      "id": "LR07",
+      "name": "Power and energy",
+      "summary": "Solar power for the first box, and later a quiet machine drive compatible with a physical stop."
+    },
+    {
+      "id": "LR08",
+      "name": "Biology and mycelium",
+      "summary": "A later research branch. Stay honest about the debate. It is not part of the first node, and it is not part of the mid-game monitoring offer."
+    }
+  ],
+  "nodes": [
+    {
+      "id": "LR01.1.1",
+      "name": "Off-grid soil and microclimate suite",
+      "area": "LR01",
+      "subarea": "LR01.1",
+      "subareaName": "Plot-node environmental sensing",
+      "stage": "early",
+      "stageNote": "A node that also designs the plot and commands machines is later, and still research.",
+      "status": "buildable-now",
+      "statusNote": "Buildable now for the first box.",
+      "summary": "A rugged solar plot node that stores the record locally, later runs the plot’s artificial intelligence (AI), and later commands machines on a private network, with no required cloud. The first box is simpler: a weatherproof enclosure, solar power and storage, a single-board computer, local storage, and a few honest sensors for temperature, soil moisture, and plot microclimate, plus the hydrology in LR01.2. The historic record (LR04.3) starts the day this box is switched on.",
+      "uncertainty": "Whether year-one hardware can stay up through a full season without a cloud must be measured, not guessed. Wetland-specific edge AI is still early.",
+      "sources": [
+        {
+          "label": "Dryad Silvanet",
+          "url": "https://www.dryad.net/wildfiresensor",
+          "claimLevel": "vendor-claim",
+          "note": "Commercial solar, supercapacitor wildfire and microclimate sensor. Long maintenance-free life is a company claim."
+        },
+        {
+          "label": "Microsoft SPARROW",
+          "url": "https://microsoft.github.io/SPARROW/",
+          "claimLevel": "lab-demo",
+          "note": "Open-source solar edge-AI (artificial intelligence) research platform on an NVIDIA Jetson. Field-deployment descriptions are a vendor claim. Not a turnkey wetland product."
+        },
+        {
+          "label": "Rainforest Connection Guardian 3",
+          "url": "https://rfcx.org/",
+          "claimLevel": "vendor-claim",
+          "note": "Solar acoustic conservation node."
+        },
+        {
+          "label": "Nature 4.0 TreeTalker Cyber",
+          "url": "https://www.nature4.org/treetalkercyber",
+          "claimLevel": "vendor-claim",
+          "note": "Tree-physiology node. Often a battery device; do not assume it is off-grid solar."
+        },
+        {
+          "label": "Kerala Ramsar edge-AI preprint (2025–2026)",
+          "url": "https://doi.org/10.21203/rs.3.rs-8553049/v1",
+          "claimLevel": "lab-demo",
+          "note": "Preprint describing solar single-board computers at a Ramsar site. Not a peer-reviewed product."
+        }
+      ],
+      "flags": [],
+      "dependsOn": [
+        "LR07.1.1",
+        "LR03.1.1"
+      ],
+      "unlocks": [
+        "LR01.1.2",
+        "LR01.2.1",
+        "LR01.4.1",
+        "LR04.1.1",
+        "LR04.3.1",
+        "LR06.1.1",
+        "LR08.1.1"
+      ]
+    },
+    {
+      "id": "LR01.1.2",
+      "name": "Acoustic and camera biodiversity ingest",
+      "area": "LR01",
+      "subarea": "LR01.1",
+      "subareaName": "Plot-node environmental sensing",
+      "stage": "mid",
+      "stageNote": "",
+      "status": "buildable-now",
+      "statusNote": "Buildable now to ingest simple photo or audio files onto the first node. A full on-device wildlife classifier is optional and later.",
+      "summary": "Take in camera and microphone signals of the kind existing conservation nodes already collect, and keep them on the local plot brain, without requiring a vendor cloud. Predecessors can stay in use.",
+      "uncertainty": "Vendor devices may assume an uplink. Company impact figures are company claims.",
+      "sources": [
+        {
+          "label": "Dryad Silvanet",
+          "url": "https://www.dryad.net/wildfiresensor",
+          "claimLevel": "vendor-claim",
+          "note": "Commercial solar, supercapacitor wildfire and microclimate sensor. Long maintenance-free life is a company claim."
+        },
+        {
+          "label": "Microsoft SPARROW",
+          "url": "https://microsoft.github.io/SPARROW/",
+          "claimLevel": "lab-demo",
+          "note": "Open-source solar edge-AI (artificial intelligence) research platform on an NVIDIA Jetson. Field-deployment descriptions are a vendor claim. Not a turnkey wetland product."
+        },
+        {
+          "label": "Rainforest Connection Guardian 3",
+          "url": "https://rfcx.org/",
+          "claimLevel": "vendor-claim",
+          "note": "Solar acoustic conservation node."
+        }
+      ],
+      "flags": [],
+      "dependsOn": [
+        "LR01.1.1",
+        "LR04.1.1"
+      ],
+      "unlocks": [
+        "LR01.4.1",
+        "LR04.1.1",
+        "LR04.3.1",
+        "LR06.1.1",
+        "LR08.1.1"
+      ]
+    },
+    {
+      "id": "LR01.2.1",
+      "name": "Continuous water-level and water-table logging",
+      "area": "LR01",
+      "subarea": "LR01.2",
+      "subareaName": "Wetland hydrology and water quality",
+      "stage": "early",
+      "stageNote": "A first-site record is practice and learning. It is not an official wetland delineation.",
+      "status": "exists",
+      "statusNote": "Exists as field loggers. Buildable now to put a simple logger on the first node.",
+      "summary": "A year-round water-level or water-table record, stored on the plot node, that later feeds reports and design. Soil saturation and flood duration can be derived from the water-level record. Official jurisdictional delineation still follows the 1987 U.S. Army Corps of Engineers Wetland Delineation Manual and is done by qualified professionals.",
+      "uncertainty": "A simple logger is the right first instrument.",
+      "sources": [
+        {
+          "label": "Solinst Levelogger ecohydrology note",
+          "url": "https://www.solinst.com/onthelevel-news/water-level-monitoring/water-level-datalogging/levelogger-proves-ecohydrological-research/",
+          "claimLevel": "field-proven",
+          "note": "Water-level loggers documented in ecohydrological research."
+        },
+        {
+          "label": "NOAA System-Wide Monitoring Program",
+          "url": "https://www.coast.noaa.gov/states/stories/swmp.html",
+          "claimLevel": "field-proven",
+          "note": "National Oceanic and Atmospheric Administration (NOAA) water-quality and weather measurements every 15 minutes across the 30 National Estuarine Research Reserves."
+        },
+        {
+          "label": "NOAA NERRS SWMP data portal",
+          "url": "https://www.nerrsdata.org/get/landing.cfm",
+          "claimLevel": "field-proven",
+          "note": "Data portal for the reserve monitoring program."
+        },
+        {
+          "label": "U.S. Army Corps ERDC TN-WRAP-05-2",
+          "url": "https://erdc-library.erdc.dren.mil/server/api/core/bitstreams/81b728f8-751d-4ef8-e053-411ac80adeb3/content",
+          "claimLevel": "field-proven",
+          "note": "Technical standard recommending automated water-table recorders as hydrology evidence, with verification against manual readings."
+        }
+      ],
+      "flags": [],
+      "dependsOn": [
+        "LR01.1.1",
+        "LR04.3.1"
+      ],
+      "unlocks": [
+        "LR01.2.2",
+        "LR01.2.3",
+        "LR01.3.1",
+        "LR04.1.1",
+        "LR04.3.1",
+        "LR04.4.1",
+        "LR06.1.1"
+      ]
+    },
+    {
+      "id": "LR01.2.2",
+      "name": "Multiparameter water-quality sondes",
+      "area": "LR01",
+      "subarea": "LR01.2",
+      "subareaName": "Wetland hydrology and water quality",
+      "stage": "mid",
+      "stageNote": "",
+      "status": "exists",
+      "statusNote": "Exists as commercial instruments. Integration into one local record is buildable now when needed.",
+      "summary": "Integrate a standard water-quality sonde into the same plot record when a later trial needs it.",
+      "uncertainty": "Calibration and fouling are real work. Optional vendor telemetry would fight the offline-first rule and should not be the default.",
+      "sources": [
+        {
+          "label": "In-Situ Aqua TROLL 700",
+          "url": "https://in-situ.com/us/aqua-troll-700-multiparameter-sonde",
+          "claimLevel": "field-proven",
+          "note": "Commercial multiparameter sonde. Product details on the maker’s page are a vendor claim. Optional telemetry should not be the default for an offline-first node."
+        },
+        {
+          "label": "Maine DEP continuous monitoring SOP (2023)",
+          "url": "https://www.maine.gov/dep/water/monitoring/Continuous%20Monitoring%20SOP%202023.pdf",
+          "claimLevel": "field-proven",
+          "note": "State standard operating procedure treating unattended sonde data as usable when calibration procedures are followed."
+        }
+      ],
+      "flags": [],
+      "dependsOn": [
+        "LR01.2.1"
+      ],
+      "unlocks": [
+        "LR01.2.3",
+        "LR01.3.1",
+        "LR04.1.1",
+        "LR04.3.1",
+        "LR04.4.1",
+        "LR06.1.1"
+      ]
+    },
+    {
+      "id": "LR01.2.3",
+      "name": "Quality-assured continuous monitoring methods",
+      "area": "LR01",
+      "subarea": "LR01.2",
+      "subareaName": "Wetland hydrology and water quality",
+      "stage": "mid",
+      "stageNote": "",
+      "status": "exists",
+      "statusNote": "Exists as agency and state methods. Applying them on a noded plot is buildable now as practice, once the logger habit is real.",
+      "summary": "Use already-accepted continuous-monitoring methods on a privately owned plot as an operational record, not only a research or permit archive. Methods help hydrology and water quality. They do not replace professional delineation.",
+      "uncertainty": "Acceptance depends on quality assurance and on the receiving agency.",
+      "sources": [
+        {
+          "label": "40 CFR 122.48",
+          "url": "https://www.ecfr.gov/current/title-40/chapter-I/subchapter-D/part-122/subpart-C/section-122.48",
+          "claimLevel": "field-proven",
+          "note": "National Pollutant Discharge Elimination System (NPDES) rules can require continuous monitoring."
+        },
+        {
+          "label": "Maine DEP continuous monitoring SOP (2023)",
+          "url": "https://www.maine.gov/dep/water/monitoring/Continuous%20Monitoring%20SOP%202023.pdf",
+          "claimLevel": "field-proven",
+          "note": "State standard operating procedure treating unattended sonde data as usable when calibration procedures are followed."
+        },
+        {
+          "label": "U.S. Army Corps ERDC TN-WRAP-05-2",
+          "url": "https://erdc-library.erdc.dren.mil/server/api/core/bitstreams/81b728f8-751d-4ef8-e053-411ac80adeb3/content",
+          "claimLevel": "field-proven",
+          "note": "Technical standard recommending automated water-table recorders as hydrology evidence, with verification against manual readings."
+        },
+        {
+          "label": "33 CFR 332.6",
+          "url": "https://www.ecfr.gov/current/title-33/chapter-II/part-332/section-332.6",
+          "claimLevel": "field-proven",
+          "note": "Federal wetland mitigation rule: a monitoring period of not less than five years."
+        },
+        {
+          "label": "33 CFR 332.7",
+          "url": "https://www.ecfr.gov/current/title-33/chapter-II/part-332/section-332.7",
+          "claimLevel": "field-proven",
+          "note": "Federal wetland mitigation rule: adaptive management when monitoring shows a project is not meeting its targets."
+        }
+      ],
+      "flags": [],
+      "dependsOn": [
+        "LR01.2.1",
+        "LR01.2.2"
+      ],
+      "unlocks": [
+        "LR01.3.1",
+        "LR04.1.1",
+        "LR04.3.1",
+        "LR04.4.1",
+        "LR06.1.1"
+      ]
+    },
+    {
+      "id": "LR01.3.1",
+      "name": "Shallow-wetland mapping and sampling payload",
+      "area": "LR01",
+      "subarea": "LR01.3",
+      "subareaName": "Sub-aquatic survey instruments",
+      "stage": "mid",
+      "stageNote": "The vehicle itself is LR02.3.",
+      "status": "research",
+      "statusNote": "Research.",
+      "summary": "Sensors and samplers built for tannic, vegetated shallows, feeding the same local record.",
+      "uncertainty": "Routine use by delineation firms was not verified.",
+      "sources": [
+        {
+          "label": "CNR–INM SWAMP vessel review",
+          "url": "https://www.bairdmaritime.com/work-boat-world/research-environment-training/vessel-review-swamp-lightweight-usv-for-ultra-shallow-water-applications",
+          "claimLevel": "lab-demo",
+          "note": "Consiglio Nazionale delle Ricerche – Institute of Marine Engineering (CNR–INM) research uncrewed surface vehicle for ultra-shallow wetlands."
+        },
+        {
+          "label": "MEDUSA (Frontiers in Environmental Science, 2022)",
+          "url": "https://www.frontiersin.org/journals/environmental-science/articles/10.3389/fenvs.2022.1023269/full",
+          "claimLevel": "lab-demo",
+          "note": "Aerial-aquatic research prototype with a tethered micro-uncrewed underwater vehicle, validated for chlorophyll-a profiling."
+        },
+        {
+          "label": "Blue Robotics BlueROV2",
+          "url": "https://bluerobotics.com/learn/bluerov2-buyers-guide/",
+          "claimLevel": "field-proven",
+          "note": "Established general inspection remotely operated vehicle, not a wetland-specific explorer."
+        }
+      ],
+      "flags": [
+        "Routine use of underwater drones by delineation firms was not verified."
+      ],
+      "dependsOn": [
+        "LR02.3.1",
+        "LR01.2.1",
+        "LR01.2.2",
+        "LR01.2.3",
+        "LR04.3.1"
+      ],
+      "unlocks": [
+        "LR02.3.1",
+        "LR04.1.1",
+        "LR04.3.1",
+        "LR06.1.1"
+      ]
+    },
+    {
+      "id": "LR01.4.1",
+      "name": "Healthy-site pattern capture",
+      "area": "LR01",
+      "subarea": "LR01.4",
+      "subareaName": "Reference-ecosystem scan",
+      "stage": "late",
+      "stageNote": "Underground connections wait on LR08 and on the science.",
+      "status": "research",
+      "statusNote": "Mapping and reporting tools exist. A scan that a machine and a person can actually build from does not.",
+      "summary": "A living reference library — water paths, soil, microtopography, and plant guilds — that a design engine can keep learning from. Restoration practice already builds targets from real, less-damaged sites. The missing piece is a scan that closes the loop into buildable plans.",
+      "uncertainty": "",
+      "sources": [
+        {
+          "label": "SER International Standards, 2nd edition (2019)",
+          "url": "https://doi.org/10.1111/rec.13035",
+          "claimLevel": "field-proven",
+          "note": "Society for Ecological Restoration (SER) standards tell practitioners to build restoration targets from reference models based on real, less-damaged sites."
+        },
+        {
+          "label": "Restor",
+          "url": "https://restor.eco/",
+          "claimLevel": "vendor-claim",
+          "note": "Maps and reports restoration sites. It does not output earthwork plans or drive machines. About-page site counts from the research pass are not repeated here."
+        },
+        {
+          "label": "Restor about page",
+          "url": "https://about.restor.eco/about-us",
+          "claimLevel": "vendor-claim",
+          "note": "Project about page for Restor (Crowther Lab spin-off)."
+        },
+        {
+          "label": "NIOZ BIOPRIME",
+          "url": "https://www.nioz.nl/en/research/projects/bioprime",
+          "claimLevel": "lab-demo",
+          "note": "Research project, 1 August 2025–30 September 2031, on biodegradable structures that mimic habitat-forming traits. Structures, not algorithms running machines."
+        },
+        {
+          "label": "Flash Forest",
+          "url": "https://www.flashforest.com/",
+          "claimLevel": "vendor-claim",
+          "note": "Commercial reforestation company. Descriptions of light detection and ranging (LiDAR) and machine-learning forest intelligence are company claims."
+        }
+      ],
+      "flags": [],
+      "dependsOn": [
+        "LR01.1.1",
+        "LR01.1.2",
+        "LR04.2.1"
+      ],
+      "unlocks": [
+        "LR04.1.1",
+        "LR04.2.1",
+        "LR04.3.1",
+        "LR06.1.1"
+      ]
+    },
+    {
+      "id": "LR02.1.1",
+      "name": "Compact, accurate earthworks for swales, ponds, and wetland regrading",
+      "area": "LR02",
+      "subarea": "LR02.1",
+      "subareaName": "Restoration earthmovers",
+      "stage": "late",
+      "stageNote": "A retrofit of a small excavator is a fair mid-game start, not the late-game machine itself. Do not start here.",
+      "status": "research",
+      "statusNote": "Research. Commercial autonomy exists in other domains. A FringeNode restoration machine does not.",
+      "summary": "Simple, wireless, plot-sized machines for ecological earthworks, under local-node control, with the LR03 fail-safes built in from the first bolt. Look and materials are part of the invention. FringeNode’s machines are meant to look and work like friendly earth-construction tools, never humanoid or military-looking.",
+      "uncertainty": "Look, scale, and public acceptance matter as much as control.",
+      "sources": [
+        {
+          "label": "Built Robotics Exosystem",
+          "url": "https://www.builtrobotics.com/solutions/trenching",
+          "claimLevel": "vendor-claim",
+          "note": "Aftermarket kit that turns mid-size excavators into autonomous trenchers, with geofencing and a wireless emergency stop. Accuracy figures are company specs. Trenching, not wetland restoration."
+        },
+        {
+          "label": "Komatsu / EARTHBRAIN / AIM release (31 July 2026)",
+          "url": "https://www.komatsu.com/en-us/newsroom/2026/komatsu-aim-enter-strategic-partnership",
+          "claimLevel": "vendor-claim",
+          "note": "Company release saying autonomous dozers and excavators are in commercial U.S. deployment and can be retrofitted."
+        },
+        {
+          "label": "Caterpillar autonomy release (7 January 2026)",
+          "url": "https://www.caterpillar.com/en/news/corporate-press-releases/h/next-era-autonomy.html",
+          "claimLevel": "vendor-claim",
+          "note": "Company release describing mature mining autonomy and an announced “next era” of construction autonomy. That is not a claim that crewless excavators are already standard on ordinary jobsites. Company fleet figures are not repeated here."
+        }
+      ],
+      "flags": [],
+      "dependsOn": [
+        "LR03.4.1",
+        "LR03.5.1",
+        "LR03.5.2",
+        "LR04.1.1",
+        "LR04.2.1",
+        "LR05.3.1",
+        "LR07.2.1"
+      ],
+      "unlocks": [
+        "LR03.4.1",
+        "LR07.2.1"
+      ]
+    },
+    {
+      "id": "LR02.2.1",
+      "name": "Ground planters for seedlings, live stakes, and precise placement",
+      "area": "LR02",
+      "subarea": "LR02.2",
+      "subareaName": "Dexterous planters",
+      "stage": "late",
+      "stageNote": "Can proceed in parallel with LR02.1 once safety exists.",
+      "status": "research",
+      "statusNote": "Research. Aerial reforestation is commercial. Ground planting robots are still prototypes.",
+      "summary": "A construction-tool-look planter with real finesse, under local node control. Not a mine machine and not a humanoid.",
+      "uncertainty": "",
+      "sources": [
+        {
+          "label": "Flash Forest",
+          "url": "https://www.flashforest.com/",
+          "claimLevel": "vendor-claim",
+          "note": "Commercial reforestation company. Descriptions of light detection and ranging (LiDAR) and machine-learning forest intelligence are company claims."
+        },
+        {
+          "label": "Mast Reforestation",
+          "url": "https://www.mastreforest.com/",
+          "claimLevel": "vendor-claim",
+          "note": "Commercial reforestation company (aerial work, nurseries, site work)."
+        },
+        {
+          "label": "SCA Autoplant",
+          "url": "https://www.sca.com/en/about-sca/innovation-and-research/forest/autoplant/",
+          "claimLevel": "lab-demo",
+          "note": "Sweden’s Autoplant project ended 11 September 2026 with a working scarify-and-plant head, still pulled by a conventional forwarder."
+        }
+      ],
+      "flags": [],
+      "dependsOn": [
+        "LR03.1.1",
+        "LR03.2.1",
+        "LR03.2.2",
+        "LR03.3.1",
+        "LR03.4.1",
+        "LR03.5.1",
+        "LR03.5.2",
+        "LR03.6.1",
+        "LR04.2.1",
+        "LR07.2.1"
+      ],
+      "unlocks": [
+        "LR03.4.1",
+        "LR07.2.1"
+      ]
+    },
+    {
+      "id": "LR02.3.1",
+      "name": "Shallow, vegetated-water explorer and sampler",
+      "area": "LR02",
+      "subarea": "LR02.3",
+      "subareaName": "Sub-aquatic explorers",
+      "stage": "mid",
+      "stageNote": "Mid game or later.",
+      "status": "research",
+      "statusNote": "Research.",
+      "summary": "A cheap, repairable, gentle, node-tethered explorer launched from the bank, with the same signed-command and fail-safe rules as the land machines.",
+      "uncertainty": "Routine firm use was not verified. Shallow, stem-filled water is a hard environment.",
+      "sources": [
+        {
+          "label": "CNR–INM SWAMP vessel review",
+          "url": "https://www.bairdmaritime.com/work-boat-world/research-environment-training/vessel-review-swamp-lightweight-usv-for-ultra-shallow-water-applications",
+          "claimLevel": "lab-demo",
+          "note": "Consiglio Nazionale delle Ricerche – Institute of Marine Engineering (CNR–INM) research uncrewed surface vehicle for ultra-shallow wetlands."
+        },
+        {
+          "label": "MEDUSA (Frontiers in Environmental Science, 2022)",
+          "url": "https://www.frontiersin.org/journals/environmental-science/articles/10.3389/fenvs.2022.1023269/full",
+          "claimLevel": "lab-demo",
+          "note": "Aerial-aquatic research prototype with a tethered micro-uncrewed underwater vehicle, validated for chlorophyll-a profiling."
+        },
+        {
+          "label": "Blue Robotics BlueROV2",
+          "url": "https://bluerobotics.com/learn/bluerov2-buyers-guide/",
+          "claimLevel": "field-proven",
+          "note": "Established general inspection remotely operated vehicle, not a wetland-specific explorer."
+        }
+      ],
+      "flags": [
+        "Routine use by delineation firms was not verified."
+      ],
+      "dependsOn": [
+        "LR03.1.1",
+        "LR03.2.1",
+        "LR03.2.2",
+        "LR03.3.1",
+        "LR03.4.1",
+        "LR03.5.1",
+        "LR03.5.2",
+        "LR03.6.1",
+        "LR01.3.1",
+        "LR07.1.1",
+        "LR07.2.1"
+      ],
+      "unlocks": [
+        "LR01.3.1",
+        "LR03.4.1",
+        "LR07.2.1"
+      ]
+    },
+    {
+      "id": "LR03.1.1",
+      "name": "Offline-first plot network",
+      "area": "LR03",
+      "subarea": "LR03.1",
+      "subareaName": "Local private network and signed messages",
+      "stage": "early",
+      "stageNote": "A signed command bus for machines waits until machines exist.",
+      "status": "buildable-now",
+      "statusNote": "Buildable now as a rule and a first-box habit: the node works with no uplink.",
+      "summary": "A private local net. Signed, encrypted commands only. Machines fail safe when the local link dies. No internet door on work machines. Works offline. No fleet-wide breach path through a vendor cloud.",
+      "uncertainty": "This map covers the what and why, not a wiring guide or a parts list.",
+      "sources": [
+        {
+          "label": "Dryad Silvanet",
+          "url": "https://www.dryad.net/wildfiresensor",
+          "claimLevel": "vendor-claim",
+          "note": "Commercial solar, supercapacitor wildfire and microclimate sensor. Long maintenance-free life is a company claim."
+        }
+      ],
+      "flags": [
+        "A general claim that industrial operational-technology segmentation is established was not tied to a primary source in the source files, so it is not cited as evidence here."
+      ],
+      "dependsOn": [
+        "LR07.1.1"
+      ],
+      "unlocks": [
+        "LR01.1.1",
+        "LR02.2.1",
+        "LR02.3.1",
+        "LR03.5.2",
+        "LR03.6.1",
+        "LR04.1.1"
+      ]
+    },
+    {
+      "id": "LR03.2.1",
+      "name": "Secure chips and key storage",
+      "area": "LR03",
+      "subarea": "LR03.2",
+      "subareaName": "Hardware roots of trust",
+      "stage": "early",
+      "stageNote": "Wanted before any machine control.",
+      "status": "buildable-now",
+      "statusNote": "Buildable now. Commodity secure elements exist. Using them as community-owned plot keys is the gap.",
+      "summary": "Keys held in a secure element for the people of the land, not a vendor cloud. Who holds backup keys, and how a community inherits them, is a governance problem as much as a hardware one (see LR05.1).",
+      "uncertainty": "",
+      "sources": [],
+      "flags": [
+        "Chip prices in the working notes were not independently priced and are not published here."
+      ],
+      "dependsOn": [],
+      "unlocks": [
+        "LR02.2.1",
+        "LR02.3.1",
+        "LR03.2.2",
+        "LR03.3.1",
+        "LR05.1.1"
+      ]
+    },
+    {
+      "id": "LR03.2.2",
+      "name": "Tamper-sensing enclosure with key wipe",
+      "area": "LR03",
+      "subarea": "LR03.2",
+      "subareaName": "Hardware roots of trust",
+      "stage": "early",
+      "stageNote": "A tested wipe-on-tamper design is still research.",
+      "status": "buildable-now",
+      "statusNote": "Buildable now to start with a weatherproof, inspected box.",
+      "summary": "A field tamper box that wipes keys if opened.",
+      "uncertainty": "A standard solar plot box with this behavior was not found.",
+      "sources": [],
+      "flags": [
+        "Industrial tamper enclosures exist as a class of product, but no primary source for a specific enclosure was on file, so that predecessor is not named here."
+      ],
+      "dependsOn": [
+        "LR03.2.1"
+      ],
+      "unlocks": [
+        "LR02.2.1",
+        "LR02.3.1",
+        "LR05.1.1"
+      ]
+    },
+    {
+      "id": "LR03.3.1",
+      "name": "Hand-carried signed updates, staged rollout, automatic rollback",
+      "area": "LR03",
+      "subarea": "LR03.3",
+      "subareaName": "Signed offline updates",
+      "stage": "early",
+      "stageNote": "Staged rollout can be automated later.",
+      "status": "buildable-now",
+      "statusNote": "Buildable now as a habit on the first node: no inbound network updates. A person walks in with a signed drive.",
+      "summary": "Updates arrive only by a hand-carried signed drive. Rollback is automatic if a stage fails. This is the what and why, not a how-to.",
+      "uncertainty": "",
+      "sources": [],
+      "flags": [
+        "The source notes call this familiar in some operational-technology and appliance practice, but no primary source was on file, so that predecessor is not cited here."
+      ],
+      "dependsOn": [
+        "LR03.2.1"
+      ],
+      "unlocks": [
+        "LR02.2.1",
+        "LR02.3.1"
+      ]
+    },
+    {
+      "id": "LR03.4.1",
+      "name": "Hardware geofences, speed and force caps",
+      "area": "LR03",
+      "subarea": "LR03.4",
+      "subareaName": "Hardware motion limits",
+      "stage": "late",
+      "stageNote": "Needed with LR02; built with LR03.5. Practice the rule in design notes now.",
+      "status": "research",
+      "statusNote": "Research until a machine exists.",
+      "summary": "Caps that software cannot raise, on unattended restoration-scale machines.",
+      "uncertainty": "",
+      "sources": [
+        {
+          "label": "Built Robotics Exosystem",
+          "url": "https://www.builtrobotics.com/solutions/trenching",
+          "claimLevel": "vendor-claim",
+          "note": "Aftermarket kit that turns mid-size excavators into autonomous trenchers, with geofencing and a wireless emergency stop. Accuracy figures are company specs. Trenching, not wetland restoration."
+        }
+      ],
+      "flags": [],
+      "dependsOn": [
+        "LR02.1.1",
+        "LR02.2.1",
+        "LR02.3.1",
+        "LR03.5.1",
+        "LR03.5.2"
+      ],
+      "unlocks": [
+        "LR02.1.1",
+        "LR02.2.1",
+        "LR02.3.1"
+      ]
+    },
+    {
+      "id": "LR03.5.1",
+      "name": "Mechanical power-loop kill",
+      "area": "LR03",
+      "subarea": "LR03.5",
+      "subareaName": "Mechanical fail-safes",
+      "stage": "early",
+      "stageNote": "Early as a mock-up, before any tool moves dirt. Late as a default on machines.",
+      "status": "buildable-now",
+      "statusNote": "Buildable now as a mock-up. A field-proven default on unattended land machines is still a design job.",
+      "summary": "A physical open of the power loop that a hacked computer cannot override. The point is a physical stop, not a software “stop.” This map does not describe how to wire one.",
+      "uncertainty": "",
+      "sources": [
+        {
+          "label": "Built Robotics Exosystem",
+          "url": "https://www.builtrobotics.com/solutions/trenching",
+          "claimLevel": "vendor-claim",
+          "note": "Aftermarket kit that turns mid-size excavators into autonomous trenchers, with geofencing and a wireless emergency stop. Accuracy figures are company specs. Trenching, not wetland restoration."
+        }
+      ],
+      "flags": [
+        "A general appeal to ordinary industrial emergency-stop standards was not tied to a named standard in the source files, so no specific standard is cited here."
+      ],
+      "dependsOn": [
+        "LR07.2.1"
+      ],
+      "unlocks": [
+        "LR02.1.1",
+        "LR02.2.1",
+        "LR02.3.1",
+        "LR03.4.1",
+        "LR03.5.2",
+        "LR07.2.1"
+      ]
+    },
+    {
+      "id": "LR03.5.2",
+      "name": "Dead-man’s link",
+      "area": "LR03",
+      "subarea": "LR03.5",
+      "subareaName": "Mechanical fail-safes",
+      "stage": "late",
+      "stageNote": "",
+      "status": "research",
+      "statusNote": "Research.",
+      "summary": "Power stays on only while a signed local heartbeat says OK. Lose it, and the loop drops. For large earthworks, a person who approved the job is part of that OK. A remote cloud cannot keep the machine alive. Jammed radio, a dead node, or a cut cable must drop the loop.",
+      "uncertainty": "",
+      "sources": [
+        {
+          "label": "Built Robotics Exosystem",
+          "url": "https://www.builtrobotics.com/solutions/trenching",
+          "claimLevel": "vendor-claim",
+          "note": "Aftermarket kit that turns mid-size excavators into autonomous trenchers, with geofencing and a wireless emergency stop. Accuracy figures are company specs. Trenching, not wetland restoration."
+        }
+      ],
+      "flags": [
+        "A general claim that robotic cells use enabling or hold-to-run switches was not tied to a primary source in the source files."
+      ],
+      "dependsOn": [
+        "LR03.1.1",
+        "LR03.5.1",
+        "LR05.3.1"
+      ],
+      "unlocks": [
+        "LR02.1.1",
+        "LR02.2.1",
+        "LR02.3.1",
+        "LR03.4.1",
+        "LR05.3.1",
+        "LR07.2.1"
+      ]
+    },
+    {
+      "id": "LR03.6.1",
+      "name": "Field data diode, scheduled send-only gateway",
+      "area": "LR03",
+      "subarea": "LR03.6",
+      "subareaName": "Send-only gateway",
+      "stage": "early",
+      "stageNote": "Early as a walk-out drive. A low-power, weatherproof, scheduled gateway for a solar node is later research.",
+      "status": "buildable-now",
+      "statusNote": "Buildable now as a walk-out drive. A do-it-yourself commodity-fiber diode has been demonstrated in research.",
+      "summary": "One outbound door per site. Work machines never touch the outside. The first version can be a walk-out drive. Industrial data diodes are established in plants, not in the woods. Do not start with a two-way modem.",
+      "uncertainty": "Current vendor list prices were not published on the pages fetched in the research pass, and are not published here.",
+      "sources": [
+        {
+          "label": "Owl Cyber Defense data diodes",
+          "url": "https://owlcyberdefense.com/products/commercial-data-diode-products/",
+          "claimLevel": "vendor-claim",
+          "note": "Industrial data diode product line. Use of data diodes in industrial plants is field-proven as a class of control, not as a solar plot-node product."
+        },
+        {
+          "label": "GZA on data diodes in water utilities",
+          "url": "https://www.gza.com/insights/cybersecurity-water-infrastructure-data-diodes",
+          "claimLevel": "field-proven",
+          "note": "Write-up on data diodes in water infrastructure, including Fend."
+        },
+        {
+          "label": "Waterfall Security",
+          "url": "https://waterfall-security.com/technology-and-products/",
+          "claimLevel": "vendor-claim",
+          "note": "Industrial data diode product line."
+        },
+        {
+          "label": "Peter Story, 2023 SOUPS paper",
+          "url": "https://peterstory.me/publications/story_pep_2023.pdf",
+          "claimLevel": "lab-demo",
+          "note": "Symposium on Usable Privacy and Security (SOUPS) paper describing a commodity-fiber diode built as a research demonstration. Cost figures in that paper are from 2023, are not a current quote, and are not published here."
+        },
+        {
+          "label": "Open Source Data Diode notes",
+          "url": "https://github.com/Vrolijk/OSDD",
+          "claimLevel": "lab-demo",
+          "note": "Open hardware notes for a data diode."
+        }
+      ],
+      "flags": [],
+      "dependsOn": [
+        "LR03.1.1",
+        "LR07.1.1"
+      ],
+      "unlocks": [
+        "LR02.2.1",
+        "LR02.3.1",
+        "LR04.3.1"
+      ]
+    },
+    {
+      "id": "LR04.1.1",
+      "name": "Local inference and machine command",
+      "area": "LR04",
+      "subarea": "LR04.1",
+      "subareaName": "Offline-first plot AI",
+      "stage": "late",
+      "stageNote": "Storage can start in the early game. A first node can store and summarize without claiming to own the plot.",
+      "status": "research",
+      "statusNote": "Research for plot ownership and machine command. On-device inference exists on systems such as SPARROW and Dryad.",
+      "summary": "The artificial intelligence (AI) owns the plot: stores the record, drafts design, commands machines, and keeps working with no cloud.",
+      "uncertainty": "Local model, power, and storage limits are unknown until the first box runs.",
+      "sources": [
+        {
+          "label": "Microsoft SPARROW",
+          "url": "https://microsoft.github.io/SPARROW/",
+          "claimLevel": "lab-demo",
+          "note": "Open-source solar edge-AI (artificial intelligence) research platform on an NVIDIA Jetson. Field-deployment descriptions are a vendor claim. Not a turnkey wetland product."
+        },
+        {
+          "label": "Dryad Silvanet",
+          "url": "https://www.dryad.net/wildfiresensor",
+          "claimLevel": "vendor-claim",
+          "note": "Commercial solar, supercapacitor wildfire and microclimate sensor. Long maintenance-free life is a company claim."
+        }
+      ],
+      "flags": [],
+      "dependsOn": [
+        "LR01.1.1",
+        "LR01.1.2",
+        "LR01.2.1",
+        "LR01.2.2",
+        "LR01.2.3",
+        "LR01.3.1",
+        "LR01.4.1",
+        "LR07.1.1",
+        "LR03.1.1"
+      ],
+      "unlocks": [
+        "LR01.1.2",
+        "LR02.1.1"
+      ]
+    },
+    {
+      "id": "LR04.2.1",
+      "name": "Reference-to-plot earthwork and planting plans",
+      "area": "LR04",
+      "subarea": "LR04.2",
+      "subareaName": "Nature-as-blueprint design engine",
+      "stage": "late",
+      "stageNote": "",
+      "status": "research",
+      "statusNote": "Research. Current tools mostly map, monitor, or place physical mimics. They do not close the design-to-build loop.",
+      "summary": "A design engine with three inputs — a healthy reference scan, a damaged-site scan, and hard constraints such as property lines, utilities, downstream effects, and what neighbors will allow — and one output: a plot-by-plot plan a machine and a person can follow. Explainable to a landowner. A human signs before dirt moves.",
+      "uncertainty": "",
+      "sources": [
+        {
+          "label": "SER International Standards, 2nd edition (2019)",
+          "url": "https://doi.org/10.1111/rec.13035",
+          "claimLevel": "field-proven",
+          "note": "Society for Ecological Restoration (SER) standards tell practitioners to build restoration targets from reference models based on real, less-damaged sites."
+        },
+        {
+          "label": "U.S. Department of the Interior Adaptive Management Technical Guide (2009)",
+          "url": "https://www.doi.gov/sites/default/files/migrated/ppa/upload/TechGuide.pdf",
+          "claimLevel": "field-proven",
+          "note": "Describes a cycle of objectives, action, monitoring, assessment, and adjustment."
+        },
+        {
+          "label": "Restor",
+          "url": "https://restor.eco/",
+          "claimLevel": "vendor-claim",
+          "note": "Maps and reports restoration sites. It does not output earthwork plans or drive machines. About-page site counts from the research pass are not repeated here."
+        },
+        {
+          "label": "NIOZ BIOPRIME",
+          "url": "https://www.nioz.nl/en/research/projects/bioprime",
+          "claimLevel": "lab-demo",
+          "note": "Research project, 1 August 2025–30 September 2031, on biodegradable structures that mimic habitat-forming traits. Structures, not algorithms running machines."
+        }
+      ],
+      "flags": [],
+      "dependsOn": [
+        "LR01.4.1",
+        "LR04.3.1",
+        "LR05.3.1"
+      ],
+      "unlocks": [
+        "LR01.4.1",
+        "LR02.1.1",
+        "LR02.2.1",
+        "LR05.3.1"
+      ]
+    },
+    {
+      "id": "LR04.3.1",
+      "name": "Plot-owned, decades-to-centuries record that drives next year’s work",
+      "area": "LR04",
+      "subarea": "LR04.3",
+      "subareaName": "Operational historic record",
+      "stage": "early",
+      "stageNote": "Early to start an honest local record. Late as a decades-scale operational brain.",
+      "status": "buildable-now",
+      "statusNote": "Buildable now to start the record. National research archives exist and remain the teachers.",
+      "summary": "Durable local storage, open formats, checksums, one-way copies off site, and physical samples when it matters. The record belongs to the people of that place, including people not born yet, and it actually retunes design and machine work. Start the record the day the first node is switched on. Do not invent how valuable an old node will be; the claim is directional, from long-running research records.",
+      "uncertainty": "Those archives are research infrastructures, not a private plot’s operational brain.",
+      "sources": [
+        {
+          "label": "Rothamsted Park Grass experiment",
+          "url": "https://www.era.rothamsted.ac.uk/experiment/rpg5",
+          "claimLevel": "field-proven",
+          "note": "Began in 1856 and is still running."
+        },
+        {
+          "label": "Rothamsted 170-year note",
+          "url": "https://www.rothamsted.ac.uk/news/worlds-longest-running-grassland-experiment-celebrates-170-years",
+          "claimLevel": "vendor-claim",
+          "note": "The research institute calls Park Grass the world’s longest-running grassland experiment. That wording is the institute’s own."
+        },
+        {
+          "label": "U.S. LTER Network about page",
+          "url": "https://lternet.edu/about/",
+          "claimLevel": "field-proven",
+          "note": "Long Term Ecological Research (LTER) Network, founded by the National Science Foundation (NSF) in 1980. The about page, updated 16 March 2026, reports 26 sites and more than 45 years of public observations."
+        },
+        {
+          "label": "National Ecological Observatory Network",
+          "url": "https://www.neonscience.org/",
+          "claimLevel": "field-proven",
+          "note": "81 field sites; construction finished May 2019; public data portal. Operated by Battelle, funded by NSF."
+        },
+        {
+          "label": "NEON FAQ",
+          "url": "https://www.neonscience.org/about/faq",
+          "claimLevel": "field-proven",
+          "note": "Official FAQ for the observatory network."
+        },
+        {
+          "label": "NOAA System-Wide Monitoring Program",
+          "url": "https://www.coast.noaa.gov/states/stories/swmp.html",
+          "claimLevel": "field-proven",
+          "note": "National Oceanic and Atmospheric Administration (NOAA) water-quality and weather measurements every 15 minutes across the 30 National Estuarine Research Reserves."
+        }
+      ],
+      "flags": [],
+      "dependsOn": [
+        "LR01.1.1",
+        "LR01.1.2",
+        "LR01.2.1",
+        "LR01.2.2",
+        "LR01.2.3",
+        "LR01.3.1",
+        "LR01.4.1",
+        "LR03.6.1"
+      ],
+      "unlocks": [
+        "LR01.2.1",
+        "LR01.3.1",
+        "LR04.2.1",
+        "LR04.4.1",
+        "LR05.1.1",
+        "LR06.1.1",
+        "LR08.3.1"
+      ]
+    },
+    {
+      "id": "LR04.4.1",
+      "name": "Auto-drafted monitoring reports a qualified person signs",
+      "area": "LR04",
+      "subarea": "LR04.4",
+      "subareaName": "Human-checked compliance drafts",
+      "stage": "mid",
+      "stageNote": "A first trial can sketch a human-checked draft now.",
+      "status": "research",
+      "statusNote": "Research as a noded-record product. Visit-based report tools exist.",
+      "summary": "Drafts from the year-round noded record. Software never auto-files and never pretends to be a legal delineation. It is meant to create more careful sign-off work, not less. Official delineation remains professional field work under the 1987 Corps manual.",
+      "uncertainty": "A draft that is wrong in a confident way is worse than a blank form.",
+      "sources": [
+        {
+          "label": "SiteMarker",
+          "url": "https://www.sitemarker.com/ecological-restoration-specialists",
+          "claimLevel": "vendor-claim",
+          "note": "Geo-referenced, permit-oriented reports from a site walk."
+        },
+        {
+          "label": "Ecobot monitoring",
+          "url": "https://ecobot.com/monitoring",
+          "claimLevel": "vendor-claim",
+          "note": "Used for wetland permitting. A monitoring product in private beta can pull logger hydrology and draft regulator-template reports, with a person still in the loop."
+        }
+      ],
+      "flags": [
+        "No U.S. agency acceptance of fully automated delineation was verified."
+      ],
+      "dependsOn": [
+        "LR01.2.1",
+        "LR01.2.2",
+        "LR01.2.3",
+        "LR04.3.1",
+        "LR06.2.1"
+      ],
+      "unlocks": [
+        "LR06.2.1"
+      ]
+    },
+    {
+      "id": "LR05.1.1",
+      "name": "Local custody of node, keys, and archive",
+      "area": "LR05",
+      "subarea": "LR05.1",
+      "subareaName": "Community ownership",
+      "stage": "late",
+      "stageNote": "A charter should be written before machines go past a test plot.",
+      "status": "research",
+      "statusNote": "Research for land, water, and machine-control records. Civic ownership exists for volunteer air and radiation networks.",
+      "summary": "The people who live there own the node, the keys, and the archive. Exports a community can take if a vendor disappears. A charter that outlives a company. Legal form, inheritance, and what is published versus kept local are unset. A commercial air-sensor platform is not this model.",
+      "uncertainty": "",
+      "sources": [
+        {
+          "label": "Safecast",
+          "url": "https://safecast.org/about/",
+          "claimLevel": "field-proven",
+          "note": "Volunteer radiation and later air-quality data published into the public domain under a Creative Commons Zero (CC0) dedication. Does not control machines."
+        },
+        {
+          "label": "Sensor.Community",
+          "url": "https://sensor.community/",
+          "claimLevel": "field-proven",
+          "note": "Civic-tech network with open hardware, software, and data. Does not control machines."
+        }
+      ],
+      "flags": [],
+      "dependsOn": [
+        "LR03.2.1",
+        "LR03.2.2",
+        "LR04.3.1"
+      ],
+      "unlocks": [
+        "LR05.2.1",
+        "LR05.3.1"
+      ]
+    },
+    {
+      "id": "LR05.2.1",
+      "name": "Nearest-resident weight, decaying with distance; downstream counted fairly",
+      "area": "LR05",
+      "subarea": "LR05.2",
+      "subareaName": "Decision weights",
+      "stage": "late",
+      "stageNote": "Needed before machines go past a test plot.",
+      "status": "research",
+      "statusNote": "Research. No close existing system for land-machine governance was found in the prior-art scan.",
+      "summary": "The charter itself is the invention. People decide. Closest residents weigh most, less with distance. Downstream people are counted fairly, because water carries every choice. How “closest” and “downstream” are defined in practice, and how disagreements are resolved, is unset. Do not invent a formula.",
+      "uncertainty": "",
+      "sources": [],
+      "flags": [],
+      "dependsOn": [
+        "LR05.1.1"
+      ],
+      "unlocks": [
+        "LR06.3.1"
+      ]
+    },
+    {
+      "id": "LR05.3.1",
+      "name": "Person-signed go-ahead before large dirt moves",
+      "area": "LR05",
+      "subarea": "LR05.3",
+      "subareaName": "Human approval for earthworks",
+      "stage": "early",
+      "stageNote": "Early as a rule. Late when wired into a dead-man’s link.",
+      "status": "buildable-now",
+      "statusNote": "Buildable now as a rule. Wiring it into a dead-man’s link waits on LR03.5.2.",
+      "summary": "Local human approval is part of the dead-man’s OK, not a dashboard in another state.",
+      "uncertainty": "Ordinary construction practice is a predecessor in spirit. Built Robotics remote monitoring is a vendor-claim predecessor, not this local-approval model.",
+      "sources": [
+        {
+          "label": "Built Robotics Exosystem",
+          "url": "https://www.builtrobotics.com/solutions/trenching",
+          "claimLevel": "vendor-claim",
+          "note": "Aftermarket kit that turns mid-size excavators into autonomous trenchers, with geofencing and a wireless emergency stop. Accuracy figures are company specs. Trenching, not wetland restoration."
+        }
+      ],
+      "flags": [],
+      "dependsOn": [
+        "LR05.1.1",
+        "LR03.5.2",
+        "LR04.2.1"
+      ],
+      "unlocks": [
+        "LR02.1.1",
+        "LR03.5.2",
+        "LR04.2.1"
+      ]
+    },
+    {
+      "id": "LR06.1.1",
+      "name": "Training track for open field tasks",
+      "area": "LR06",
+      "subarea": "LR06.1",
+      "subareaName": "Open trained tasks",
+      "stage": "mid",
+      "stageNote": "A first list can start in the early game.",
+      "status": "buildable-now",
+      "statusNote": "Buildable now as a simple task list. An app with in-app training is later.",
+      "summary": "Tasks generated by the node, tied to a real plot record: samples, photo checks, sensor swaps, invasive-plant removal, wildlife counts. Open after training. Volunteer platforms remain useful and do not have to be replaced.",
+      "uncertainty": "Quality control before payment still has to be designed.",
+      "sources": [
+        {
+          "label": "iNaturalist",
+          "url": "https://www.inaturalist.org/",
+          "claimLevel": "field-proven",
+          "note": "Mature unpaid nature-observation platform."
+        },
+        {
+          "label": "eBird",
+          "url": "https://ebird.org/",
+          "claimLevel": "field-proven",
+          "note": "Mature unpaid bird-observation platform."
+        },
+        {
+          "label": "SciStarter",
+          "url": "https://scistarter.org/",
+          "claimLevel": "field-proven",
+          "note": "Mature unpaid community-science platform."
+        },
+        {
+          "label": "Adventure Scientists",
+          "url": "https://www.adventurescientists.org/citizen-science-projects.html",
+          "claimLevel": "field-proven",
+          "note": "Unpaid field-science projects."
+        },
+        {
+          "label": "Crowdsorsa",
+          "url": "https://www.crowdsorsa.com/",
+          "claimLevel": "vendor-claim",
+          "note": "Pays for environmental microtasks, including invasive-plant removal, with quality control before payment."
+        }
+      ],
+      "flags": [],
+      "dependsOn": [
+        "LR01.1.1",
+        "LR01.1.2",
+        "LR01.2.1",
+        "LR01.2.2",
+        "LR01.2.3",
+        "LR01.3.1",
+        "LR01.4.1",
+        "LR04.3.1"
+      ],
+      "unlocks": [
+        "LR06.2.1",
+        "LR06.3.1"
+      ]
+    },
+    {
+      "id": "LR06.2.1",
+      "name": "Qualified-only delineation, signed reports, and permits",
+      "area": "LR06",
+      "subarea": "LR06.2",
+      "subareaName": "Qualified professional track",
+      "stage": "mid",
+      "stageNote": "",
+      "status": "exists",
+      "statusNote": "Exists as professional wetland practice. An app that shows a path to those qualifications beside open tasks on the same job list was not found, and is research.",
+      "summary": "A qualified-only gate. Sensors complement, never replace, delineators. Licensing rules vary by place. Do not blur open tasks with certified sign-off.",
+      "uncertainty": "",
+      "sources": [],
+      "flags": [],
+      "dependsOn": [
+        "LR06.1.1",
+        "LR04.4.1"
+      ],
+      "unlocks": [
+        "LR04.4.1"
+      ]
+    },
+    {
+      "id": "LR06.3.1",
+      "name": "Distance-ranked list; first offer to the closest person",
+      "area": "LR06",
+      "subarea": "LR06.3",
+      "subareaName": "Locals-first dispatch",
+      "stage": "mid",
+      "stageNote": "",
+      "status": "buildable-now",
+      "statusNote": "Buildable now as a manual list for a first trial. A marketplace app is research.",
+      "summary": "Each job is offered first to the closest person on a locals list, then down the list. Work stays near the land. Matches the governance rule that nearby residents weigh more. Pay rates are not set here and are not invented.",
+      "uncertainty": "No existing locals-first, distance-ranked system was found for this mix of trained and qualified wetland tasks.",
+      "sources": [
+        {
+          "label": "Crowdsorsa",
+          "url": "https://www.crowdsorsa.com/",
+          "claimLevel": "vendor-claim",
+          "note": "Pays for environmental microtasks, including invasive-plant removal, with quality control before payment."
+        },
+        {
+          "label": "EarthOptics FieldTech",
+          "url": "https://earthoptics.com/fieldtech",
+          "claimLevel": "vendor-claim",
+          "note": "On-demand agricultural soil sampling, not wetland naturalist work."
+        }
+      ],
+      "flags": [],
+      "dependsOn": [
+        "LR06.1.1",
+        "LR05.2.1"
+      ],
+      "unlocks": []
+    },
+    {
+      "id": "LR07.1.1",
+      "name": "Solar and storage sized for sensors, local compute, a modest radio, and years of record",
+      "area": "LR07",
+      "subarea": "LR07.1",
+      "subareaName": "Plot-node power",
+      "stage": "early",
+      "stageNote": "First-rung item. Build this with the first box.",
+      "status": "buildable-now",
+      "statusNote": "Buildable now.",
+      "summary": "A power budget for a plot brain with years of local storage and a scheduled send-only outbound path, not a data-center uplink and not only a fire sensor.",
+      "uncertainty": "Sizing must be measured on the actual box. Dryad’s supercapacitor design and SPARROW’s solar-plus-battery research platform are predecessors, not a plot-brain budget. TreeTalker is often battery; do not assume it is off-grid solar.",
+      "sources": [
+        {
+          "label": "Dryad Silvanet",
+          "url": "https://www.dryad.net/wildfiresensor",
+          "claimLevel": "vendor-claim",
+          "note": "Commercial solar, supercapacitor wildfire and microclimate sensor. Long maintenance-free life is a company claim."
+        },
+        {
+          "label": "Microsoft SPARROW",
+          "url": "https://microsoft.github.io/SPARROW/",
+          "claimLevel": "lab-demo",
+          "note": "Open-source solar edge-AI (artificial intelligence) research platform on an NVIDIA Jetson. Field-deployment descriptions are a vendor claim. Not a turnkey wetland product."
+        },
+        {
+          "label": "Nature 4.0 TreeTalker Cyber",
+          "url": "https://www.nature4.org/treetalkercyber",
+          "claimLevel": "vendor-claim",
+          "note": "Tree-physiology node. Often a battery device; do not assume it is off-grid solar."
+        }
+      ],
+      "flags": [],
+      "dependsOn": [],
+      "unlocks": [
+        "LR01.1.1",
+        "LR02.3.1",
+        "LR03.1.1",
+        "LR03.6.1",
+        "LR04.1.1",
+        "LR08.1.1"
+      ]
+    },
+    {
+      "id": "LR07.2.1",
+      "name": "Quiet electric drive, including a possible night shift",
+      "area": "LR07",
+      "subarea": "LR07.2",
+      "subareaName": "Machine power",
+      "stage": "late",
+      "stageNote": "",
+      "status": "research",
+      "statusNote": "Research. Electric construction equipment exists commercially. An unattended ecological night shift is open.",
+      "summary": "Plot-sized, quiet drive, compatible with the mechanical power-loop kill. Noise, light, wildlife disturbance, and neighbors all constrain a night shift. Do not assume it is welcome.",
+      "uncertainty": "",
+      "sources": [],
+      "flags": [
+        "No primary source for a specific electric construction machine was listed under this node in the source files, so none is named here."
+      ],
+      "dependsOn": [
+        "LR03.5.1",
+        "LR03.5.2",
+        "LR02.1.1",
+        "LR02.2.1",
+        "LR02.3.1"
+      ],
+      "unlocks": [
+        "LR02.1.1",
+        "LR02.2.1",
+        "LR02.3.1",
+        "LR03.5.1"
+      ]
+    },
+    {
+      "id": "LR08.1.1",
+      "name": "Field electrodes and chemistry sniffers on a micro-node grid",
+      "area": "LR08",
+      "subarea": "LR08.1",
+      "subareaName": "Fungal electrical and chemical sensing",
+      "stage": "research",
+      "stageNote": "Not part of the first node, and not part of the mid-game monitoring offer.",
+      "status": "research",
+      "statusNote": "Research.",
+      "summary": "A scientifically conservative multi-year field grid that maps connections and stress without overclaiming a tree internet. Electrical spike patterns in mycelium have been recorded in laboratory work. Methods are hard to read cleanly in the field.",
+      "uncertainty": "",
+      "sources": [
+        {
+          "label": "Adamatzky, 2022, Royal Society Open Science",
+          "url": "https://royalsocietypublishing.org/rsos/article/9/4/211926/96736",
+          "claimLevel": "lab-demo",
+          "note": "Laboratory recordings of electrical spike patterns in mycelium. A page fetch timed out on one research pass; the 2022 Royal Society record is the citation used here."
+        },
+        {
+          "label": "Adamatzky 2022 (PMC8984380)",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8984380/",
+          "claimLevel": "lab-demo",
+          "note": "PubMed Central copy of the 2022 laboratory study."
+        },
+        {
+          "label": "Buffi, Junier et al., 2025, FEMS Microbiology Reviews",
+          "url": "https://doi.org/10.1093/femsre/fuaf009",
+          "claimLevel": "lab-demo",
+          "note": "Review: the field is still underexplored and methods are difficult."
+        },
+        {
+          "label": "Buffi et al. 2025 (PMC11995700)",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11995700/",
+          "claimLevel": "lab-demo",
+          "note": "PubMed Central copy of the 2025 review."
+        },
+        {
+          "label": "Mycosoft",
+          "url": "https://www.mycosoft.com/about",
+          "claimLevel": "vendor-claim",
+          "note": "Markets fungal-interface probes. Field performance was not independently verified on the research pass."
+        }
+      ],
+      "flags": [],
+      "dependsOn": [
+        "LR01.1.1",
+        "LR01.1.2",
+        "LR07.1.1"
+      ],
+      "unlocks": [
+        "LR08.2.1",
+        "LR08.4.1"
+      ]
+    },
+    {
+      "id": "LR08.2.1",
+      "name": "Cheap field soil probes for carbon-13, biodegradable dye, or a DNA barcode",
+      "area": "LR08",
+      "subarea": "LR08.2",
+      "subareaName": "Tracer detection in place",
+      "stage": "research",
+      "stageNote": "A safety review is required.",
+      "status": "research",
+      "statusNote": "Research. Lab and hydrology tracer methods exist. A cheap in-place soil probe for this job does not.",
+      "summary": "The missing hardware: a cheap probe that detects the chosen tracer in soil, in place, without hauling a core to a lab every time. Ecological caution on what is injected. Carbon can move between trees linked by ectomycorrhizal fungi in the field; those measurements use laboratory isotope-ratio mass spectrometry, not a cheap in-soil probe. Do not invent a detection limit.",
+      "uncertainty": "Tracer choice, permits, and ecological risk are open.",
+      "sources": [
+        {
+          "label": "Simard et al., 1997, Nature",
+          "url": "https://www.nature.com/articles/41557",
+          "claimLevel": "field-proven",
+          "note": "“Net transfer of carbon between ectomycorrhizal tree species in the field.” Measurements use laboratory isotope-ratio mass spectrometry, not a cheap in-soil probe. Flagged: this URL is cited exactly as it appears in the source files and was not re-fetched for this draft; the identifier is unusually short for a modern Nature article URL."
+        }
+      ],
+      "flags": [
+        "The source notes say hydrologists already inject dyes and deoxyribonucleic acid (DNA) barcodes and detect them with field fluorometers or laboratory quantitative polymerase chain reaction (qPCR). No single primary methods paper was listed beside that sentence, so no specific hydrology-tracer paper is named here."
+      ],
+      "dependsOn": [
+        "LR08.1.1"
+      ],
+      "unlocks": [
+        "LR08.3.1"
+      ]
+    },
+    {
+      "id": "LR08.3.1",
+      "name": "Arrival-time visualization (hours to days, as a time-lapse)",
+      "area": "LR08",
+      "subarea": "LR08.3",
+      "subareaName": "Inject-and-illuminate map",
+      "stage": "research",
+      "stageNote": "",
+      "status": "research",
+      "statusNote": "Research. No field-ready product was found.",
+      "summary": "Software that turns probe arrivals, and later electrical or chemical changes if the methods hold up, into a glowing map. Spread will take hours to days, not milliseconds. The map can only show what the probes actually detect. It must not be presented as proof of a tree internet.",
+      "uncertainty": "",
+      "sources": [
+        {
+          "label": "Karst, Jones, and Hoeksema, 2023, Nature Ecology & Evolution",
+          "url": "https://doi.org/10.1038/s41559-023-01986-1",
+          "claimLevel": "field-proven",
+          "note": "Published critique: several popular “wood-wide-web” claims are overstated or unsupported, and knowledge is too unsettled to inform forest management."
+        },
+        {
+          "label": "Nature news feature, 2024",
+          "url": "https://www.nature.com/articles/d41586-024-00893-0",
+          "claimLevel": "field-proven",
+          "note": "News feature on the scientific debate around common mycorrhizal networks."
+        },
+        {
+          "label": "Henriksson et al., 2023, New Phytologist",
+          "url": "https://nph.onlinelibrary.wiley.com/doi/full/10.1111/nph.18935",
+          "claimLevel": "field-proven",
+          "note": "Related paper in the mycorrhizal-network debate."
+        }
+      ],
+      "flags": [],
+      "dependsOn": [
+        "LR08.2.1",
+        "LR04.3.1"
+      ],
+      "unlocks": [
+        "LR08.5.1"
+      ]
+    },
+    {
+      "id": "LR08.4.1",
+      "name": "Biocompatible, nutrient-rich sensors that mycelium is invited to colonize",
+      "area": "LR08",
+      "subarea": "LR08.4",
+      "subareaName": "Grown-in micro nodes",
+      "stage": "research",
+      "stageNote": "After honest lab and field tests.",
+      "status": "research",
+      "statusNote": "Research. None established.",
+      "summary": "Sibling invention to the probe grid: the fungus helps make the contact.",
+      "uncertainty": "Biocompatibility and long-term field survival are unknown.",
+      "sources": [
+        {
+          "label": "Mycosoft",
+          "url": "https://www.mycosoft.com/about",
+          "claimLevel": "vendor-claim",
+          "note": "Markets fungal-interface probes. Field performance was not independently verified on the research pass."
+        }
+      ],
+      "flags": [
+        "Mycosoft claims were not independently verified on the research pass."
+      ],
+      "dependsOn": [
+        "LR08.1.1"
+      ],
+      "unlocks": []
+    },
+    {
+      "id": "LR08.5.1",
+      "name": "Signaling intended to heal a patch",
+      "area": "LR08",
+      "subarea": "LR08.5",
+      "subareaName": "Two-way healing nudges",
+      "stage": "research",
+      "stageNote": "A later layer only. Do not sell it as fact.",
+      "status": "speculative",
+      "statusNote": "Speculative.",
+      "summary": "Two-way healing nudges are not established. The 2023 critique holds that knowledge is too unsettled to inform forest management. This node stays on the tree so it is not quietly treated as a plan.",
+      "uncertainty": "",
+      "sources": [
+        {
+          "label": "Karst, Jones, and Hoeksema, 2023, Nature Ecology & Evolution",
+          "url": "https://doi.org/10.1038/s41559-023-01986-1",
+          "claimLevel": "field-proven",
+          "note": "Published critique: several popular “wood-wide-web” claims are overstated or unsupported, and knowledge is too unsettled to inform forest management."
+        }
+      ],
+      "flags": [],
+      "dependsOn": [
+        "LR08.3.1"
+      ],
+      "unlocks": []
+    }
+  ],
+  "sourcesIndex": {
+    "dryad": {
+      "label": "Dryad Silvanet",
+      "url": "https://www.dryad.net/wildfiresensor",
+      "claimLevel": "vendor-claim",
+      "note": "Commercial solar, supercapacitor wildfire and microclimate sensor. Long maintenance-free life is a company claim."
+    },
+    "sparrow": {
+      "label": "Microsoft SPARROW",
+      "url": "https://microsoft.github.io/SPARROW/",
+      "claimLevel": "lab-demo",
+      "note": "Open-source solar edge-AI (artificial intelligence) research platform on an NVIDIA Jetson. Field-deployment descriptions are a vendor claim. Not a turnkey wetland product."
+    },
+    "rfcx": {
+      "label": "Rainforest Connection Guardian 3",
+      "url": "https://rfcx.org/",
+      "claimLevel": "vendor-claim",
+      "note": "Solar acoustic conservation node."
+    },
+    "treetalker": {
+      "label": "Nature 4.0 TreeTalker Cyber",
+      "url": "https://www.nature4.org/treetalkercyber",
+      "claimLevel": "vendor-claim",
+      "note": "Tree-physiology node. Often a battery device; do not assume it is off-grid solar."
+    },
+    "kerala": {
+      "label": "Kerala Ramsar edge-AI preprint (2025–2026)",
+      "url": "https://doi.org/10.21203/rs.3.rs-8553049/v1",
+      "claimLevel": "lab-demo",
+      "note": "Preprint describing solar single-board computers at a Ramsar site. Not a peer-reviewed product."
+    },
+    "solinst": {
+      "label": "Solinst Levelogger ecohydrology note",
+      "url": "https://www.solinst.com/onthelevel-news/water-level-monitoring/water-level-datalogging/levelogger-proves-ecohydrological-research/",
+      "claimLevel": "field-proven",
+      "note": "Water-level loggers documented in ecohydrological research."
+    },
+    "aquatroll": {
+      "label": "In-Situ Aqua TROLL 700",
+      "url": "https://in-situ.com/us/aqua-troll-700-multiparameter-sonde",
+      "claimLevel": "field-proven",
+      "note": "Commercial multiparameter sonde. Product details on the maker’s page are a vendor claim. Optional telemetry should not be the default for an offline-first node."
+    },
+    "swmp": {
+      "label": "NOAA System-Wide Monitoring Program",
+      "url": "https://www.coast.noaa.gov/states/stories/swmp.html",
+      "claimLevel": "field-proven",
+      "note": "National Oceanic and Atmospheric Administration (NOAA) water-quality and weather measurements every 15 minutes across the 30 National Estuarine Research Reserves."
+    },
+    "nerrsdata": {
+      "label": "NOAA NERRS SWMP data portal",
+      "url": "https://www.nerrsdata.org/get/landing.cfm",
+      "claimLevel": "field-proven",
+      "note": "Data portal for the reserve monitoring program."
+    },
+    "cfr122": {
+      "label": "40 CFR 122.48",
+      "url": "https://www.ecfr.gov/current/title-40/chapter-I/subchapter-D/part-122/subpart-C/section-122.48",
+      "claimLevel": "field-proven",
+      "note": "National Pollutant Discharge Elimination System (NPDES) rules can require continuous monitoring."
+    },
+    "maine": {
+      "label": "Maine DEP continuous monitoring SOP (2023)",
+      "url": "https://www.maine.gov/dep/water/monitoring/Continuous%20Monitoring%20SOP%202023.pdf",
+      "claimLevel": "field-proven",
+      "note": "State standard operating procedure treating unattended sonde data as usable when calibration procedures are followed."
+    },
+    "wrap": {
+      "label": "U.S. Army Corps ERDC TN-WRAP-05-2",
+      "url": "https://erdc-library.erdc.dren.mil/server/api/core/bitstreams/81b728f8-751d-4ef8-e053-411ac80adeb3/content",
+      "claimLevel": "field-proven",
+      "note": "Technical standard recommending automated water-table recorders as hydrology evidence, with verification against manual readings."
+    },
+    "cfr3326": {
+      "label": "33 CFR 332.6",
+      "url": "https://www.ecfr.gov/current/title-33/chapter-II/part-332/section-332.6",
+      "claimLevel": "field-proven",
+      "note": "Federal wetland mitigation rule: a monitoring period of not less than five years."
+    },
+    "cfr3327": {
+      "label": "33 CFR 332.7",
+      "url": "https://www.ecfr.gov/current/title-33/chapter-II/part-332/section-332.7",
+      "claimLevel": "field-proven",
+      "note": "Federal wetland mitigation rule: adaptive management when monitoring shows a project is not meeting its targets."
+    },
+    "ser": {
+      "label": "SER International Standards, 2nd edition (2019)",
+      "url": "https://doi.org/10.1111/rec.13035",
+      "claimLevel": "field-proven",
+      "note": "Society for Ecological Restoration (SER) standards tell practitioners to build restoration targets from reference models based on real, less-damaged sites."
+    },
+    "swamp": {
+      "label": "CNR–INM SWAMP vessel review",
+      "url": "https://www.bairdmaritime.com/work-boat-world/research-environment-training/vessel-review-swamp-lightweight-usv-for-ultra-shallow-water-applications",
+      "claimLevel": "lab-demo",
+      "note": "Consiglio Nazionale delle Ricerche – Institute of Marine Engineering (CNR–INM) research uncrewed surface vehicle for ultra-shallow wetlands."
+    },
+    "medusa": {
+      "label": "MEDUSA (Frontiers in Environmental Science, 2022)",
+      "url": "https://www.frontiersin.org/journals/environmental-science/articles/10.3389/fenvs.2022.1023269/full",
+      "claimLevel": "lab-demo",
+      "note": "Aerial-aquatic research prototype with a tethered micro-uncrewed underwater vehicle, validated for chlorophyll-a profiling."
+    },
+    "bluerov": {
+      "label": "Blue Robotics BlueROV2",
+      "url": "https://bluerobotics.com/learn/bluerov2-buyers-guide/",
+      "claimLevel": "field-proven",
+      "note": "Established general inspection remotely operated vehicle, not a wetland-specific explorer."
+    },
+    "restor": {
+      "label": "Restor",
+      "url": "https://restor.eco/",
+      "claimLevel": "vendor-claim",
+      "note": "Maps and reports restoration sites. It does not output earthwork plans or drive machines. About-page site counts from the research pass are not repeated here."
+    },
+    "restor_about": {
+      "label": "Restor about page",
+      "url": "https://about.restor.eco/about-us",
+      "claimLevel": "vendor-claim",
+      "note": "Project about page for Restor (Crowther Lab spin-off)."
+    },
+    "bioprime": {
+      "label": "NIOZ BIOPRIME",
+      "url": "https://www.nioz.nl/en/research/projects/bioprime",
+      "claimLevel": "lab-demo",
+      "note": "Research project, 1 August 2025–30 September 2031, on biodegradable structures that mimic habitat-forming traits. Structures, not algorithms running machines."
+    },
+    "flash": {
+      "label": "Flash Forest",
+      "url": "https://www.flashforest.com/",
+      "claimLevel": "vendor-claim",
+      "note": "Commercial reforestation company. Descriptions of light detection and ranging (LiDAR) and machine-learning forest intelligence are company claims."
+    },
+    "mast": {
+      "label": "Mast Reforestation",
+      "url": "https://www.mastreforest.com/",
+      "claimLevel": "vendor-claim",
+      "note": "Commercial reforestation company (aerial work, nurseries, site work)."
+    },
+    "built": {
+      "label": "Built Robotics Exosystem",
+      "url": "https://www.builtrobotics.com/solutions/trenching",
+      "claimLevel": "vendor-claim",
+      "note": "Aftermarket kit that turns mid-size excavators into autonomous trenchers, with geofencing and a wireless emergency stop. Accuracy figures are company specs. Trenching, not wetland restoration."
+    },
+    "komatsu": {
+      "label": "Komatsu / EARTHBRAIN / AIM release (31 July 2026)",
+      "url": "https://www.komatsu.com/en-us/newsroom/2026/komatsu-aim-enter-strategic-partnership",
+      "claimLevel": "vendor-claim",
+      "note": "Company release saying autonomous dozers and excavators are in commercial U.S. deployment and can be retrofitted."
+    },
+    "cat": {
+      "label": "Caterpillar autonomy release (7 January 2026)",
+      "url": "https://www.caterpillar.com/en/news/corporate-press-releases/h/next-era-autonomy.html",
+      "claimLevel": "vendor-claim",
+      "note": "Company release describing mature mining autonomy and an announced “next era” of construction autonomy. That is not a claim that crewless excavators are already standard on ordinary jobsites. Company fleet figures are not repeated here."
+    },
+    "autoplant": {
+      "label": "SCA Autoplant",
+      "url": "https://www.sca.com/en/about-sca/innovation-and-research/forest/autoplant/",
+      "claimLevel": "lab-demo",
+      "note": "Sweden’s Autoplant project ended 11 September 2026 with a working scarify-and-plant head, still pulled by a conventional forwarder."
+    },
+    "doi_am": {
+      "label": "U.S. Department of the Interior Adaptive Management Technical Guide (2009)",
+      "url": "https://www.doi.gov/sites/default/files/migrated/ppa/upload/TechGuide.pdf",
+      "claimLevel": "field-proven",
+      "note": "Describes a cycle of objectives, action, monitoring, assessment, and adjustment."
+    },
+    "parkgrass": {
+      "label": "Rothamsted Park Grass experiment",
+      "url": "https://www.era.rothamsted.ac.uk/experiment/rpg5",
+      "claimLevel": "field-proven",
+      "note": "Began in 1856 and is still running."
+    },
+    "parkgrass_news": {
+      "label": "Rothamsted 170-year note",
+      "url": "https://www.rothamsted.ac.uk/news/worlds-longest-running-grassland-experiment-celebrates-170-years",
+      "claimLevel": "vendor-claim",
+      "note": "The research institute calls Park Grass the world’s longest-running grassland experiment. That wording is the institute’s own."
+    },
+    "lter": {
+      "label": "U.S. LTER Network about page",
+      "url": "https://lternet.edu/about/",
+      "claimLevel": "field-proven",
+      "note": "Long Term Ecological Research (LTER) Network, founded by the National Science Foundation (NSF) in 1980. The about page, updated 16 March 2026, reports 26 sites and more than 45 years of public observations."
+    },
+    "neon": {
+      "label": "National Ecological Observatory Network",
+      "url": "https://www.neonscience.org/",
+      "claimLevel": "field-proven",
+      "note": "81 field sites; construction finished May 2019; public data portal. Operated by Battelle, funded by NSF."
+    },
+    "neon_faq": {
+      "label": "NEON FAQ",
+      "url": "https://www.neonscience.org/about/faq",
+      "claimLevel": "field-proven",
+      "note": "Official FAQ for the observatory network."
+    },
+    "sitemarker": {
+      "label": "SiteMarker",
+      "url": "https://www.sitemarker.com/ecological-restoration-specialists",
+      "claimLevel": "vendor-claim",
+      "note": "Geo-referenced, permit-oriented reports from a site walk."
+    },
+    "ecobot": {
+      "label": "Ecobot monitoring",
+      "url": "https://ecobot.com/monitoring",
+      "claimLevel": "vendor-claim",
+      "note": "Used for wetland permitting. A monitoring product in private beta can pull logger hydrology and draft regulator-template reports, with a person still in the loop."
+    },
+    "safecast": {
+      "label": "Safecast",
+      "url": "https://safecast.org/about/",
+      "claimLevel": "field-proven",
+      "note": "Volunteer radiation and later air-quality data published into the public domain under a Creative Commons Zero (CC0) dedication. Does not control machines."
+    },
+    "sensorcom": {
+      "label": "Sensor.Community",
+      "url": "https://sensor.community/",
+      "claimLevel": "field-proven",
+      "note": "Civic-tech network with open hardware, software, and data. Does not control machines."
+    },
+    "inat": {
+      "label": "iNaturalist",
+      "url": "https://www.inaturalist.org/",
+      "claimLevel": "field-proven",
+      "note": "Mature unpaid nature-observation platform."
+    },
+    "ebird": {
+      "label": "eBird",
+      "url": "https://ebird.org/",
+      "claimLevel": "field-proven",
+      "note": "Mature unpaid bird-observation platform."
+    },
+    "scistarter": {
+      "label": "SciStarter",
+      "url": "https://scistarter.org/",
+      "claimLevel": "field-proven",
+      "note": "Mature unpaid community-science platform."
+    },
+    "advsci": {
+      "label": "Adventure Scientists",
+      "url": "https://www.adventurescientists.org/citizen-science-projects.html",
+      "claimLevel": "field-proven",
+      "note": "Unpaid field-science projects."
+    },
+    "crowdsorsa": {
+      "label": "Crowdsorsa",
+      "url": "https://www.crowdsorsa.com/",
+      "claimLevel": "vendor-claim",
+      "note": "Pays for environmental microtasks, including invasive-plant removal, with quality control before payment."
+    },
+    "earthoptics": {
+      "label": "EarthOptics FieldTech",
+      "url": "https://earthoptics.com/fieldtech",
+      "claimLevel": "vendor-claim",
+      "note": "On-demand agricultural soil sampling, not wetland naturalist work."
+    },
+    "owl": {
+      "label": "Owl Cyber Defense data diodes",
+      "url": "https://owlcyberdefense.com/products/commercial-data-diode-products/",
+      "claimLevel": "vendor-claim",
+      "note": "Industrial data diode product line. Use of data diodes in industrial plants is field-proven as a class of control, not as a solar plot-node product."
+    },
+    "gza": {
+      "label": "GZA on data diodes in water utilities",
+      "url": "https://www.gza.com/insights/cybersecurity-water-infrastructure-data-diodes",
+      "claimLevel": "field-proven",
+      "note": "Write-up on data diodes in water infrastructure, including Fend."
+    },
+    "waterfall": {
+      "label": "Waterfall Security",
+      "url": "https://waterfall-security.com/technology-and-products/",
+      "claimLevel": "vendor-claim",
+      "note": "Industrial data diode product line."
+    },
+    "story": {
+      "label": "Peter Story, 2023 SOUPS paper",
+      "url": "https://peterstory.me/publications/story_pep_2023.pdf",
+      "claimLevel": "lab-demo",
+      "note": "Symposium on Usable Privacy and Security (SOUPS) paper describing a commodity-fiber diode built as a research demonstration. Cost figures in that paper are from 2023, are not a current quote, and are not published here."
+    },
+    "osdd": {
+      "label": "Open Source Data Diode notes",
+      "url": "https://github.com/Vrolijk/OSDD",
+      "claimLevel": "lab-demo",
+      "note": "Open hardware notes for a data diode."
+    },
+    "adamatzky": {
+      "label": "Adamatzky, 2022, Royal Society Open Science",
+      "url": "https://royalsocietypublishing.org/rsos/article/9/4/211926/96736",
+      "claimLevel": "lab-demo",
+      "note": "Laboratory recordings of electrical spike patterns in mycelium. A page fetch timed out on one research pass; the 2022 Royal Society record is the citation used here."
+    },
+    "adamatzky_pmc": {
+      "label": "Adamatzky 2022 (PMC8984380)",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8984380/",
+      "claimLevel": "lab-demo",
+      "note": "PubMed Central copy of the 2022 laboratory study."
+    },
+    "buffi": {
+      "label": "Buffi, Junier et al., 2025, FEMS Microbiology Reviews",
+      "url": "https://doi.org/10.1093/femsre/fuaf009",
+      "claimLevel": "lab-demo",
+      "note": "Review: the field is still underexplored and methods are difficult."
+    },
+    "buffi_pmc": {
+      "label": "Buffi et al. 2025 (PMC11995700)",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11995700/",
+      "claimLevel": "lab-demo",
+      "note": "PubMed Central copy of the 2025 review."
+    },
+    "simard": {
+      "label": "Simard et al., 1997, Nature",
+      "url": "https://www.nature.com/articles/41557",
+      "claimLevel": "field-proven",
+      "note": "“Net transfer of carbon between ectomycorrhizal tree species in the field.” Measurements use laboratory isotope-ratio mass spectrometry, not a cheap in-soil probe. Flagged: this URL is cited exactly as it appears in the source files and was not re-fetched for this draft; the identifier is unusually short for a modern Nature article URL."
+    },
+    "karst": {
+      "label": "Karst, Jones, and Hoeksema, 2023, Nature Ecology & Evolution",
+      "url": "https://doi.org/10.1038/s41559-023-01986-1",
+      "claimLevel": "field-proven",
+      "note": "Published critique: several popular “wood-wide-web” claims are overstated or unsupported, and knowledge is too unsettled to inform forest management."
+    },
+    "nature_news": {
+      "label": "Nature news feature, 2024",
+      "url": "https://www.nature.com/articles/d41586-024-00893-0",
+      "claimLevel": "field-proven",
+      "note": "News feature on the scientific debate around common mycorrhizal networks."
+    },
+    "henriksson": {
+      "label": "Henriksson et al., 2023, New Phytologist",
+      "url": "https://nph.onlinelibrary.wiley.com/doi/full/10.1111/nph.18935",
+      "claimLevel": "field-proven",
+      "note": "Related paper in the mycorrhizal-network debate."
+    },
+    "mycosoft": {
+      "label": "Mycosoft",
+      "url": "https://www.mycosoft.com/about",
+      "claimLevel": "vendor-claim",
+      "note": "Markets fungal-interface probes. Field performance was not independently verified on the research pass."
+    },
+    "nasa": {
+      "label": "2024 NASA Technology Taxonomy",
+      "url": "https://www.nasa.gov/otps/2024-nasa-technology-taxonomy/",
+      "claimLevel": "field-proven",
+      "note": "National Aeronautics and Space Administration (NASA) three-level taxonomy this map is modeled on."
+    }
+  }
+}
