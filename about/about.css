@@ -113,3 +113,39 @@ body.about .footer [aria-current="page"] {
 .art-band{margin:0 auto;max-width:72rem;padding:1rem 1rem 0}
 .art-band img{display:block;width:100%;height:auto;border-radius:12px}
 .art-band figcaption{font-size:.95rem;margin-top:.4rem;opacity:.85}
+
+body.about .aim-kicker {
+  margin: 0 0 0.45rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--bronze-deep);
+}
+
+body.about .mission {
+  margin: 0 0 1.35rem;
+  padding: 0.1rem 0 0.15rem 1rem;
+  border-left: 3px solid var(--bronze);
+  font-family: "Fraunces", Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-weight: 450;
+  font-size: clamp(1.12rem, 2.8vw, 1.38rem);
+  line-height: 1.45;
+  color: var(--moss-deep);
+}
+
+body.about .prose h2 {
+  margin: 1.85rem 0 0.7rem;
+  font-family: "Fraunces", Georgia, "Times New Roman", serif;
+  font-weight: 560;
+  font-size: clamp(1.25rem, 2.8vw, 1.5rem);
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+  color: var(--ink);
+}
+
+body.about .coming {
+  font-weight: 600;
+  color: var(--ink-soft);
+}
